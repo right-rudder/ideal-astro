@@ -1,1 +1,1 @@
-# ideal-astro
+# Ideal

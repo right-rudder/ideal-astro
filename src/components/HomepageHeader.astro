@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
+---
+
+<header
+  class="relative isolate overflow-hidden h-[98vh] sm:h-[70vh] lg:h-[80vh] flex text-main-black
+    items-center m-2 rounded-3xl"
+>
+  <Image
+    src={HeroImage}
+    alt="Ideal Airplane in Hangar"
+    class="absolute top-0 w-full h-full object-cover object-bottom -z-50"
+    quality={100}
+    loading="eager"
+  />
+
+  <div
+    class="absolute inset-0 bg-gradient-to-tl from-main-gray to-main-blue via-white/90 -z-40"
+  >
+  </div>
+
+  <div class="flex w-full max-w-7xl mx-auto px-5">
+    <div class="flex flex-col gap-8 sm:translate-y-20">
+      <h1
+        class="text-6xl max-w-2xl lg:text-8xl font-bold lg:max-w-6xl"
+      >Pilot Training In St. Louis</h1>
+      <h2 class="text-xl max-w-xl lg:text-3xl lg:max-w-2xl font-medium">
+        Get your pilot's license with our experienced instructors
+      </h2>
+      <div class="flex gap-5 flex-col sm:flex-row">
+        <a href="/contacto" class="btn-secondary w-full sm:w-fit"
+          >Start Flying</a
+        >
+        <a href="#bienvenido" class="btn-tertiary w-full sm:w-fit"
+          >More Information</a
+        >
+      </div>
+    </div>
+  </div>
+</header>

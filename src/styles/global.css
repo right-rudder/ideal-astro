@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply flex items-center justify-center font-bold py-2 px-6 tracking-wide shadow-md w-fit rounded-full duration-300 bg-main-blue text-white hover:bg-main-blue/80;
+  }
+  .btn-secondary {
+    @apply flex items-center justify-center font-bold py-2 px-6 tracking-wide shadow-md w-fit rounded-full duration-300 bg-main-black text-white hover:bg-main-black/80;
+  }
+  .btn-tertiary {
+    @apply flex items-center justify-center font-bold py-2 px-6 tracking-wide shadow-md w-fit rounded-full duration-300 bg-white/70 text-main-black hover:bg-white/90;
+  }
+}
+
+body {
+  font-family: "IBM Plex Sans", sans-serif;
+}
