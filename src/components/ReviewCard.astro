@@ -1,0 +1,38 @@
+---
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { imagePath, imageAlt, review, name, title } = Astro.props;
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+);
+if (!images[imagePath]) {
+  throw new Error(
+    `"${imagePath}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif,webp}"`,
+  );
+}
+---
+
+<div class="max-w-sm flex h-[30rem] flex-col group overflow-hidden rounded-3xl text-white relative">
+
+  <Image
+    src={images[imagePath]()}
+    alt={imageAlt}
+    class="w-full h-full object-cover absolute -z-20"
+  />
+
+  <div class="absolute inset-0 bg-gradient-to-t from-main-black -z-10"></div>
+
+  <div
+    class="flex flex-col py-8 gap-3 h-full px-8 justify-end"
+  >
+    <quote class="text-lg font-medium">"{review}"</quote>
+    <hr class="border-white/20">
+    <div class="flex flex-col gap-2">
+      <p class="text-sm">{name}</p>
+      <p class="text-sm font-bold bg-gradient-to-br from-main-gray to-main-blue bg-clip-text text-transparent w-fit">
+        {title}
+      </p>
+    </div>
+  </div>
+</div>
