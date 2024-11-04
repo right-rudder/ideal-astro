@@ -1,4 +1,4 @@
-export const SITE_TITLE = "iFly Universidad Aeronáutica";
+export const SITE_TITLE = "Ideal Aviation";
 export const SITE_DESCRIPTION =
   "Universidad aeoronáutica para pilotos aviadores en México";
 export const KEYWORDS = "flight school";

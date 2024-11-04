@@ -93,11 +93,18 @@ const Navbar = ({ pathname, lang }) => {
             id="navbar"
           >
             <div className="flex w-full items-center justify-between">
-              <a href={`${lang === "es" ? "/es" : "/"}`}>
-                <img src={idealLogo.src} alt="iFly logo" className="w-28" />
+              <a href="/" className="flex items-center gap-2">
+                <img
+                  src={idealLogo.src}
+                  alt="Ideal Aviation Logo"
+                  className="w-24"
+                />
+                <p className="font-bold text-xl text-main-blue">
+                  Ideal Aviation
+                </p>
               </a>
               <div className="hidden lg:flex gap-8 items-center">
-                <ul className="flex gap-5 xl:gap-10 items-center">
+                <ul className="flex gap-3 xl:gap-5 items-center">
                   {navbarLinks.map((item, index) => (
                     <li
                       key={index}
