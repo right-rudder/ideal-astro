@@ -9,15 +9,16 @@ import {
   ADDRESS_LINE_2,
   FACEBOOK_URL,
   INSTAGRAM_URL,
-  WHATSAPP_URL,
+  TIKTOK_URL,
+  YOUTUBE_URL,
   SITE_TITLE,
 } from "../consts";
 import { Image } from "astro:assets";
 import whiteLogo from "../assets/ifly-logo-blanco.png";
-import idealLogo from "../assets/images/ideal_logo.webp";
+import idealLogo from "../assets/images/ideal-aviation-image-logo.webp";
+import textLogo from "../assets/images/ideal-aviation-text-logo.webp";
 
-import { navbarLinks as esNavbarLinks } from "../data/navbarLinks";
-import { navbarLinks as enNavbarLinks } from "../data/en/navbarLinks";
+import { navbarLinks } from "../data/navbarLinks";
 
 import esPrograms from "../data/programs";
 import enPrograms from "../data/en/programs";
@@ -44,26 +45,29 @@ const enData = {
   rights: "All rights reserved.",
   policy: "Privacy Policy",
 };
-
-const lang = Astro.currentLocale === "en" ? "en" : "es";
 const programs = Astro.currentLocale === "en" ? enPrograms : esPrograms;
 const data = Astro.currentLocale === "en" ? enData : esData;
-const navbarLinks =
-  Astro.currentLocale === "en" ? enNavbarLinks : esNavbarLinks;
 ---
 
 <footer class="bg-gradient-to-br from-main-gray to-main-blue p-2">
   <div class="bg-white/50 rounded-3xl py-16 px-5">
-    <div class="flex justify-center flex-col gap-5 max-w-xl lg:max-w-7xl mx-auto text-center mb-28">
-      <h2 class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest ">
+    <div
+      class="flex justify-center flex-col gap-5 max-w-xl lg:max-w-7xl mx-auto text-center mb-28"
+    >
+      <h2
+        class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+      >
         Get started
       </h2>
-      <h3 class="max-w-xl text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl mx-auto">
-        Ready to dive in? <br>
+      <h3
+        class="max-w-xl text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl mx-auto"
+      >
+        Ready to dive in? <br />
         Start your journey today.
       </h3>
       <p class="text-main-black/70">
-        Fly the Ideal Way. Ideal Aviation is the place for pilots in St. Louis, Missouri. 
+        Fly the Ideal Way. Ideal Aviation is the place for pilots in St. Louis,
+        Missouri.
       </p>
       <a href="/nosotros/historia" class="btn-secondary mx-auto">Get Started</a>
     </div>
@@ -76,9 +80,7 @@ const navbarLinks =
             class="text-4xl font-bold uppercase flex items-center gap-2"
           >
             <Image src={idealLogo} alt="Ideal Aviation Logo" class="w-20" />
-            <p class="font-bold text-xl text-main-blue">
-              Ideal Aviation
-            </p>
+            <Image src={textLogo} alt="Ideal Aviation Logo" class="w-20" />
           </a>
 
           <div class="flex space-x-6">
@@ -119,37 +121,44 @@ const navbarLinks =
               </svg>
             </a>
             <a
-              href={WHATSAPP_URL}
+              href={TIKTOK_URL}
               target="_blank"
               class="text-main-black hover:text-main-blue duration-200"
             >
-              <span class="sr-only">Whatsapp</span>
-              <svg
-                class="size-6"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-                width="1em"
-                height="1em"
-                viewBox="0 0 24 24"
-              >
-                <path
+              <span class="sr-only">TikTok</span>
+
+              <svg class="size-6" viewBox="0 0 24 24"
+                ><path
                   fill="currentColor"
-                  d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28"
-                ></path>
-              </svg>
+                  d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48"
+                ></path></svg
+              >
+            </a>
+            <a
+              href={TIKTOK_URL}
+              target="_blank"
+              class="text-main-black hover:text-main-blue duration-200"
+            >
+              <span class="sr-only">TikTok</span>
+              <svg class="size-6" viewBox="0 0 24 24"
+                ><path
+                  fill="currentColor"
+                  d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73"
+                ></path></svg
+              >
             </a>
           </div>
         </div>
 
-        <div class="flex flex-col gap-3">
-          <h3 class="font-semibold pb-5">{data.careers}</h3>
-          <ul class="flex flex-col gap-2 text-main-black">
+        <div class="flex flex-col gap-3 text-sm">
+          <h3 class="font-semibold text-gray-500 pb-4">Training</h3>
+          <ul class="flex flex-col gap-4 text-main-black">
             {
               programs.map((program) => (
                 <li>
                   <a
                     href={program.data.url}
-                    class="hover:text-main-blue duration-200 font-medium"
+                    class="hover:text-main-blue duration-200"
                   >
                     {program.data.title}
                   </a>
@@ -158,16 +167,13 @@ const navbarLinks =
             }
           </ul>
         </div>
-        <div class="flex flex-col gap-3 lg:min-w-36">
-          <h3 class="font-semibold pb-5">{data.aboutUs}</h3>
-          <ul class="flex flex-col gap-2 text-main-black">
+        <div class="flex flex-col gap-3 lg:min-w-36 text-sm">
+          <h3 class="font-semibold text-gray-500 pb-4">About Us</h3>
+          <ul class="flex flex-col gap-4 text-main-black">
             {
               navbarLinks[3].submenu.map((link) => (
                 <li>
-                  <a
-                    href={link.link}
-                    class="hover:text-main-blue duration-200 font-medium"
-                  >
+                  <a href={link.link} class="hover:text-main-blue duration-200">
                     {link.name}
                   </a>
                 </li>
@@ -176,16 +182,16 @@ const navbarLinks =
             <li>
               <a
                 href={navbarLinks[4].link}
-                class="hover:text-main-blue duration-200 font-medium"
+                class="hover:text-main-blue duration-200"
               >
                 {navbarLinks[4].name}
               </a>
             </li>
           </ul>
         </div>
-        <div class="flex flex-col gap-3">
-          <h3 class="font-semibold pb-5">{data.contact}</h3>
-          <ul class="flex flex-col gap-1 text-main-black font-medium">
+        <div class="flex flex-col gap-3 text-sm">
+          <h3 class="font-semibold text-gray-500 pb-4">Contact</h3>
+          <ul class="flex flex-col gap-4 text-main-black">
             <li class="flex gap-2 group items-center">
               <MdEmail
                 className="size-4 group-hover:text-main-blue duration-200"
@@ -204,22 +210,13 @@ const navbarLinks =
                 href=`tel:${PHONE_NUMBER}`>{PHONE_NUMBER}</a
               >
             </li>
-            <li class="flex gap-2 group items-center">
-              <FaWhatsapp
-                className="size-4 group-hover:text-main-blue duration-200"
-              />
-              <a
-                class="group-hover:text-main-blue duration-200"
-                href={WHATSAPP_URL}>(999) 286-9385</a
-              >
-            </li>
             <li class="flex gap-2 group max-w-sm">
               <IoLocationSharp
                 className="size-4 group-hover:text-main-blue duration-200 mt-1 flex-shrink-0"
               />
               <a
                 class="group-hover:text-main-blue duration-200"
-                href="https://maps.app.goo.gl/xnquhkZFTguttGxo8"
+                href="https://maps.app.goo.gl/EkxRux52SAxEkUJLA"
                 target="_blank"
               >
                 <p>{ADDRESS_LINE_1}</p>
@@ -227,7 +224,6 @@ const navbarLinks =
               </a>
             </li>
           </ul>
-
         </div>
       </div>
       <div
@@ -238,16 +234,15 @@ const navbarLinks =
             today.getFullYear()
           }. All rights reserved.
           <a
-            class="hover:underline"
-            href={lang == "en" ? "/en/privacy-policy" : "/privacidad"}
-            >Privacy Policy</a
+            class="hover:underline duration-200 hover:text-main-blue"
+            href="/privacy-policy">Privacy Policy</a
           >
         </p>
         <p class="text-xs text-main-black">
           Powered by <a
             href="https://rightruddermarketing.com/"
             target="_blank"
-            class="font-semibold hover:text-main-blue duration-200"
+            class="font-semibold hover:text-main-black text-main-blue duration-200"
             >More Right Rudder</a
           >
         </p>

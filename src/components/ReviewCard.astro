@@ -13,8 +13,9 @@ if (!images[imagePath]) {
 }
 ---
 
-<div class="max-w-sm flex h-[30rem] flex-col group overflow-hidden rounded-3xl text-white relative">
-
+<div
+  class="max-w-sm flex h-[30rem] flex-col group overflow-hidden rounded-3xl text-white relative"
+>
   <Image
     src={images[imagePath]()}
     alt={imageAlt}
@@ -23,14 +24,14 @@ if (!images[imagePath]) {
 
   <div class="absolute inset-0 bg-gradient-to-t from-main-black -z-10"></div>
 
-  <div
-    class="flex flex-col py-8 gap-3 h-full px-8 justify-end"
-  >
+  <div class="flex flex-col py-8 gap-3 h-full px-8 justify-end">
     <quote class="text-lg font-medium">"{review}"</quote>
-    <hr class="border-white/20">
+    <hr class="border-white/20" />
     <div class="flex flex-col gap-2">
       <p class="text-sm">{name}</p>
-      <p class="text-sm font-bold bg-gradient-to-br from-main-gray to-main-blue bg-clip-text text-transparent w-fit">
+      <p
+        class="text-sm font-bold bg-gradient-to-br from-main-gray to-main-blue bg-clip-text text-transparent w-fit"
+      >
         {title}
       </p>
     </div>
