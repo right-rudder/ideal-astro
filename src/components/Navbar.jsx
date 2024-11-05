@@ -119,12 +119,12 @@ const Navbar = ({ pathname, lang }) => {
                       {item.link ? (
                         <a
                           href={item.link}
-                          className="text-main-black font-semibold text duration-300 hover:underline decoration-main-blue decoration-2 underline-offset-[10px] py-12 border-main-blue whitespace-nowrap group-last:btn-primary group-last:hover:no-underline "
+                          className="text-main-black font-semibold duration-300 hover:underline decoration-main-blue decoration-2 underline-offset-[10px] py-12 border-main-blue whitespace-nowrap group-last:btn-primary group-last:hover:no-underline "
                         >
                           {item.name}
                         </a>
                       ) : (
-                        <span className="font-semibold cursor-default text-main-black text-lg duration-300 hover:underline decoration-main-blue decoration-2 underline-offset-[10px] py-12 border-main-blue whitespace-nowrap">
+                        <span className="font-semibold cursor-default text-main-black duration-300 hover:underline decoration-main-blue decoration-2 underline-offset-[10px] py-12 border-main-blue whitespace-nowrap">
                           {item.name}
                         </span>
                       )}

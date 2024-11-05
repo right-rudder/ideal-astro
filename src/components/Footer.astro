@@ -20,9 +20,7 @@ import textLogo from "../assets/images/ideal-aviation-text-logo.webp";
 
 import { navbarLinks } from "../data/navbarLinks";
 
-import esPrograms from "../data/programs";
-import enPrograms from "../data/en/programs";
-import { FaWhatsapp } from "react-icons/fa6";
+import programs from "../data/programs";
 
 const today = new Date();
 const esData = {
@@ -45,8 +43,6 @@ const enData = {
   rights: "All rights reserved.",
   policy: "Privacy Policy",
 };
-const programs = Astro.currentLocale === "en" ? enPrograms : esPrograms;
-const data = Astro.currentLocale === "en" ? enData : esData;
 ---
 
 <footer class="bg-gradient-to-br from-main-gray to-main-blue p-2">

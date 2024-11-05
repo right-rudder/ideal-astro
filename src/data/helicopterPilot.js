@@ -1,6 +1,6 @@
-const proPilot = {
+const helicopterPilot = {
   data: {
-    title: "Pro Pilot (Técnico Superior)",
+    title: "Helicopter Pilot",
     description:
       "Conviértete en Piloto Profesional con la carrera Pro Pilot de iFly. Obtén tu licencia de Piloto Comercial de Ala Fija y titulación de Técnico Superior Universitario en Aviación.",
     url: "/carreras/pro-pilot",
@@ -46,4 +46,4 @@ const proPilot = {
   },
 };
 
-export default proPilot;
+export default helicopterPilot;

@@ -1,6 +1,6 @@
-const aviationManagement = {
+const airplanePilot = {
   data: {
-    title: "Aviation Management (Licenciatura)",
+    title: "Airplane Pilot",
     description:
       "La licenciatura en Aviation Management de iFly te prepara para ser un experto en la gestión aeronáutica. Obtén un título de Licenciado en Administración Aeronáutica y amplia tu carrera en la aviación civil.",
     url: "/carreras/aviation-management",
@@ -48,4 +48,4 @@ const aviationManagement = {
   },
 };
 
-export default aviationManagement;
+export default airplanePilot;

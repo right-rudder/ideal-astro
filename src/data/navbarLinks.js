@@ -1,75 +1,50 @@
 export const navbarLinks = [
   {
     name: "Why Become a Pilot?",
-    link: "/en/why-become-a-pilot",
+    link: "/why-become-a-pilot",
     submenu: [],
   },
   {
-    name: "Careers",
+    name: "Programs",
     submenu: [
       {
-        name: "Aviation Management (Bachelor's Degree)",
-        link: "/en/careers/aviation-management",
+        name: "Airplane Pilot",
+        link: "/programs/aviation-management",
       },
       {
-        name: "Pro Pilot (Associate's Degree)",
-        link: "/en/careers/pro-pilot",
+        name: "Helicopter Pilot",
+        link: "/programs/pro-pilot",
       },
       {
-        name: "Cadet Pilot (Private Pilot)",
-        link: "/en/careers/cadet-pilot",
+        name: "Private Pilot",
+        link: "/programs/cadet-pilot",
       },
       {
-        name: "Flight Attendant",
-        link: "/en/careers/flight-attendant",
-      },
-      {
-        name: "Operations Officer (Dispatcher)",
-        link: "/en/careers/operations-officer",
-      },
-      {
-        name: "Maintenance Technician",
-        link: "/en/careers/maintenance-technician",
+        name: "Advanced Flight Training",
+        link: "/programs/flight-attendant",
       },
     ],
   },
   {
-    name: "Fleet",
-    submenu: [
-      {
-        name: "Aircraft",
-        link: "/en/fleet/aircraft",
-      },
-      {
-        name: "Simulators",
-        link: "/en/fleet/simulators",
-      },
-    ],
+    name: "News",
+    link: "/blog",
   },
   {
     name: "About Us",
     submenu: [
       {
         name: "Our Story",
-        link: "/en/about/our-story",
+        link: "/about/our-story",
       },
       {
-        name: "Team",
-        link: "/en/about/team",
-      },
-      {
-        name: "Campus",
-        link: "/en/about/campus",
-      },
-      {
-        name: "Blog",
-        link: "/blog",
+        name: "Our Team",
+        link: "/about/team",
       },
     ],
   },
   {
     name: "Contact Us",
-    link: "/en/contact",
+    link: "/contact",
     submenu: [],
   },
 ];

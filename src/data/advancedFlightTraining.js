@@ -1,6 +1,6 @@
-const sobrecargoDeAviacion = {
+const advancedFlightTraining = {
   data: {
-    title: "Sobrecargo de Aviación",
+    title: "Advanced Flight Training",
     description:
       "Fórmate como Sobrecargo de Aviación en iFly. Aprende todos los procedimientos y normas de seguridad para ser un sobrecargo certificado, con reconocimiento nacional e internacional.",
     url: "/carreras/sobrecargo-de-aviacion",
@@ -48,4 +48,4 @@ const sobrecargoDeAviacion = {
   },
 };
 
-export default sobrecargoDeAviacion;
+export default advancedFlightTraining;
