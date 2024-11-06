@@ -5,6 +5,7 @@ import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import blueLogo from "../assets/ifly-logo-azul.png";
 import whiteLogo from "../assets/ifly-logo-azul.png";
+import completeLogo from "../assets/images/ideal_logo.webp";
 import idealLogo from "../assets/images/ideal-aviation-image-logo.webp";
 import textLogo from "../assets/images/ideal-aviation-text-logo.webp";
 
@@ -13,6 +14,8 @@ import {
   INSTAGRAM_URL,
   PHONE_NUMBER,
   EMAIL_ADDRESS,
+  TIKTOK_URL,
+  YOUTUBE_URL,
 } from "../consts.ts";
 
 const Navbar = ({ pathname, lang }) => {
@@ -79,7 +82,7 @@ const Navbar = ({ pathname, lang }) => {
   };
 
   return (
-    <nav className="w-full h-0 absolute top-5 z-50 tracking-wider">
+    <nav className="w-full h-0 absolute top-0 lg:top-5 z-50 tracking-wider">
       <div
         className={`${
           navBar || openMobile ? "" : ""
@@ -95,12 +98,12 @@ const Navbar = ({ pathname, lang }) => {
                 <img
                   src={idealLogo.src}
                   alt="Ideal Aviation Logo"
-                  className="w-20"
+                  className="w-12 lg:w-20"
                 />
                 <img
                   src={textLogo.src}
                   alt="Ideal Aviation Text Logo"
-                  className="w-20"
+                  className="w-12 lg:w-20"
                 />
               </a>
               <div className="hidden lg:flex gap-8 items-center">
@@ -275,13 +278,13 @@ const Navbar = ({ pathname, lang }) => {
 
         <a
           href={`${lang === "es" ? "/es" : "/"}`}
-          className="text-white px-10 w-fit block leading-none uppercase font-semibold text-lg z-40 relative"
+          className="text-white px-10 w-fit mx-auto block leading-none uppercase font-semibold text-lg z-40 relative"
         >
-          <img src={whiteLogo.src} alt="iFly logo" className="w-40" />
+          <img src={completeLogo.src} alt="iFly logo" className="w-40" />
         </a>
 
         <div
-          className={`absolute w-60 h-20 bg-main-blue top-14 z-30 duration-300  ${
+          className={`absolute w-full h-32 bg-white top-16 z-30 duration-300  ${
             openMobile ? "translate-x-0 delay-300" : "-translate-x-full "
           }`}
         ></div>
@@ -437,6 +440,25 @@ const Navbar = ({ pathname, lang }) => {
                   d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
                   clipRule="evenodd"
                 />
+              </svg>
+            </a>
+            <a href={TIKTOK_URL} target="_blank">
+              <span className="sr-only">TikTok</span>
+
+              <svg className="size-6 text-main-blue" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M16.6 5.82s.51.5 0 0A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6c0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64c0 3.33 2.76 5.7 5.69 5.7c3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48"
+                ></path>
+              </svg>
+            </a>
+            <a href={YOUTUBE_URL} target="_blank">
+              <span className="sr-only">YouTube</span>
+              <svg className="size-6 text-main-blue" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="m10 15l5.19-3L10 9zm11.56-7.83c.13.47.22 1.1.28 1.9c.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83c-.25.9-.83 1.48-1.73 1.73c-.47.13-1.33.22-2.65.28c-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44c-.9-.25-1.48-.83-1.73-1.73c-.13-.47-.22-1.1-.28-1.9c-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83c.25-.9.83-1.48 1.73-1.73c.47-.13 1.33-.22 2.65-.28c1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44c.9.25 1.48.83 1.73 1.73"
+                ></path>
               </svg>
             </a>
           </div>

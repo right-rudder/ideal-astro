@@ -9,19 +9,19 @@ export const navbarLinks = [
     submenu: [
       {
         name: "Airplane Pilot",
-        link: "/programs/aviation-management",
+        link: "/programs/airplane-pilot",
       },
       {
         name: "Helicopter Pilot",
-        link: "/programs/pro-pilot",
+        link: "/programs/helicopter-pilot",
       },
       {
         name: "Private Pilot",
-        link: "/programs/cadet-pilot",
+        link: "/programs/private-pilot",
       },
       {
         name: "Advanced Flight Training",
-        link: "/programs/flight-attendant",
+        link: "/programs/advanced-flight-training",
       },
     ],
   },
@@ -39,6 +39,10 @@ export const navbarLinks = [
       {
         name: "Our Team",
         link: "/about/team",
+      },
+      {
+        name: "Our Fleet",
+        link: "/about/fleet",
       },
     ],
   },
