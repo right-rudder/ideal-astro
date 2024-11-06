@@ -1,0 +1,305 @@
+---
+import Header from "../components/Header.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import programs from "../data/programs";
+import { Image } from "astro:assets";
+import ImageComp from "../components/ImageComp.astro";
+import studentInHangar from "../assets/estudiante-de-piloto-aviador.jpg";
+import ProgramCard from "../components/ProgramCard.astro";
+import CounterCard from "~/components/CounterCard";
+import stats from "~/data/stats";
+import CountUpComponent from "~/components/CountUpComponent.jsx";
+
+const data = {
+  siteTitle:
+    "¿Por Qué Convertirse en Piloto? - Ventajas de una Carrera en la Aviación",
+  siteDescription:
+    "Descubre las razones para convertirte en piloto profesional. En iFly te preparamos con programas de alto nivel, licencias reconocidas y todas las certificaciones necesarias para volar por el mundo.",
+  headerImage: "/src/assets/pilotos-aviadores-enfrente-de-la-universidad.webp",
+  headerAlt: "Pilotos aviadores en frente de la universidad de iFly",
+  title: "¿Por qué convertirte en piloto?",
+};
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+  <section class="pt-28 relative">
+    <div
+      class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
+
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <div class="flex gap-6 flex-col">
+        <h1
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-6xl"
+        >
+          Why Become a Pilot at Ideal Aviation?
+        </h1>
+        <h2 class="text-gray-500 font-medium text-2xl max-w-3xl">
+          We are a team of aviators that are experts in the flight training
+          industry. We have decades of combined experience to get you safely in
+          the air.
+        </h2>
+      </div>
+      <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 lg:gap-12">
+        <div class="max-w-lg">
+          <h2 class="text-2xl font-medium tracking-tight">Our mission</h2>
+          <p class="mt-6 text-sm/6 text-gray-600">
+            At Ideal Aviation, we are dedicated to delivering top-tier aviation
+            training to our students. Our mission is to provide an exceptional
+            learning experience, combining highly skilled instructors,
+            cutting-edge facilities, and advanced training aircraft to prepare
+            you for a successful career in aviation. We believe in fostering a
+            learning environment that builds confidence and skill in every
+            student.
+          </p>
+          <p class="mt-8 text-sm/6 text-gray-600">
+            Our focus on safety, precision, and excellence sets us apart. We are
+            committed to meeting the highest standards in aviation education,
+            ensuring that every graduate leaves with the knowledge, skills, and
+            dedication needed to excel in the industry. At Ideal Aviation,
+            you’re not just a student; you’re part of a community that values
+            your growth, achievement, and lifelong journey in aviation.
+          </p>
+        </div>
+        <div class="pt-20 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+          <div
+            class="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 lg:gap-4 xl:gap-8"
+          >
+            <div
+              class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/group_ground.webp"
+                imageAlt="Group of students on ground school"
+              />
+            </div>
+            <div
+              class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/multi-engine-flying-cross-country.webp"
+                imageAlt="Multi-engine flying cross country"
+              />
+            </div>
+            <div
+              class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/commercial-checkride-pass-helicopter.webp"
+                imageAlt="Commercial Checkride Pass Helicopter"
+              />
+            </div>
+            <div
+              class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-32"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/group-flight-ifr.webp"
+                imageAlt="Group Flight IFR"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="max-lg:mt-16 lg:col-span-1">
+          <h4>The Numbers</h4>
+          <hr class="mt-6 border-t border-gray-200" />
+          <dl class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
+            <div
+              class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
+            >
+              <dt class="text-sm/6 text-gray-600">Airplanes</dt>
+              <dd class="order-first text-6xl font-medium tracking-tight">
+                <CountUpComponent client:only="react" value={14} />
+              </dd>
+            </div>
+            <div
+              class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
+            >
+              <dt class="text-sm/6 text-gray-600">Simulators</dt>
+              <dd class="order-first text-6xl font-medium tracking-tight">
+                <CountUpComponent client:only="react" value={4} />
+              </dd>
+            </div>
+            <div
+              class="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4"
+            >
+              <dt class="text-sm/6 text-gray-600">Testimonials</dt>
+              <dd class="order-first text-6xl font-medium tracking-tight">
+                <CountUpComponent client:only="react" value={1200} />
+              </dd>
+            </div>
+            <div class="flex flex-col gap-y-2">
+              <dt class="text-sm/6 text-gray-600">Graduated Students</dt>
+              <dd class="order-first text-6xl font-medium tracking-tight">
+                <CountUpComponent client:only="react" value={2400} />
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto my-12 max-w-7xl px-6 sm:mt-20 sm:mb-48 lg:px-8">
+    <div class="mx-auto max-w-2xl lg:mx-0">
+      <h2
+        class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl"
+      >
+        Our training programs
+      </h2>
+      <p class="mt-6 text-lg/8 text-gray-600">
+        At Ideal Aviation, we offer a range of training programs designed to
+        help you achieve your aviation goals.
+      </p>
+    </div>
+    <dl
+      class="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 text-base/7 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3"
+    >
+      <div>
+        <dt class="font-semibold text-gray-900">Private Pilot Certificate</dt>
+        <dd class="mt-1 text-gray-600">
+          Begin your journey with a Private Pilot Certificate, allowing you to
+          fly for personal enjoyment. Our instructors will teach you essential
+          skills like takeoff, landing, and safe navigation.
+        </dd>
+        <a href="#" class="btn-primary mt-5">Explore</a>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-900">Instrument Rating</dt>
+        <dd class="mt-1 text-gray-600">
+          Gain the ability to fly confidently in low visibility by relying on
+          instruments alone. This rating enhances safety and proficiency in
+          diverse weather conditions.
+        </dd>
+        <a href="#" class="btn-primary mt-5">Explore</a>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-900">
+          Commercial Pilot Certificate
+        </dt>
+        <dd class="mt-1 text-gray-600">
+          Fly for compensation with a Commercial Certificate. Our instructors
+          guide you through advanced maneuvers, preparing you for the demands of
+          commercial aviation.
+        </dd>
+        <a href="#" class="btn-primary mt-5">Explore</a>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-900">Multi-Engine</dt>
+        <dd class="mt-1 text-gray-600">
+          Learn to operate multi-engine aircraft, mastering complex systems and
+          emergency protocols for added safety and flexibility in advanced
+          flight.
+        </dd>
+        <a href="#" class="btn-primary mt-5">Explore</a>
+      </div>
+      <div>
+        <dt class="font-semibold text-gray-900">
+          Certified Flight Instructor (CFI)
+        </dt>
+        <dd class="mt-1 text-gray-600">
+          Share your passion. Our CFI program prepares you to confidently teach
+          students, covering everything from basics to advanced ratings.
+        </dd>
+        <a href="#" class="btn-primary mt-5">Explore</a>
+      </div>
+    </dl>
+  </section>
+
+  <section
+    class="mx-2 mt-24 rounded-3xl bg-main-blue py-10 lg:pt-36 lg:pb-28 px-5"
+  >
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden lg:-mt-60">
+      <iframe
+        class="w-full aspect-video"
+        src="https://tube.rvere.com/embed?v=NvrngKl0Vds&rel=0"
+        title="Interview with Jim and Mary"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <section id="faqs" class="scroll-mt-8 mt-24">
+    <h2 class="text-center text-sm font-semibold text-gray-500 uppercase mb-3">
+      Frequently asked questions
+    </h2>
+    <h3
+      class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center"
+    >
+      Your questions answered.
+    </h3>
+    <div class="mx-auto mb-32 mt-16 max-w-xl space-y-12">
+      <dl>
+        <dt class="text-sm font-semibold">
+          What kind of training do you offer?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          We provide a range of training programs designed to suit different
+          goals, from private pilot certifications to advanced commercial and
+          multi-engine ratings. Our training emphasizes safety, skill, and
+          confidence to ensure you’re prepared for every step in your aviation
+          journey.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          How safe are your training flights?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Safety is our top priority at Ideal Aviation. Our instructors undergo
+          rigorous training and continuous education, and we maintain our fleet
+          with the highest safety standards. We also perform regular safety
+          audits and conduct thorough pre-flight checks to ensure every flight
+          is as safe as possible.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          Do you offer financing options for training programs?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Yes, we offer flexible financing options to make flight training
+          accessible. Our team can help you explore available options so you can
+          focus on your education without financial stress.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          What kind of support is available to students?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          We provide extensive support through every step of training. Our
+          instructors and staff are available for one-on-one guidance, and we
+          also offer online resources and post-graduation career assistance to
+          help you succeed in the aviation field.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">Can I train on my own schedule?</dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Yes, we offer flexible scheduling options to accommodate various time
+          commitments. Our team works with you to create a training schedule
+          that suits your availability, so you can balance training with other
+          responsibilities.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          Do you have a program for career pilots?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Absolutely! For those interested in a career in aviation, we offer
+          specialized commercial training paths and job placement assistance
+          after certification. Our programs are designed to prepare you
+          thoroughly for a professional career in aviation.
+        </dd>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

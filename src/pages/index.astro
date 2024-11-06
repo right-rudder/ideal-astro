@@ -5,13 +5,6 @@ import { Image } from "astro:assets";
 import helicopter from "~/assets/images/helicopter_commercial_checkride.webp";
 import CounterCard from "~/components/CounterCard";
 import stats from "~/data/stats";
-import { FaCheck } from "react-icons/fa";
-import iflyStudents from "~/assets/estudiantes-de-ifly-recibiendo-medalla.webp";
-import graduatedStudents from "~/assets/estudiantes-graduados-de-la-universidad-de-ifly.webp";
-import programs from "~/data/programs";
-import ProgramCard from "~/components/ProgramCard.astro";
-import studentInHangar from "~/assets/estudiante-de-ifly-en-hangar.webp";
-import IndexForm from "~/components/IndexForm.astro";
 import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
 ---
@@ -36,7 +29,7 @@ import ReviewCard from "../components/ReviewCard.astro";
     </div>
   </section>
 
-  <section id="welcome" class="scroll-my-24">
+  <section id="welcome" class="scroll-my-10">
     <div
       class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col-reverse lg:flex-row gap-20 items-center"
     >
@@ -51,7 +44,7 @@ import ReviewCard from "../components/ReviewCard.astro";
         >
           Why Choose Ideal Aviation?
         </h3>
-        <h4 class="text-gray-600 font-bold text-2xl">
+        <h4 class="text-gray-500 font-semibold text-2xl">
           The Ideal Way to Learn to Fly in St. Louis, Missouri
         </h4>
         <p class="text-main-black/70">
@@ -61,7 +54,7 @@ import ReviewCard from "../components/ReviewCard.astro";
           combined experience, ensuring that you have the knowledge and skills
           you need to fly safely and confidently.
         </p>
-        <a href="/nosotros/historia" class="btn-primary">Join The Family</a>
+        <a href="/contact" class="btn-primary">Join The Family</a>
       </div>
       <div class="flex-1 relative h-fit">
         <Image
