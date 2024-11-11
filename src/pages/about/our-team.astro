@@ -4,88 +4,97 @@ import ImageComp from "~/components/ImageComp.astro";
 import Person from "~/components/Person.astro";
 
 const data = {
-  siteTitle: "Why Become a Pilot at Ideal Aviation? | Ideal Aviation",
+  siteTitle: "Our Team | Ideal Aviation",
   siteDescription:
-    "Ideal Aviation is the place for pilots in St. Louis, Missouri. We maintain the highest standards of safety in all of our operations. Our certified flight instructors have decades of combined experience, ensuring that you have the knowledge and skills you need to fly safely and confidently.",
+    "Meet the Ideal Aviation team. Our leadership team is comprised of experienced aviation professionals who are passionate about aviation and committed to providing the highest level of training and support to our students.",
 };
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <section class="mt-52 mx-auto max-w-2xl lg:max-w-7xl px-5">
+  <section class="pt-28 relative">
     <div
       class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
     >
     </div>
-    <h2
-      class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
-    >
-      Meet the team
-    </h2>
-    <h3
-      class="mt-2 text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl"
-    >
-      Leadership Team
-    </h3>
-    <p class="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
-      Our leadership team is comprised of experienced aviation professionals who
-      are passionate about aviation and committed to providing the highest level
-      of training and support to our students.
-    </p>
-    <ul role="list" class="mx-auto mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <li>
-        <ImageComp
-          imageAlt="Bill Macon"
-          imagePath="/src/assets/images/bill_macon_300.webp"
-          styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
-        />
-        <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
-          Bill Macon
+
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <header>
+        <h2
+          class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
+        >
+          Meet the team
+        </h2>
+        <h3
+          class="mt-2 text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl"
+        >
+          Leadership Team
+        </h3>
+        <p class="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
+          Our leadership team is comprised of experienced aviation professionals
+          who are passionate about aviation and committed to providing the
+          highest level of training and support to our students.
         </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
-          Managing Director
-        </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
-          Bill comes from a family with a long history of aviation in St. Louis
-          Bill began his flight training when he acquired Ideal Aviation in
-          2011.
-        </p>
-      </li>
-      <li>
-        <ImageComp
-          imageAlt="Kimberly Nagel"
-          imagePath="/src/assets/images/kimberly_300.webp"
-          styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
-        />
-        <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
-          Kimberly Nagel
-        </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
-          Director of Administration
-        </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
-          Kimberly Nagel is a management and accounting professional and joined
-          Ideal Aviation in 2012. Kimberly has flown a variety of aircraft.
-        </p>
-      </li>
-      <li>
-        <ImageComp
-          imageAlt="Jim Moseley"
-          imagePath="/src/assets/images/jim_300.webp"
-          styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
-        />
-        <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
-          Jim Moseley
-        </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
-          Chief Flight Instructor / Director of Operations
-        </p>
-        <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
-          Jim graduated Magna-Cum-Laude from Saint Louis University with a B.S.
-          in Flight Science. He and was awarded the 2018 Flight Instructor of
-          the year in the St. Louis area.
-        </p>
-      </li>
-    </ul>
+      </header>
+      <ul
+        role="list"
+        class="mx-auto mt-10 grid grid-cols-1 gap-8 lg:grid-cols-3"
+      >
+        <li>
+          <ImageComp
+            imageAlt="Bill Macon"
+            imagePath="/src/assets/images/bill_macon_300.webp"
+            styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
+          />
+          <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
+            Bill Macon
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
+            Managing Director
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
+            Bill comes from a family with a long history of aviation in St.
+            Louis Bill began his flight training when he acquired Ideal Aviation
+            in 2011.
+          </p>
+        </li>
+        <li>
+          <ImageComp
+            imageAlt="Kimberly Nagel"
+            imagePath="/src/assets/images/kimberly_300.webp"
+            styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
+          />
+          <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
+            Kimberly Nagel
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
+            Director of Administration
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
+            Kimberly Nagel is a management and accounting professional and
+            joined Ideal Aviation in 2012. Kimberly has flown a variety of
+            aircraft.
+          </p>
+        </li>
+        <li>
+          <ImageComp
+            imageAlt="Jim Moseley"
+            imagePath="/src/assets/images/jim_300.webp"
+            styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
+          />
+          <p class="mt-6 max-w-lg text-sm/6 text-main-black font-semibold">
+            Jim Moseley
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500 font-semibold">
+            Chief Flight Instructor / Director of Operations
+          </p>
+          <p class="mt-1 max-w-lg text-sm/6 text-gray-500">
+            Jim graduated Magna-Cum-Laude from Saint Louis University with a
+            B.S. in Flight Science. He and was awarded the 2018 Flight
+            Instructor of the year in the St. Louis area.
+          </p>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <section class="mx-auto my-12 max-w-2xl lg:max-w-7xl px-6 sm:my-20 lg:px-8">

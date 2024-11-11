@@ -1,126 +1,70 @@
 ---
-import Header from "~/components/Header.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import programs from "~/data/programs";
-import { Image } from "astro:assets";
 import ImageComp from "~/components/ImageComp.astro";
-import studentInHangar from "~/assets/estudiante-de-piloto-aviador.jpg";
-import ProgramCard from "~/components/ProgramCard.astro";
-import CounterCard from "~/components/CounterCard";
-import stats from "~/data/stats";
-import CountUpComponent from "~/components/CountUpComponent.jsx";
 
 const data = {
-  siteTitle: "Why Become a Pilot at Ideal Aviation? | Ideal Aviation",
+  siteTitle: "Our Story | Ideal Aviation",
   siteDescription:
-    "Ideal Aviation is the place for pilots in St. Louis, Missouri. We maintain the highest standards of safety in all of our operations. Our certified flight instructors have decades of combined experience, ensuring that you have the knowledge and skills you need to fly safely and confidently.",
+    "Ideal Aviation's story is one of passion, dedication, and a love for aviation. Learn more about our founder, Bill Macon, and the legacy of flight that inspires us every day.",
 };
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <section class="mt-52 mx-auto max-w-2xl lg:max-w-7xl px-5">
+  <section class="pt-28 relative">
     <div
       class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
     >
     </div>
-    <h2
-      class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
-    >
-      About Us
-    </h2>
-    <h3
-      class="mt-2 text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl"
-    >
-      Meet Bill Macon
-    </h3>
-    <p class="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
-      Bill Macon is the founder and CEO of Ideal Aviation. He has a strong
-      passion for sharing his love of aviation with others.
-    </p>
-    <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
-      <div class="max-w-lg">
-        <quote class="text-gray-600 block">
-          "I acquired Ideal Aviation in 2011 and since then I've earned my
-          private, instrument, and multi-engine ratings. It's been a fantastic
-          opportunity to combine work and pleasure. I enjoy flying for business
-          and personal trips."
-        </quote>
-        <quote class="mt-8 text-gray-600 block">
-          "Our family has a long history in aviation. My father and mother were
-          both pilots. In the 1930s, my grandfather owned the Von Hoffmann
-          Aircraft Corporation and the Von Hoffmann Flying School."
-        </quote>
-        <cite class="mt-5 pr-16 text-gray-600 ml-auto w-full block text-right"
-          >- Bill Macon</cite
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <header>
+        <h2
+          class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
         >
-        <div class="mt-6">
-          <a class="btn-primary" href="#">Join Us</a>
+          About Us
+        </h2>
+        <h3
+          class="mt-2 text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl"
+        >
+          Meet Bill Macon
+        </h3>
+        <p class="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
+          Bill Macon is the founder and CEO of Ideal Aviation. He has a strong
+          passion for sharing his love of aviation with others.
+        </p>
+      </header>
+      <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div class="max-w-lg">
+          <quote class="text-gray-600 block">
+            "I acquired Ideal Aviation in 2011 and since then I've earned my
+            private, instrument, and multi-engine ratings. It's been a fantastic
+            opportunity to combine work and pleasure. I enjoy flying for
+            business and personal trips."
+          </quote>
+          <quote class="mt-8 text-gray-600 block">
+            "Our family has a long history in aviation. My father and mother
+            were both pilots. In the 1930s, my grandfather owned the Von
+            Hoffmann Aircraft Corporation and the Von Hoffmann Flying School."
+          </quote>
+          <cite class="mt-5 pr-16 text-gray-600 ml-auto w-full block text-right"
+            >- Bill Macon</cite
+          >
+          <div class="mt-6">
+            <a class="btn-primary" href="#">Join Us</a>
+          </div>
         </div>
-      </div>
-      <div class="max-lg:order-first max-lg:max-w-lg">
-        <div
-          class="aspect-[3/2] overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
-        >
-          <ImageComp
-            imageAlt="Bill Macon"
-            imagePath="/src/assets/images/bill_macon_peace.webp"
-            styles="block size-full object-cover object-top"
-          />
+        <div class="max-lg:order-first max-lg:max-w-lg">
+          <div
+            class="aspect-[3/2] overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+          >
+            <ImageComp
+              imageAlt="Bill Macon"
+              imagePath="/src/assets/images/bill_macon_peace.webp"
+              styles="block size-full object-cover object-top"
+            />
+          </div>
         </div>
       </div>
     </div>
-    <!-- <h3 class="mt-24">The team</h3> -->
-    <!-- <hr class="mt-6 border-t border-gray-200" />
-    <ul
-      role="list"
-      class="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-    >
-      <Person
-        name="Michael Foster"
-        description="Co-Founder / CTO"
-        img="/team/michael-foster.jpg"
-      />
-      <Person
-        name="Dries Vincent"
-        description="Business Relations"
-        img="/team/dries-vincent.jpg"
-      />
-      <Person
-        name="Celeste Vandermark"
-        description="Front-end Developer"
-        img="/team/celeste-vandermark.jpg"
-      />
-      <Person
-        name="Courtney Henry"
-        description="Designer"
-        img="/team/courtney-henry.jpg"
-      />
-      <Person
-        name="Marcus Eldridge"
-        description="Director of Product"
-        img="/team/marcus-eldridge.jpg"
-      />
-      <Person
-        name="Whitney Francis"
-        description="Copywriter"
-        img="/team/whitney-francis.jpg"
-      />
-      <Person
-        name="Leonard Krasner"
-        description="Senior Designer"
-        img="/team/leonard-krasner.jpg"
-      />
-      <Person
-        name="Nolan Sheffield"
-        description="Principal Designer"
-        img="/team/nolan-sheffield.jpg"
-      />
-      <Person
-        name="Emily Selman"
-        description="VP, User Experience"
-        img="/team/emily-selman.jpg"
-      />
-    </ul> -->
   </section>
 
   <section
