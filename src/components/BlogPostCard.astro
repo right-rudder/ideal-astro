@@ -16,20 +16,19 @@ if (!images[imagePath]) {
 const dateData = new Date(date);
 ---
 
-<a
-  href={blogUrl}
-  class="max-w-sm shadow-md flex flex-col group rounded-xl overflow-hidden"
+<div
+  class="flex max-w-sm lg:max-w-none gap-10 flex-col lg:flex-row group border-t border-gray-200 pt-10"
 >
-  <div class="h-96 overflow-hidden shrink-0 relative">
+  <div class="h-72 overflow-hidden shrink-0 relative">
     <Image
       src={images[imagePath]()}
       alt={title}
-      class="w-full h-full object-cover scale-105 group-hover:scale-100 duration-700"
+      class="w-full h-full object-cover duration-700 rounded-2xl"
       quality={80}
     />
   </div>
 
-  <div class="flex flex-col bg-white py-8 px-12 gap-3 justify-between h-full">
+  <div class="flex flex-col bg-white lg:px-12 gap-3 justify-between h-full">
     <div class="flex flex-col gap-4">
       <p
         class="bg-main-blue/20 p-3 uppercase font-bold text-sm rounded-lg text-main-blue w-fit"
@@ -40,6 +39,7 @@ const dateData = new Date(date);
         {title}
       </h3>
       <p class="paragraph line-clamp-3 text-main-black/70">{description}</p>
+      <a href={blogUrl} class="btn-secondary">Read More</a>
     </div>
   </div>
-</a>
+</div>

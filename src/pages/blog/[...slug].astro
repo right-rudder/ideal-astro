@@ -25,6 +25,7 @@ const headerData = {
   headerAlt: "CFI in Cessna",
 };
 import { Image } from "astro:assets";
+import BlogPost from "../../layouts/BlogPost.astro";
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/*.{jpeg,jpg,png,gif,webp}",
 );
@@ -35,17 +36,20 @@ if (!images[heroImage]) {
 }
 ---
 
-<BaseLayout
-  siteTitle=`${title} - iFly Universidad Aeronáutica`
+<BlogPost
+  siteTitle=`${title} | Ideal Aviation Blog`
   siteDescription={description}
 >
-  <Header slot="header" data={headerData} />
-  <article class="max-w-3xl mx-auto py-24 px-5">
+  <div
+    class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+  >
+  </div>
+  <article class="max-w-3xl mx-auto py-24 px-5 mt-28">
     <div class="max-h-[30rem] flex mb-10">
       <Image
         src={images[heroImage]()}
         alt={title}
-        class="object-cover w-full"
+        class="object-cover w-full rounded-2xl"
         quality={80}
       />
     </div>
@@ -53,4 +57,4 @@ if (!images[heroImage]) {
       <Content />
     </div>
   </article>
-</BaseLayout>
+</BlogPost>
