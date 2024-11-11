@@ -1,15 +1,7 @@
 ---
-import Header from "~/components/Header.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import programs from "~/data/programs";
-import { Image } from "astro:assets";
 import ImageComp from "~/components/ImageComp.astro";
-import studentInHangar from "~/assets/estudiante-de-piloto-aviador.jpg";
-import ProgramCard from "~/components/ProgramCard.astro";
-import CounterCard from "~/components/CounterCard";
-import stats from "~/data/stats";
-import CountUpComponent from "~/components/CountUpComponent.jsx";
-import Person from "../../components/Person.astro";
+import Person from "~/components/Person.astro";
 
 const data = {
   siteTitle: "Why Become a Pilot at Ideal Aviation? | Ideal Aviation",
@@ -19,7 +11,7 @@ const data = {
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <section class="mt-44 mx-auto max-w-2xl lg:max-w-7xl px-5">
+  <section class="mt-52 mx-auto max-w-2xl lg:max-w-7xl px-5">
     <div
       class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
     >
@@ -94,58 +86,6 @@ const data = {
         </p>
       </li>
     </ul>
-    <!-- <h3 class="mt-24">The team</h3> -->
-    <!-- <hr class="mt-6 border-t border-gray-200" />
-    <ul
-      role="list"
-      class="mx-auto mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-    >
-      <Person
-        name="Michael Foster"
-        description="Co-Founder / CTO"
-        img="/team/michael-foster.jpg"
-      />
-      <Person
-        name="Dries Vincent"
-        description="Business Relations"
-        img="/team/dries-vincent.jpg"
-      />
-      <Person
-        name="Celeste Vandermark"
-        description="Front-end Developer"
-        img="/team/celeste-vandermark.jpg"
-      />
-      <Person
-        name="Courtney Henry"
-        description="Designer"
-        img="/team/courtney-henry.jpg"
-      />
-      <Person
-        name="Marcus Eldridge"
-        description="Director of Product"
-        img="/team/marcus-eldridge.jpg"
-      />
-      <Person
-        name="Whitney Francis"
-        description="Copywriter"
-        img="/team/whitney-francis.jpg"
-      />
-      <Person
-        name="Leonard Krasner"
-        description="Senior Designer"
-        img="/team/leonard-krasner.jpg"
-      />
-      <Person
-        name="Nolan Sheffield"
-        description="Principal Designer"
-        img="/team/nolan-sheffield.jpg"
-      />
-      <Person
-        name="Emily Selman"
-        description="VP, User Experience"
-        img="/team/emily-selman.jpg"
-      />
-    </ul> -->
   </section>
 
   <section class="mx-auto my-12 max-w-2xl lg:max-w-7xl px-6 sm:my-20 lg:px-8">
