@@ -1,20 +1,19 @@
 ---
-import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const data = {
-  siteTitle: "500 - Error del Servidor",
+  siteTitle: "500 - Server Error | Ideal Aviation",
   siteDescription:
-    "Ocurrió un error en el servidor. Por favor, intenta de nuevo más tarde.",
-  headerImage: "/src/assets/oficial-de-operaciones-revisando-avion.webp",
-  headerAlt: "Oficial de operaciones revisando avión",
-  title: "Error en el servidor",
+    "We're sorry, but something went wrong. Please try again later.",
 };
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <Header slot="header" data={data} />
-  <section class="flex justify-center px-5 py-32">
+  <section class="flex justify-center px-5 py-32 pt-60 relative">
+    <div
+      class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
     <div class="text-center flex flex-col gap-8">
       <svg class="size-20 text-main-blue mx-auto" viewBox="0 0 32 32"
         ><path
@@ -23,13 +22,13 @@ const data = {
         ></path></svg
       >
 
-      <h1 class="font-bold text-4xl">Lo sentimos. Ocurrió un error.</h1>
+      <h1 class="font-bold text-4xl">We're sorry, but something went wrong.</h1>
 
-      <p>Por favor, vuelve a intentar más tarde.</p>
+      <p>Please try again later.</p>
 
       <div class="flex flex-row justify-center">
         <a href="/">
-          <div class="btn-primary">Inicio</div>
+          <div class="btn-primary">Home</div>
         </a>
       </div>
     </div>

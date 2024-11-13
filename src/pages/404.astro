@@ -1,20 +1,19 @@
 ---
-import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const data = {
-  siteTitle: "404 - Página no encontrada",
+  siteTitle: "404 - Page Not Found | Ideal Aviation",
   siteDescription:
-    "La página que buscas no existe. Por favor, verifica la URL e intenta de nuevo.",
-  headerImage: "/src/assets/oficial-de-operaciones-revisando-avion.webp",
-  headerAlt: "Oficial de operaciones revisando avión",
-  title: "No encontramos la página que buscas",
+    "The page you're looking for doesn't exist. Please verify the URL and try again.",
 };
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <Header slot="header" data={data} />
-  <section class="flex justify-center px-5 py-32">
+  <section class="flex justify-center px-5 py-32 pt-60 relative">
+    <div
+      class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
     <div class="text-center flex flex-col gap-8">
       <svg class="size-20 text-main-blue mx-auto" viewBox="0 0 32 32"
         ><path
@@ -23,13 +22,15 @@ const data = {
         ></path></svg
       >
 
-      <h1 class="font-bold text-4xl">Lo sentimos. Esta página no existe.</h1>
+      <h1 class="font-bold text-4xl">
+        The page you're looking for doesn't exist.
+      </h1>
 
-      <p>Por favor, verifica la URL e intenta de nuevo.</p>
+      <p>Please verify the URL and try again.</p>
 
       <div class="flex flex-row justify-center">
         <a href="/">
-          <div class="btn-primary">Inicio</div>
+          <div class="btn-primary">Home</div>
         </a>
       </div>
     </div>
