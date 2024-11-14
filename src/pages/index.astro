@@ -23,6 +23,7 @@ import ReviewCard from "../components/ReviewCard.astro";
             client:only="react"
             value={stat.value}
             title={stat.title}
+            suffix={stat.suffix}
           />
         ))
       }
@@ -223,23 +224,23 @@ import ReviewCard from "../components/ReviewCard.astro";
         <ReviewCard
           imagePath="/src/assets/images/review1.jpg"
           imageAlt="Review 1"
-          name="Jhon Doe"
+          name="Alex A."
           title="Commercial Pilot"
           review="I love flying at Ideal and it's a truly wonderful flight school!"
         />
         <ReviewCard
           imagePath="/src/assets/images/review2.webp"
           imageAlt="Review 2"
-          name="Jhon Doe"
+          name="Don B."
           title="Commercial Pilot"
           review="Great instructors, nice facilities. Highly recommended"
         />
         <ReviewCard
           imagePath="/src/assets/images/review3.webp"
           imageAlt="Review 3"
-          name="Jhon Doe"
+          name="Paul D."
           title="Commercial Pilot"
-          review="Had a discovery flight today with Micheal. It was a wonderful experience I definitely recommend it!"
+          review="Had a discovery flight today with Michael. It was a wonderful experience I definitely recommend it!"
         />
       </div>
     </div>
