@@ -1,8 +1,5 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
-import ImageComp from "~/components/ImageComp.astro";
-import Person from "~/components/Person.astro";
-import { Image } from "astro:assets";
 import { FaRegMap } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
@@ -267,7 +264,7 @@ const data = {
           // Check if the request was successful (status 200)
           if (xhr.status === 200) {
             // Redirect the user after a successful form submission
-            window.location.href = "/confirmacion-de-contacto";
+            window.location.href = "/contact-confirmation";
           } else {
             // Handle errors if any
             console.error("Form submission failed:", xhr.statusText);
