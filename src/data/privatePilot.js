@@ -1,31 +1,48 @@
+import { FaFileMedical } from "react-icons/fa";
+import { FaRegEdit } from "react-icons/fa";
+import { FaRegPaperPlane } from "react-icons/fa";
+
 const privatePilot = {
   data: {
     title: "Private Pilot",
     description:
-      "La carrera de Cadet Pilot de iFly te prepara para ser piloto privado con formación profesional. Obtén las habilidades necesarias para volar y disfrutar de la aviación civil a nivel personal.",
-    url: "/carreras/cadet-pilot",
-    slug: "cadet-pilot",
-    siteTitle: "Cadet Pilot - Carrera de Formación de Pilotos Privados",
+      "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
+    url: "/programs/private-pilot",
+    slug: "private-pilot",
+    siteTitle: "Private Pilot | Ideal Aviation",
     siteDescription:
-      "La carrera de Cadet Pilot de iFly te prepara para ser piloto privado con formación profesional. Obtén las habilidades necesarias para volar y disfrutar de la aviación civil a nivel personal.",
-
+      "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
+    video_url: "https://www.youtube.com/embed/1g6J1Jfj8ZQ",
     intro: [
-      "Esta carrera te formará como piloto aviador privado de ala fija profesional con bases firmes de conocimientos teóricos y prácticos para operar una aeronave de manera eficiente y segura con fines privados, de transporte o recreativos siguiendo los reglamentos y manuales oficiales.",
+      "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
     ],
     headerImage: "/src/assets/piloto-en-cabina-de-avion-ifly-3.webp",
     headerAlt: "Piloto en cabina de avión de iFly",
     primaryImage: "/src/assets/piloto-en-cabina-de-avion-ifly-4.jpg",
     primaryAlt: "Piloto en cabina de avión de iFly",
     prerequisites: [
-      "Ser mexicano/a",
-      "Mayor de 18 años",
-      "Comprobante de domicilio",
-      "Acta de nacimiento",
-      "CURP",
-      "INE / Pasaporte (vigente)",
-      "Certificado de estudios de bachillerato",
-      "6 fotografías tamaño infantil a color y 6 fotografías tamaño pasaporte a color (con camisa blanca y corbata negra)",
-      "<a href='http://www.sct.gob.mx/index.php?id=2306' target='_blank' class='hover:text-main-blue duration-300'>Constancia de aptitud psicofísica grupo I expedida por la Dirección General de Protección y Medicina Preventiva del Transporte (SCT)</a>",
+      "Be at least 17 years old.",
+      "Be able to read, speak, write, and understand English.",
+    ],
+    steps: [
+      {
+        title: "Medical Exam",
+        icon: FaFileMedical,
+        description:
+          "Before you can start flight training, you must pass a medical exam. The exam is conducted by an FAA-designated medical examiner and is a requirement for all pilot training programs.",
+      },
+      {
+        title: "Written Test",
+        icon: FaRegEdit,
+        description:
+          "The written test is a multiple-choice test that covers topics such as aerodynamics, weather, navigation, and regulations. You must pass the written test before you can take the flight test.",
+      },
+      {
+        title: "Flight Test (Check Ride)",
+        icon: FaRegPaperPlane,
+        description:
+          "The flight test, also known as the check ride, is the final step in the process of obtaining your pilot's license. During the check ride, you will demonstrate your flying skills to an FAA examiner. If you pass the check ride, you will be issued your pilot's license.",
+      },
     ],
     faqs: [
       {
