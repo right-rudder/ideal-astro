@@ -4,7 +4,11 @@ import ImageComp from "./ImageComp.astro";
 ---
 
 <li class="flex items-center gap-4">
-  <ImageComp imagePath={img} imageAlt={name} styles="size-20 rounded-full" />
+  <ImageComp
+    imagePath={img}
+    imageAlt={name}
+    styles="size-16 lg:size-20 rounded-full"
+  />
   <div class="text-sm/6">
     <h3 class="font-medium">{name}</h3>
     <p class="text-gray-500">{description}</p>
