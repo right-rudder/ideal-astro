@@ -6,11 +6,10 @@ import "@fontsource-variable/inter";
 import Navbar from "../components/Navbar";
 const { pathname } = Astro.url;
 const { siteTitle, siteDescription } = Astro.props;
-const lang = Astro.currentLocale === "en" ? "en" : "es";
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <BaseHead
       title={siteTitle || SITE_TITLE}
@@ -18,7 +17,7 @@ const lang = Astro.currentLocale === "en" ? "en" : "es";
     />
   </head>
   <body>
-    <Navbar pathname={pathname} lang={lang} client:load />
+    <Navbar pathname={pathname} client:load />
     <slot name="header" />
     <main>
       <slot />

@@ -16,7 +16,7 @@ import {
   YOUTUBE_URL,
 } from "../consts.ts";
 
-const Navbar = ({ pathname, lang }) => {
+const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);
   const [navBar, setNavbar] = useState(false);
 
@@ -275,7 +275,7 @@ const Navbar = ({ pathname, lang }) => {
         </div>
 
         <a
-          href={`${lang === "es" ? "/es" : "/"}`}
+          href="/"
           className="text-white px-10 w-fit mx-auto block leading-none uppercase font-semibold text-lg z-40 relative"
         >
           <img src={completeLogo.src} alt="iFly logo" className="w-40" />

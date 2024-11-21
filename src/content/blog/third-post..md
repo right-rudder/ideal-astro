@@ -1,7 +1,7 @@
 ---
-title: "Second post"
+title: "Third post"
 description: "Lorem ipsum dolor sit amet"
-pubDate: "Jul 15 2022"
+pubDate: "Jul 25 2022"
 heroImage: "/src/assets/images/preflight.webp"
 ---
 

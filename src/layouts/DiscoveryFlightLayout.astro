@@ -1,16 +1,12 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
-import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "@fontsource-variable/inter";
-import Navbar from "../components/Navbar";
-const { pathname } = Astro.url;
 const { siteTitle, siteDescription } = Astro.props;
-const lang = Astro.currentLocale === "en" ? "en" : "es";
 ---
 
 <!doctype html>
-<html lang={lang} class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <BaseHead
       title={siteTitle || SITE_TITLE}
