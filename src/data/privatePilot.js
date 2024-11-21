@@ -5,8 +5,6 @@ import { FaRegPaperPlane } from "react-icons/fa";
 const privatePilot = {
   data: {
     title: "Private Pilot",
-    description:
-      "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
     url: "/programs/private-pilot",
     slug: "private-pilot",
     siteTitle: "Private Pilot | Ideal Aviation",
@@ -16,11 +14,8 @@ const privatePilot = {
     intro: [
       "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
     ],
-    headerImage: "/src/assets/piloto-en-cabina-de-avion-ifly-3.webp",
-    headerAlt: "Piloto en cabina de avión de iFly",
-    primaryImage: "/src/assets/piloto-en-cabina-de-avion-ifly-4.jpg",
-    primaryAlt: "Piloto en cabina de avión de iFly",
     prerequisites: [
+      "Be able to read, speak, write, and understand the English language",
       "Be at least 17 years old.",
       "Be able to read, speak, write, and understand English.",
     ],

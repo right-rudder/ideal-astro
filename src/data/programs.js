@@ -1,13 +1,17 @@
-import airplanePilot from "./airplanePilot";
-import helicopterPilot from "./helicopterPilot";
 import privatePilot from "./privatePilot";
-import advancedFlightTraining from "./advancedFlightTraining";
+import instrumentRating from "./instrumentRating";
+import commercialPilot from "./commercialPilot";
+import multiEngineRating from "./multiEngineRating";
+import cfi from "./cfi";
+import helicopterPilotTraining from "./helicopterPilotTraining";
 
 const programs = [
-  airplanePilot,
-  helicopterPilot,
   privatePilot,
-  advancedFlightTraining,
+  instrumentRating,
+  commercialPilot,
+  multiEngineRating,
+  cfi,
+  helicopterPilotTraining,
 ];
 
 export default programs;
