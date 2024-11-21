@@ -3,8 +3,6 @@ import { useEffect, useState } from "react";
 import { IoIosArrowForward } from "react-icons/io";
 import { FaPhone } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import blueLogo from "../assets/ifly-logo-azul.png";
-import whiteLogo from "../assets/ifly-logo-azul.png";
 import completeLogo from "../assets/images/ideal_logo.webp";
 import idealLogo from "../assets/images/ideal-aviation-image-logo.webp";
 import textLogo from "../assets/images/ideal-aviation-text-logo.webp";

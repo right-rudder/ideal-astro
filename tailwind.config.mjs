@@ -11,9 +11,6 @@ export default {
         "main-orange": "#f58632",
         "main-gray": "#a7a9ad",
       },
-      backgroundImage: {
-        "our-story": "url('/src/assets/avion-de-ifly-volando.webp')",
-      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
