@@ -278,7 +278,11 @@ const Navbar = ({ pathname }) => {
           href="/"
           className="text-white px-10 w-fit mx-auto block leading-none uppercase font-semibold text-lg z-40 relative"
         >
-          <img src={completeLogo.src} alt="iFly logo" className="w-40" />
+          <img
+            src={completeLogo.src}
+            alt="Ideal Aviation logo"
+            className="w-40"
+          />
         </a>
 
         <div

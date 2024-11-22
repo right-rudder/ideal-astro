@@ -1,21 +1,20 @@
 ---
-import Header from "~/components/Header.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import { PHONE_NUMBER } from "~/consts";
 
 const data = {
-  siteTitle: "Thank you for contacting us - iFly Universidad Aeronáutica",
+  siteTitle: "Thank you for contacting us | Ideal Aviation",
   siteDescription:
-    "Thank you for contacting iFly Aeronautical University. We are excited to work with you soon. We will review your message and respond within 1-5 business days. You can also call us at 55 1234 5678.",
-  headerImage: "/src/assets/personal-de-ifly.webp",
-  headerAlt: "iFly staff",
-  title: "Thank you for contacting us",
+    "Thank you for contacting Ideal Aviation. We are excited to work with you soon.",
 };
 ---
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
-  <Header slot="header" data={data} />
-  <section class="flex justify-center">
+  <section class="mt-52 mb-32 flex justify-center">
+    <div
+      class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
     <div class="text-center lg:w-3/5 md:w-4/5">
       <h1 class="font-bold text-4xl py-10">Thank you for contacting us</h1>
 
