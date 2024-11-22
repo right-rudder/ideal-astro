@@ -49,8 +49,16 @@ export const navbarLinks = [
         link: "/about/our-team",
       },
       {
-        name: "Our Fleet",
-        link: "/about/fleet",
+        name: "Our Fixed-Wing Fleet",
+        link: "/about/our-fixed-wing-fleet",
+      },
+      {
+        name: "Our Rotary-Wing Fleet",
+        link: "/about/our-rotary-wing-fleet",
+      },
+      {
+        name: "Our Simulators",
+        link: "/about/our-simulators",
       },
     ],
   },
