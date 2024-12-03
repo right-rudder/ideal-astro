@@ -35,7 +35,7 @@ export const navbarLinks = [
   },
   {
     name: "News",
-    link: "/blog",
+    link: "/news",
   },
   {
     name: "About Us",

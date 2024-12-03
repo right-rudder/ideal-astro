@@ -9,7 +9,7 @@ import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
 import BlogPostCard from "../components/BlogPostCard.astro";
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection("news")).sort(
   (a, b) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
@@ -304,7 +304,7 @@ const posts = (await getCollection("blog")).sort(
                 imagePath={post.data.heroImage}
                 title={post.data.title}
                 date={post.data.pubDate}
-                blogUrl={`/blog/${post.slug}/`}
+                blogUrl={`/news/${post.slug}/`}
                 description={post.data.description}
               />
             ))
