@@ -5,8 +5,8 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
 ---
 
 <DiscoveryFlightLayout
-  siteTitle="Discovery Flight Form | Ideal Aviation"
-  siteDescription="Schedule a discovery flight at Ideal Aviation. Take control of an aircraft and enjoy the joy of flight. See the St. Louis Gateway Arch from thousands of feet in the air. See if becoming a pilot is right for you"
+  siteTitle="Quiz | Ideal Aviation"
+  siteDescription="Take our fun quiz and see if pilot training is right for you. We'll look at your learning styles and your preferences and see if you'd be a good fit at Ideal Aviation"
 >
   <section class="flex">
     <div
@@ -22,18 +22,17 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
       <h1
         class="text-sm/5 font-semibold text-gray-500 uppercase tracking-widest"
       >
-        Request a Discovery Flight
+        Take our Quiz
       </h1>
       <h2
         class="max-w-lg text-pretty text-2xl font-semibold tracking-tight text-main-black sm:text-3xl"
       >
-        Depart from St. Louis Downtown Airport with Ideal Aviation
+        Are you ready to become a pilot?
       </h2>
       <p class="italic text-sm text-gray-700">
-        IMPORTANT: Please ensure that you have talked with an Ideal Aviation
-        team member to confirm your flight. This page is just to REQUEST a
-        discovery flight. You will not be in the flight schedule until you speak
-        with an Ideal Aviation team member.
+        Take our fun quiz and see if pilot training is right for you. We'll look
+        at your learning styles and your preferences and see if you'd be a good
+        fit at Ideal Aviation
       </p>
       <form
         id="form"
@@ -83,46 +82,200 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
             class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
             required
           />
-          <label for="aircraft" class="text-sm font-medium mt-2 text-gray-500"
-            >Aircraft</label
+
+          <label
+            for="interested-in"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >What type of training are you interested in?</label
           >
           <select
-            id="aircraft"
-            name="aircraft"
+            id="interested-in"
+            name="interested-in"
             class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
             required
           >
+            <option value="" disabled selected></option>
             <option value="Airplanes">Airplanes</option>
             <option value="Helicopters">Helicopters</option>
-            <option value="Both">Both</option>
           </select>
+
           <label
-            for="preferred-date"
+            for="why-do-you-want-to-become-a-pilot"
             class="text-sm font-medium mt-2 text-gray-500"
-            >Preferred Discovery Flight Date</label
+            >Why do you want to become a pilot? (select all that apply)</label
           >
-          <input
-            id="date"
-            type="date"
-            name="preferred-date"
-            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
-            required
-          />
+          <div class="grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Adventure"
+                id="adventure"
+              />
+              <label for="adventure">Adventure</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Hobby"
+                id="hobby"
+              />
+              <label for="hobby">Hobby</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Career"
+                id="career"
+              />
+              <label for="career">Career</label>
+            </div>
+          </div>
+
           <label
-            for="preferred-time"
+            for="aviation-goals"
             class="text-sm font-medium mt-2 text-gray-500"
-            >Preferred Discovery Flight Time</label
+          >
+            What are your aviation goals?
+          </label>
+          <textarea
+            id="aviation-goals"
+            name="aviation-goals"
+            class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
+          ></textarea>
+
+          <label for="experience" class="text-sm font-medium mt-2 text-gray-500"
+            >Do you have any previous training?</label
           >
           <select
-            name="preferred-time"
+            id="experience"
+            name="experience"
             class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
             required
           >
-            <option value="7AM - 10AM">7AM - 10AM</option>
-            <option value="10AM - 1PM">10AM - 1PM</option>
-            <option value="1PM - 4PM">1PM - 4PM</option>
-            <option value="4PM - 7PM">4PM - 7PM</option>
+            <option value="" disabled selected></option>
+            <option value="Never piloted an aircraft before"
+              >Never piloted an aircraft before</option
+            >
+            <option value="I've flown simulators or drones"
+              >I've flown simulators or drones</option
+            >
+            <option value="A few hours but never soloed"
+              >A few hours but never soloed</option
+            >
+            <option value="I'm working on a checkride"
+              >I'm working on a checkride</option
+            >
           </select>
+
+          <label
+            for="how-do-you-learn-best?"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >How do you learn best?</label
+          >
+          <select
+            id="how-do-you-learn-best?"
+            name="how-do-you-learn-best?"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Doing">Doing</option>
+            <option value="Watching">Watching</option>
+            <option value="Reading">Reading</option>
+          </select>
+
+          <label
+            for="best-approach"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >Do you prefer to have a lot of structure and clear expectations, or
+            do you prefer a more flexible approach?</label
+          >
+          <select
+            id="best-approach"
+            name="best-approach"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="I prefer a structured approach"
+              >I prefer a structured approach</option
+            >
+            <option value="I prefer a flexible approach"
+              >I prefer a flexible approach</option
+            >
+          </select>
+
+          <label
+            for="king-of-guidance"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >What kind of guidance and support would you prefer from your flight
+            instructor? (Select all that apply)
+          </label>
+          <div class="grid gap-2 text-sm">
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer a personalized approach tailored to my individual learning needs and preferences."
+                id="personalized-approach"
+              />
+              <label for="personalized-approach"
+                >I prefer a personalized approach tailored to my individual
+                learning needs and preferences.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I would like my flight instructor to be hands-on and involved in my training, providing constant feedback and guidance."
+                id="hands-on"
+              />
+              <label for="hands-on"
+                >I would like my flight instructor to be hands-on and involved
+                in my training, providing constant feedback and guidance.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer a structured approach with clear goals and objectives."
+                id="strucutred-approach"
+              />
+              <label for="strucutred-approach"
+                >I prefer a structured approach with clear goals and objectives.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer guidance that is supportive and encouraging, with a focus on building confidence."
+                id="building-confidence"
+              />
+              <label for="building-confidence"
+                >I prefer guidance that is supportive and encouraging, with a
+                focus on building confidence.</label
+              >
+            </div>
+          </div>
+
+          <label
+            for="how-a-wing-generates-lift?"
+            class="text-sm font-medium mt-2 text-gray-500"
+          >
+            Just for fun, do you know how a wing generates lift?
+          </label>
+          <textarea
+            id="how-a-wing-generates-lift?"
+            name="how-a-wing-generates-lift?"
+            class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
+          ></textarea>
+
           <label
             for="additional-info"
             class="text-sm font-medium mt-2 text-gray-500"
@@ -134,6 +287,22 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
             name="additional-info"
             class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
           ></textarea>
+
+          <label
+            for="schedule-a-visit?"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >Would you like to schedule a visit to Ideal Aviation?</label
+          >
+          <select
+            id="schedule-a-visit?"
+            name="schedule-a-visit?"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
         </div>
 
         <div class="flex gap-3">
@@ -165,8 +334,8 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
       class="w-full hidden lg:block fixed right-0 bottom-0 top-0 left-[640px]"
     >
       <ImageComp
-        imageAlt="Commercial Pilot Point of View"
-        imagePath="/src/assets/images/commercial-pov-sky.webp"
+        imageAlt="Thumbs up"
+        imagePath="/src/assets/images/thumbs_up.webp"
         styles="w-full h-full object-cover"
         quality={100}
       />
