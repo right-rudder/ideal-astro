@@ -344,27 +344,6 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
 </DiscoveryFlightLayout>
 
 <script define:vars={{ CONTACT_FORM_WEBHOOK_URL }}>
-  const dateInput = document.getElementById("date");
-
-  // Get today's date
-  const today = new Date();
-  today.setHours(0, 0, 0, 0); // Set to midnight to avoid timezone issues
-
-  // Calculate the minimum date (5 days from today)
-  const minDate = new Date(today);
-  minDate.setDate(today.getDate() + 5);
-
-  // Format dates to YYYY-MM-DD
-  const formatDate = (date) => {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-  };
-
-  // Set min and max attributes for the input
-  dateInput.min = formatDate(minDate);
-
   const checkbox = document.getElementById("agree-data-collection");
   const submitButton = document.getElementById("submit-button");
 
