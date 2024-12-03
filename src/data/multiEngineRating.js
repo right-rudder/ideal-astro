@@ -18,9 +18,8 @@ const multiEngineRating = {
       "/src/assets/images/multi-engine-instructor-pass-checkride.webp",
     primaryAlt: "Multi engine instructor pass checkride",
     prerequisites: [
-      "Be able to read, speak, write, and understand the English language",
       "Hold a current private pilot certificate",
-      "Hold a valid medical certificate",
+      "Hold a valid FAA 3rd Class Medical Certificate or a higher class",
     ],
     steps: [
       {

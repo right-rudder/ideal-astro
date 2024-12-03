@@ -17,9 +17,9 @@ const commercialPilot = {
     primaryImage: "/src/assets/images/student_pilot_recieves_certificate.webp",
     primaryAlt: "Student pilot recieves certificate",
     prerequisites: [
-      "Be able to read, speak, write, and understand the English language",
       "Hold a current private pilot certificate",
       "Have a minimum of 250 hours of flight time, including 100 hours of pilot-in-command time",
+      "Obtain a valid FAA 2nd Class Medical Certificate or a higher class",
     ],
     steps: [
       {

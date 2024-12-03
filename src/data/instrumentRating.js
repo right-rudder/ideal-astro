@@ -17,8 +17,9 @@ const instrumentRating = {
     primaryImage: "/src/assets/images/pilot-flying-on-ifr-flight.webp",
     primaryAlt: "Pilot flying on IFR flight",
     prerequisites: [
-      "Be able to read, speak, write, and understand the English language",
-      "Hold a current private pilot certificate or apply for one alongside the instrument rating",
+      "Hold a current private pilot certificate or apply for one alongside the instrument rating.",
+      "Accumulate a specific amount of flight time, including: 50 hours of cross-country PIC (Pilot in Command) time. 40 hours of instrument training",
+      "Hold a valid FAA 3rd Class Medical Certificate or a higher class",
     ],
     steps: [
       {

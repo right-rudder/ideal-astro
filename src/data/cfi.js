@@ -17,8 +17,6 @@ const cfi = {
     primaryImage: "/src/assets/images/ideal-cfi-with-private-pilot.webp",
     primaryAlt: "Ideal CFI with private pilot",
     prerequisites: [
-      "Be able to read, speak, write, and understand the English language",
-      "Must be minimum age of 18",
       "Hold either a commercial pilot certificate or an airline transport pilot certificate with an instrument rating",
       "Secure a valid FAA 3rd Class Medical Certificate or a higher class",
       "Accumulated at least 250 hours of flight time",
