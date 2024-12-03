@@ -7,6 +7,12 @@ import CounterCard from "~/components/CounterCard";
 import stats from "~/data/stats";
 import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
+import { getCollection } from "astro:content";
+import BlogPostCard from "../components/BlogPostCard.astro";
+const posts = (await getCollection("blog")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
 ---
 
 <BaseLayout
@@ -256,6 +262,53 @@ import ReviewCard from "../components/ReviewCard.astro";
           title="Commercial Pilot"
           review="Had a discovery flight today with Michael. It was a wonderful experience I definitely recommend it!"
         />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="mx-2 mt-24 rounded-3xl bg-main-blue py-10 lg:pt-36 lg:pb-28 px-5"
+  >
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden lg:-mt-60">
+      <iframe
+        class="w-full aspect-video"
+        src="https://tube.rvere.com/embed?v=mAOuSIRejAY"
+        title="Interview with Kimberly, Casey, and Tyler!"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <section>
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col gap-10">
+      <div class="flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Our Latest Blog Posts
+        </h2>
+        <h3
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Stay Up to Date with Our Latest News
+        </h3>
+      </div>
+      <div class="grid mx-auto lg:grid-cols-3 lg:mx-0 gap-3">
+        {
+          posts
+            .slice(0, 3)
+            .map((post) => (
+              <BlogPostCard
+                imagePath={post.data.heroImage}
+                title={post.data.title}
+                date={post.data.pubDate}
+                blogUrl={`/blog/${post.slug}/`}
+                description={post.data.description}
+              />
+            ))
+        }
       </div>
     </div>
   </section>
