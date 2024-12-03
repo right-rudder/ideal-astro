@@ -51,6 +51,15 @@ const info = {
             <p class="text-main-black/80 lg:text-lg" set:html={intro} />
           ))
         }
+        {
+          data.programs &&
+            data.programs.map((program) => (
+              <p class="text-gray-600 lg:text-lg">
+                <span class="font-semibold text-main-black">{program.title}: </span>
+                {program.description}
+              </p>
+            ))
+        }
       </div>
 
       {data.steps && (
