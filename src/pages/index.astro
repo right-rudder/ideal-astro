@@ -3,6 +3,7 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import HomepageHeader from "~/components/HomepageHeader.astro";
 import { Image } from "astro:assets";
 import helicopter from "~/assets/images/helicopter_commercial_checkride.webp";
+import multi from "~/assets/images/airplane-cfi-in-front-of-fixed-wing-training-aircraft.webp";
 import CounterCard from "~/components/CounterCard";
 import stats from "~/data/stats";
 import ImageComp from "../components/ImageComp.astro";
@@ -75,6 +76,45 @@ const posts = (await getCollection("news")).sort(
         <Image
           src={helicopter}
           alt="Helicopter Commercial Checkride"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col-reverse lg:flex-row-reverse gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Take Our Quiz
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Do You Think You Could Be a Pilot?
+        </h3>
+        <p class="text-main-black/70">
+          Are you fascinated by the world of aviation? Have you always dreamed
+          of soaring through the skies? Do you find yourself looking up at the
+          planes overhead, wondering what it would be like to be the one in
+          control?
+        </p>
+        <p class="text-main-black/70">
+          Start by taking our quick quiz to see if you have what it takes! Our
+          quiz will assess your knowledge and skills related to aviation, as
+          well as your personality traits and interests, to help determine if
+          flying is right for you.
+        </p>
+        <a href="/quiz" class="btn-primary">Take The Quiz</a>
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={multi}
+          alt="CFI in front of fixed wing training aircraft"
           class="rounded-xl z-10 relative"
         />
       </div>
