@@ -12,7 +12,17 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
   site: "https://idealaviationstl.com/",
-  integrations: [mdx(), sitemap(), react(), tailwind(), partytown()],
+  integrations: [
+    mdx(),
+    sitemap({
+      customPages: [
+        "https://idealaviationstl.com/ideal-aviation-quick-start-guide.pdf",
+      ],
+    }),
+    react(),
+    tailwind(),
+    partytown(),
+  ],
   redirects: {},
   vite: {
     resolve: {
