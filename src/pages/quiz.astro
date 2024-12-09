@@ -1,0 +1,424 @@
+---
+import ImageComp from "../components/ImageComp.astro";
+import DiscoveryFlightLayout from "../layouts/DiscoveryFlightLayout.astro";
+const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
+---
+
+<DiscoveryFlightLayout
+  siteTitle="Quiz | Ideal Aviation"
+  siteDescription="Take our fun quiz and see if pilot training is right for you. We'll look at your learning styles and your preferences and see if you'd be a good fit at Ideal Aviation"
+>
+  <section class="flex">
+    <div
+      class="flex flex-col gap-3 max-w-screen-sm px-5 py-10 lg:py-28 lg:px-28 lg:min-w-[640px] mx-auto lg:mx-0"
+    >
+      <a href="/">
+        <ImageComp
+          imageAlt="Ideal Logo"
+          imagePath="/src/assets/images/ideal_logo_600.webp"
+          styles="w-28 mb-5"
+        />
+      </a>
+      <h1
+        class="text-sm/5 font-semibold text-gray-500 uppercase tracking-widest"
+      >
+        Take our Quiz
+      </h1>
+      <h2
+        class="max-w-lg text-pretty text-2xl font-semibold tracking-tight text-main-black sm:text-3xl"
+      >
+        Are you ready to become a pilot?
+      </h2>
+      <p class="italic text-sm text-gray-700">
+        Take our fun quiz and see if pilot training is right for you. We'll look
+        at your learning styles and your preferences and see if you'd be a good
+        fit at Ideal Aviation
+      </p>
+      <form
+        id="form"
+        class="flex flex-col max-w-4xl mx-auto lg:my-0 bg-white shadow-sm"
+      >
+        <div class="flex flex-col gap-2">
+          <label for="first-name" class="text-sm font-medium mt-2 text-gray-500"
+            >First Name</label
+          >
+          <input
+            type="text"
+            name="first-name"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
+            required
+          />
+          <label for="last-name" class="text-sm font-medium mt-2 text-gray-500"
+            >Last Name</label
+          >
+          <input
+            type="text"
+            name="last-name"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
+            required
+          />
+          <label for="email" class="text-sm font-medium mt-2 text-gray-500"
+            >Email</label
+          >
+          <input
+            id="email"
+            type="email"
+            name="email"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
+            required
+          />
+          <input
+            type="email"
+            name="confirm-email"
+            placeholder="Confirm email"
+            class="hidden"
+          />
+          <label for="phone" class="text-sm font-medium mt-2 text-gray-500"
+            >Phone</label
+          >
+          <input
+            type="tel"
+            name="phone"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded"
+            required
+          />
+
+          <label
+            for="interested-in"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >What type of training are you interested in?</label
+          >
+          <select
+            id="interested-in"
+            name="interested-in"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Airplanes">Airplanes</option>
+            <option value="Helicopters">Helicopters</option>
+          </select>
+
+          <label
+            for="why-do-you-want-to-become-a-pilot"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >Why do you want to become a pilot? (select all that apply)</label
+          >
+          <div class="grid grid-cols-2 gap-2 text-sm">
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Adventure"
+                id="adventure"
+              />
+              <label for="adventure">Adventure</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Hobby"
+                id="hobby"
+              />
+              <label for="hobby">Hobby</label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="why-do-you-want-to-become-a-pilot"
+                value="Career"
+                id="career"
+              />
+              <label for="career">Career</label>
+            </div>
+          </div>
+
+          <label
+            for="aviation-goals"
+            class="text-sm font-medium mt-2 text-gray-500"
+          >
+            What are your aviation goals?
+          </label>
+          <textarea
+            id="aviation-goals"
+            name="aviation-goals"
+            class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
+          ></textarea>
+
+          <label for="experience" class="text-sm font-medium mt-2 text-gray-500"
+            >Do you have any previous training?</label
+          >
+          <select
+            id="experience"
+            name="experience"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Never piloted an aircraft before"
+              >Never piloted an aircraft before</option
+            >
+            <option value="I've flown simulators or drones"
+              >I've flown simulators or drones</option
+            >
+            <option value="A few hours but never soloed"
+              >A few hours but never soloed</option
+            >
+            <option value="I'm working on a checkride"
+              >I'm working on a checkride</option
+            >
+          </select>
+
+          <label
+            for="how-do-you-learn-best?"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >How do you learn best?</label
+          >
+          <select
+            id="how-do-you-learn-best?"
+            name="how-do-you-learn-best?"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Doing">Doing</option>
+            <option value="Watching">Watching</option>
+            <option value="Reading">Reading</option>
+          </select>
+
+          <label
+            for="best-approach"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >Do you prefer to have a lot of structure and clear expectations, or
+            do you prefer a more flexible approach?</label
+          >
+          <select
+            id="best-approach"
+            name="best-approach"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="I prefer a structured approach"
+              >I prefer a structured approach</option
+            >
+            <option value="I prefer a flexible approach"
+              >I prefer a flexible approach</option
+            >
+          </select>
+
+          <label
+            for="king-of-guidance"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >What kind of guidance and support would you prefer from your flight
+            instructor? (Select all that apply)
+          </label>
+          <div class="grid gap-2 text-sm">
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer a personalized approach tailored to my individual learning needs and preferences."
+                id="personalized-approach"
+              />
+              <label for="personalized-approach"
+                >I prefer a personalized approach tailored to my individual
+                learning needs and preferences.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I would like my flight instructor to be hands-on and involved in my training, providing constant feedback and guidance."
+                id="hands-on"
+              />
+              <label for="hands-on"
+                >I would like my flight instructor to be hands-on and involved
+                in my training, providing constant feedback and guidance.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer a structured approach with clear goals and objectives."
+                id="strucutred-approach"
+              />
+              <label for="strucutred-approach"
+                >I prefer a structured approach with clear goals and objectives.</label
+              >
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                name="king-of-guidance"
+                value="I prefer guidance that is supportive and encouraging, with a focus on building confidence."
+                id="building-confidence"
+              />
+              <label for="building-confidence"
+                >I prefer guidance that is supportive and encouraging, with a
+                focus on building confidence.</label
+              >
+            </div>
+          </div>
+
+          <label
+            for="how-a-wing-generates-lift?"
+            class="text-sm font-medium mt-2 text-gray-500"
+          >
+            Just for fun, do you know how a wing generates lift?
+          </label>
+          <textarea
+            id="how-a-wing-generates-lift?"
+            name="how-a-wing-generates-lift?"
+            class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
+          ></textarea>
+
+          <label
+            for="additional-info"
+            class="text-sm font-medium mt-2 text-gray-500"
+          >
+            Any additional information
+          </label>
+          <textarea
+            id="additional-info"
+            name="additional-info"
+            class="px-2 py-2 outline-1 border-gray-400 border outline-gray-500 min-h-32 rounded"
+          ></textarea>
+
+          <label
+            for="schedule-a-visit?"
+            class="text-sm font-medium mt-2 text-gray-500"
+            >Would you like to schedule a visit to Ideal Aviation?</label
+          >
+          <select
+            id="schedule-a-visit?"
+            name="schedule-a-visit?"
+            class="px-2 py-2 outline-1 w-full border-gray-400 border outline-gray-500 rounded bg-white"
+            required
+          >
+            <option value="" disabled selected></option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+        </div>
+
+        <div class="flex gap-3">
+          <input
+            type="checkbox"
+            name="agree-data-collection"
+            id="agree-data-collection"
+          />
+
+          <label
+            for="agree-data-collection"
+            class="text-gray-500 text-sm lg:text-base my-5"
+          >
+            I agree to the terms & conditions provided by the company. By
+            providing my phone number, I agree to receive text messages from
+            Ideal Aviation.
+          </label>
+        </div>
+        <button
+          id="submit-button"
+          disabled
+          type="submit"
+          class="btn-primary cursor-not-allowed bg-gray-400 hover:bg-gray-400"
+          >Submit</button
+        >
+      </form>
+    </div>
+    <div
+      class="w-full hidden lg:block fixed right-0 bottom-0 top-0 left-[640px]"
+    >
+      <ImageComp
+        imageAlt="Thumbs up"
+        imagePath="/src/assets/images/thumbs_up.webp"
+        styles="w-full h-full object-cover"
+        quality={100}
+      />
+    </div>
+  </section>
+</DiscoveryFlightLayout>
+
+<script define:vars={{ CONTACT_FORM_WEBHOOK_URL }}>
+  const checkbox = document.getElementById("agree-data-collection");
+  const submitButton = document.getElementById("submit-button");
+
+  checkbox.addEventListener("change", function () {
+    if (checkbox.checked) {
+      submitButton.disabled = false;
+      submitButton.classList.remove(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    } else {
+      submitButton.disabled = true;
+      submitButton.classList.add(
+        "cursor-not-allowed",
+        "bg-gray-400",
+        "hover:bg-gray-400",
+      );
+    }
+  });
+
+  // Wait for the DOM content to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the contactUs form element
+    const form = document.getElementById("form");
+
+    // Check if the contactUs form element exists
+    if (form !== null) {
+      // Add submit event listener to the contactUs form
+      form.addEventListener("submit", function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Serialize the form data
+        const formData = new FormData(form);
+
+        // Check the value of the honeypot field
+        const confirmEmailValue = formData.get("confirm-email");
+        if (confirmEmailValue === "" || confirmEmailValue === null) {
+          // If the honeypot field is empty, it's a human
+          // Set the form action to the URL for processing the form and redirecting to thank you
+          form.action = CONTACT_FORM_WEBHOOK_URL;
+        }
+
+        // Convert FormData to URLSearchParams
+        const urlSearchParams = new URLSearchParams();
+        for (const pair of formData.entries()) {
+          urlSearchParams.append(pair[0], pair[1]);
+        }
+
+        // Send an AJAX request to submit the form
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded",
+        );
+        xhr.onload = function () {
+          // Check if the request was successful (status 200)
+          if (xhr.status === 200) {
+            // Redirect the user after a successful form submission
+            window.location.href = "/contact-confirmation";
+          } else {
+            // Handle errors if any
+            console.error("Form submission failed:", xhr.statusText);
+          }
+        };
+        xhr.onerror = function () {
+          // Handle network errors
+          console.error("Network error occurred while submitting the form.");
+        };
+        xhr.send(urlSearchParams);
+      });
+    } else {
+      console.error("Form element not found.");
+    }
+  });
+</script>

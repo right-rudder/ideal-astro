@@ -1,19 +1,23 @@
 const stats = [
   {
-    value: 14,
-    title: "Airplanes",
+    value: 10,
+    suffix: "+",
+    title: "Airplanes, Helicopters, Simulators",
   },
   {
-    value: 5,
-    title: "Simulators",
-  },
-  {
-    value: 1200,
-    title: "Testimonials",
-  },
-  {
-    value: 2800,
+    value: 1000,
+    suffix: "+",
     title: "Graduates",
+  },
+  {
+    value: 98,
+    suffix: "%",
+    title: "Checkride Pass Rate",
+  },
+  {
+    value: 100,
+    suffix: "%",
+    title: "Happy Students",
   },
 ];
 

@@ -1,6 +1,6 @@
 import CountUp from "react-countup";
 
-const Counter = ({ value, title }) => {
+const Counter = ({ value, title, suffix }) => {
   return (
     <div>
       <div className="bg-dark-blue flex flex-col py-10 group">
@@ -13,7 +13,7 @@ const Counter = ({ value, title }) => {
               scrollSpyDelay={100}
               scrollSpyOnce
             />
-            <span className="text-main-blue">+</span>
+            <span className="text-main-blue">{suffix}</span>
           </span>
           <h2 className="text-main-black/80 text-lg text-center whitespace-nowrap">
             {title}

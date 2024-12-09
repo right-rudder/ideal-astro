@@ -1,8 +1,6 @@
 ---
-import esPrograms from "../data/programs.js";
-import enPrograms from "../data/en/programs.js";
+import programs from "../data/programs.js";
 const PROGRAM_FORM_WEBHOOK_URL = import.meta.env.PROGRAM_FORM_WEBHOOK_URL;
-const programs = Astro.currentLocale === "en" ? enPrograms : esPrograms;
 
 const esData = {
   title: "Toma el primer paso...",

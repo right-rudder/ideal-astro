@@ -1,0 +1,200 @@
+---
+import BaseLayout from "~/layouts/BaseLayout.astro";
+import ImageComp from "~/components/ImageComp.astro";
+
+const data = {
+  siteTitle: "Our Story | Ideal Aviation",
+  siteDescription:
+    "Ideal Aviation's story is one of passion, dedication, and a love for aviation. Learn more about our founder, Bill Macon, and the legacy of flight that inspires us every day.",
+};
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+  <section class="pt-28 relative">
+    <div
+      class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <header>
+        <h2
+          class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
+        >
+          About Us
+        </h2>
+        <h3
+          class="mt-2 text-pretty text-4xl font-medium tracking-tighter text-gray-950 data-[dark]:text-white sm:text-6xl"
+        >
+          Meet Bill Macon
+        </h3>
+        <p class="mt-6 max-w-3xl text-2xl font-medium text-gray-500">
+          Bill Macon is the founder and CEO of Ideal Aviation. He has a strong
+          passion for sharing his love of aviation with others.
+        </p>
+      </header>
+      <div class="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
+        <div class="max-w-lg">
+          <quote class="text-gray-600 block">
+            "I acquired Ideal Aviation in 2011 and since then I've earned my
+            private, instrument, and multi-engine ratings. It's been a fantastic
+            opportunity to combine work and pleasure. I enjoy flying for
+            business and personal trips."
+          </quote>
+          <quote class="mt-8 text-gray-600 block">
+            "Our family has a long history in aviation. My father and mother
+            were both pilots. In the 1930s, my grandfather owned the Von
+            Hoffmann Aircraft Corporation and the Von Hoffmann Flying School."
+          </quote>
+          <cite class="mt-5 pr-16 text-gray-600 ml-auto w-full block text-right"
+            >- Bill Macon</cite
+          >
+          <div class="mt-6">
+            <a class="btn-primary" href="/contact">Join Us</a>
+          </div>
+        </div>
+        <div class="max-lg:order-first max-lg:max-w-lg">
+          <div
+            class="aspect-[3/2] overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
+          >
+            <ImageComp
+              imageAlt="Bill Macon"
+              imagePath="/src/assets/images/bill_macon_peace.webp"
+              styles="block size-full object-cover object-top"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto my-12 max-w-2xl lg:max-w-7xl px-6 sm:mt-20 sm:mb-48 lg:px-8"
+  >
+    <h2
+      class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
+    >
+      A legacy of flight
+    </h2>
+    <hr class="mt-6 border-t border-gray-200" />
+    <ul role="list" class="mx-auto mt-10 grid grid-cols-1 gap-8 lg:grid-cols-2">
+      <li>
+        <ImageComp
+          imageAlt="Beverly Von Hoffmann"
+          imagePath="/src/assets/images/beverly-vonhoffmann.webp"
+          styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
+        />
+        <p class="mt-6 max-w-lg text-sm/6 text-gray-500">
+          "My mother, Beverly von Hoffmann, obtained her pilot license in 1943,
+          just past her 18th birthday. She reveled flying her Stinson during her
+          days at Stevens College in Columbia, Missouri, often taking friends on
+          weekend outings to St. Louis and beyond."
+        </p>
+      </li>
+      <li>
+        <ImageComp
+          imageAlt="Bill Macon Sr."
+          imagePath="/src/assets/images/bill_macon_sr.webp"
+          styles="w-11/12 max-w-lg h-[30rem] object-cover rounded-xl"
+        />
+        <p class="mt-6 max-w-lg text-sm/6 text-gray-500">
+          "My father, Bill Macon Sr., was a pilot in the U.S. Army Air Corps
+          during World War II. “Big Bill” is pictured here after completing his
+          flight training at Cimmaron Army Airfield in Oklahoma in 1943. Macon,
+          Sr. went on to teach radio communications at Scott Field during war,
+          just down the road from where Ideal Aviation is now."
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="mx-2 rounded-3xl bg-main-blue py-10 lg:pt-36 lg:pb-28 px-5">
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden lg:-mt-60">
+      <iframe
+        class="w-full aspect-video"
+        src="https://tube.rvere.com/embed?v=IOY7YqMDeCU"
+        title="Interview with Managing Partner, Bill!"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <section id="faqs" class="scroll-mt-8 mt-24 px-5">
+    <h2 class="text-center text-sm font-semibold text-gray-500 uppercase mb-3">
+      Frequently asked questions
+    </h2>
+    <h3
+      class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center"
+    >
+      Your questions answered.
+    </h3>
+    <div class="mx-auto mb-32 mt-16 max-w-xl space-y-12">
+      <dl>
+        <dt class="text-sm font-semibold">
+          What kind of training do you offer?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          We provide a range of training programs designed to suit different
+          goals, from private pilot certifications to advanced commercial and
+          multi-engine ratings. Our training emphasizes safety, skill, and
+          confidence to ensure you’re prepared for every step in your aviation
+          journey.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          How safe are your training flights?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Safety is our top priority at Ideal Aviation. Our instructors undergo
+          rigorous training and continuous education, and we maintain our fleet
+          with the highest safety standards. We also perform regular safety
+          audits and conduct thorough pre-flight checks to ensure every flight
+          is as safe as possible.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          Do you offer financing options for training programs?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Yes, we offer flexible financing options to make flight training
+          accessible. Our team can help you explore available options so you can
+          focus on your education without financial stress.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          What kind of support is available to students?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          We provide extensive support through every step of training. Our
+          instructors and staff are available for one-on-one guidance, and we
+          also offer online resources and post-graduation career assistance to
+          help you succeed in the aviation field.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">Can I train on my own schedule?</dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Yes, we offer flexible scheduling options to accommodate various time
+          commitments. Our team works with you to create a training schedule
+          that suits your availability, so you can balance training with other
+          responsibilities.
+        </dd>
+      </dl>
+      <dl>
+        <dt class="text-sm font-semibold">
+          Do you have a program for career pilots?
+        </dt>
+        <dd class="mt-4 text-sm/6 text-gray-600">
+          Absolutely! For those interested in a career in aviation, we offer
+          specialized commercial training paths and job placement assistance
+          after certification. Our programs are designed to prepare you
+          thoroughly for a professional career in aviation.
+        </dd>
+      </dl>
+    </div>
+  </section>
+</BaseLayout>

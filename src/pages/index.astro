@@ -3,22 +3,22 @@ import BaseLayout from "~/layouts/BaseLayout.astro";
 import HomepageHeader from "~/components/HomepageHeader.astro";
 import { Image } from "astro:assets";
 import helicopter from "~/assets/images/helicopter_commercial_checkride.webp";
+import multi from "~/assets/images/airplane-cfi-in-front-of-fixed-wing-training-aircraft.webp";
 import CounterCard from "~/components/CounterCard";
 import stats from "~/data/stats";
-import { FaCheck } from "react-icons/fa";
-import iflyStudents from "~/assets/estudiantes-de-ifly-recibiendo-medalla.webp";
-import graduatedStudents from "~/assets/estudiantes-graduados-de-la-universidad-de-ifly.webp";
-import programs from "~/data/programs";
-import ProgramCard from "~/components/ProgramCard.astro";
-import studentInHangar from "~/assets/estudiante-de-ifly-en-hangar.webp";
-import IndexForm from "~/components/IndexForm.astro";
 import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
+import { getCollection } from "astro:content";
+import BlogPostCard from "../components/BlogPostCard.astro";
+const posts = (await getCollection("news")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
 ---
 
 <BaseLayout
-  siteTitle="Ideal Aviation"
-  siteDescription="Bienvenido a iFly, la primera universidad aeronáutica de México. Prepárate para alcanzar tu sueño de volar con carreras para pilotos, oficiales de operaciones, sobrecargos y más. ¡Obtén tu licencia de Piloto Comercial hoy!"
+  siteTitle="The Ideal Way to Learn to Fly in St. Louis | Ideal Aviation"
+  siteDescription="Ideal Aviation is the place for pilots in St. Louis, Missouri. We maintain the highest standards of safety in all of our operations. Our certified flight instructors have decades of combined experience, ensuring that you have the knowledge and skills you need to fly safely and confidently."
 >
   <HomepageHeader slot="header" />
 
@@ -30,13 +30,14 @@ import ReviewCard from "../components/ReviewCard.astro";
             client:only="react"
             value={stat.value}
             title={stat.title}
+            suffix={stat.suffix}
           />
         ))
       }
     </div>
   </section>
 
-  <section id="welcome" class="scroll-my-24">
+  <section id="welcome" class="scroll-my-10">
     <div
       class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col-reverse lg:flex-row gap-20 items-center"
     >
@@ -51,22 +52,69 @@ import ReviewCard from "../components/ReviewCard.astro";
         >
           Why Choose Ideal Aviation?
         </h3>
-        <h4 class="text-gray-600 font-bold text-2xl">
+        <h4 class="text-gray-500 font-semibold text-2xl">
           The Ideal Way to Learn to Fly in St. Louis, Missouri
         </h4>
         <p class="text-main-black/70">
-          Fly the Ideal Way. Ideal Aviation is the place for pilots in St.
-          Louis, Missouri. We maintain the highest standards of safety in all of
-          our operations. Our certified flight instructors have decades of
-          combined experience, ensuring that you have the knowledge and skills
-          you need to fly safely and confidently.
+          When you choose to fly at Ideal Aviation, you're not only joining the
+          welcoming and friendly community of aviation, you become part of the
+          Ideal Aviation family. We are committed to your success and we want to
+          see you succeed in your aviation goals.
         </p>
-        <a href="/nosotros/historia" class="btn-primary">Join The Family</a>
+        <p class="text-main-black/70">
+          Our facility spans over three hangars and we have a growing fleet of
+          ten aircraft and over 15 certified flight instructors to fit your
+          training needs. Ideal Aviation offers private classrooms for
+          individualized ground instruction that provide a comfortable and
+          personalized learning environment.
+        </p>
+        <a href="/discovery-flight" class="btn-primary"
+          >Schedule a Discovery Flight</a
+        >
       </div>
       <div class="flex-1 relative h-fit">
         <Image
           src={helicopter}
           alt="Helicopter Commercial Checkride"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col-reverse lg:flex-row-reverse gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Take Our Quiz
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Do You Think You Could Be a Pilot?
+        </h3>
+        <p class="text-main-black/70">
+          Are you fascinated by the world of aviation? Have you always dreamed
+          of soaring through the skies? Do you find yourself looking up at the
+          planes overhead, wondering what it would be like to be the one in
+          control?
+        </p>
+        <p class="text-main-black/70">
+          Start by taking our quick quiz to see if you have what it takes! Our
+          quiz will assess your knowledge and skills related to aviation, as
+          well as your personality traits and interests, to help determine if
+          flying is right for you.
+        </p>
+        <a href="/quiz" class="btn-primary">Take The Quiz</a>
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={multi}
+          alt="CFI in front of fixed wing training aircraft"
           class="rounded-xl z-10 relative"
         />
       </div>
@@ -84,8 +132,8 @@ import ReviewCard from "../components/ReviewCard.astro";
         <p
           class="mt-2 max-w-lg lg:max-w-4xl text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl"
         >
-          We offer a range of programs and services to help you achieve your
-          aviation goals
+          We offer a range of programs and services at St. Louis Downtown
+          Airport to help you achieve your aviation goals
         </p>
         <div
           class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
@@ -109,14 +157,16 @@ import ReviewCard from "../components/ReviewCard.astro";
                   Take a Discovery Flight
                 </p>
                 <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
-                  The best way to experience flying is to take a Discovery
-                  Flight. This is a short introductory flight with one of our
-                  experienced instructors that will give you a taste of what
-                  it's like to fly an aircraft. You'll have the opportunity to
-                  take the controls and learn basic maneuvers and enjoy the
-                  incredible views from above.
+                  The best way to experience flying near St. Louis, Missouri,
+                  and the surrounding area is to take a Discovery Flight. This
+                  short introductory flight offers you the chance to fly with
+                  one of our experienced instructors. You'll take the controls,
+                  learn basic maneuvers, and enjoy breathtaking views of the
+                  Gateway Arch and the Mississippi River from above.
                 </p>
-                <a href="#" class="btn-primary mt-2">Schedule Today</a>
+                <a href="/discovery-flight" class="btn-primary mt-2"
+                  >Schedule Today</a
+                >
               </div>
             </div>
           </div>
@@ -140,10 +190,12 @@ import ReviewCard from "../components/ReviewCard.astro";
                 </p>
                 <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
                   If you're new to flying, you might not know where to start.
-                  Our team of experienced pilots and instructors can help guide
-                  you through the process.
+                  Our team of experienced pilots and instructors at St. Louis
+                  Downtown Airport can help guide you through the process.
                 </p>
-                <a href="#" class="btn-primary mt-2">Become A Pilot</a>
+                <a href="/first-time-pilots" class="btn-primary mt-2"
+                  >Become A Pilot</a
+                >
               </div>
             </div>
           </div>
@@ -171,7 +223,9 @@ import ReviewCard from "../components/ReviewCard.astro";
                   instructors will work with you to develop a training plan that
                   meets your goals, schedule, and learning style.
                 </p>
-                <a href="#" class="btn-primary mt-2">Our Courses</a>
+                <a href="/first-time-pilots#programs" class="btn-primary mt-2"
+                  >Our Courses</a
+                >
               </div>
             </div>
           </div>
@@ -201,7 +255,9 @@ import ReviewCard from "../components/ReviewCard.astro";
                   here to support you every step of the way in your aviation
                   journey whether you’re flying for fun or for a career.
                 </p>
-                <a href="#" class="btn-primary mt-2">Advanced Training</a>
+                <a href="/first-time-pilots#programs" class="btn-primary mt-2"
+                  >Advanced Training</a
+                >
               </div>
             </div>
           </div>
@@ -228,24 +284,71 @@ import ReviewCard from "../components/ReviewCard.astro";
         <ReviewCard
           imagePath="/src/assets/images/review1.jpg"
           imageAlt="Review 1"
-          name="Jhon Doe"
+          name="Alex A."
           title="Commercial Pilot"
           review="I love flying at Ideal and it's a truly wonderful flight school!"
         />
         <ReviewCard
           imagePath="/src/assets/images/review2.webp"
           imageAlt="Review 2"
-          name="Jhon Doe"
+          name="Don B."
           title="Commercial Pilot"
           review="Great instructors, nice facilities. Highly recommended"
         />
         <ReviewCard
           imagePath="/src/assets/images/review3.webp"
           imageAlt="Review 3"
-          name="Jhon Doe"
+          name="Paul D."
           title="Commercial Pilot"
-          review="Had a discovery flight today with Micheal. It was a wonderful experience I definitely recommend it!"
+          review="Had a discovery flight today with Michael. It was a wonderful experience I definitely recommend it!"
         />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="mx-2 mt-24 rounded-3xl bg-main-blue py-10 lg:pt-36 lg:pb-28 px-5"
+  >
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden lg:-mt-60">
+      <iframe
+        class="w-full aspect-video"
+        src="https://tube.rvere.com/embed?v=mAOuSIRejAY"
+        title="Interview with Kimberly, Casey, and Tyler!"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <section>
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col gap-10">
+      <div class="flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Our Latest Blog Posts
+        </h2>
+        <h3
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Stay Up to Date with Our Latest News
+        </h3>
+      </div>
+      <div class="grid lg:grid-cols-3 lg:mx-0 gap-3">
+        {
+          posts
+            .slice(0, 3)
+            .map((post) => (
+              <BlogPostCard
+                imagePath={post.data.heroImage}
+                title={post.data.title}
+                date={post.data.pubDate}
+                blogUrl={`/news/${post.slug}/`}
+                description={post.data.description}
+              />
+            ))
+        }
       </div>
     </div>
   </section>

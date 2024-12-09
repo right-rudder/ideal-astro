@@ -12,18 +12,18 @@ import partytown from "@astrojs/partytown";
 // https://astro.build/config
 export default defineConfig({
   site: "https://idealaviationstl.com/",
-  integrations: [mdx(), sitemap(), react(), tailwind(), partytown()],
-  redirects: {
-    "/aviones": "/flota/aviones",
-    "/simuladores": "/flota/simuladores",
-    "/campus": "/nosotros/campus",
-    "/galeria": "/nosotros/historia",
-    "/aviation-management": "/carreras/aviation-management",
-    "/quienes-somos": "/nosotros/equipo",
-    "/orgullo-ifly": "/nosotros/historia",
-    "/cadet-pilot": "/careeras/cadet-pilot",
-    "/pro-pilot": "/carreras/pro-pilot",
-  },
+  integrations: [
+    mdx(),
+    sitemap({
+      customPages: [
+        "https://idealaviationstl.com/ideal-aviation-quick-start-guide.pdf",
+      ],
+    }),
+    react(),
+    tailwind(),
+    partytown(),
+  ],
+  redirects: {},
   vite: {
     resolve: {
       alias: {
