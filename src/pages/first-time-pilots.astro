@@ -1,14 +1,9 @@
 ---
-import Header from "../components/Header.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import programs from "../data/programs";
-import { Image } from "astro:assets";
 import ImageComp from "../components/ImageComp.astro";
-import studentInHangar from "../assets/estudiante-de-piloto-aviador.jpg";
-import ProgramCard from "../components/ProgramCard.astro";
-import CounterCard from "~/components/CounterCard";
-import stats from "~/data/stats";
 import CountUpComponent from "~/components/CountUpComponent.jsx";
+
+const BOOK_FORM_WEBHOOK_URL = import.meta.env.BOOK_FORM_WEBHOOK_URL;
 
 const data = {
   siteTitle: "Why Become a Pilot at Ideal Aviation? | Ideal Aviation",
@@ -169,11 +164,19 @@ const data = {
           We've prepared this free booklet which explains everything you need to
           know for your pilot certificate.
         </p>
-        <form action="">
+        <form id="form">
           <input
             type="email"
+            name="email"
             placeholder="Enter your email"
             class="w-full px-4 py-2 rounded-md text-main-black"
+            required
+          />
+          <input
+            type="email"
+            name="confirm-email"
+            placeholder="Confirm email"
+            class="hidden"
           />
           <button type="submit" class="btn-secondary mt-4">
             Get Your Free Guide
@@ -361,3 +364,62 @@ const data = {
     </div>
   </section>
 </BaseLayout>
+
+<script define:vars={{ BOOK_FORM_WEBHOOK_URL }}>
+  // Wait for the DOM content to be fully loaded
+  document.addEventListener("DOMContentLoaded", function () {
+    // Get the contactUs form element
+    const form = document.getElementById("form");
+
+    // Check if the contactUs form element exists
+    if (form !== null) {
+      // Add submit event listener to the contactUs form
+      form.addEventListener("submit", function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        // Serialize the form data
+        const formData = new FormData(form);
+
+        // Check the value of the honeypot field
+        const confirmEmailValue = formData.get("confirm-email");
+        if (confirmEmailValue === "" || confirmEmailValue === null) {
+          // If the honeypot field is empty, it's a human
+          // Set the form action to the URL for processing the form and redirecting to thank you
+          form.action = BOOK_FORM_WEBHOOK_URL;
+        }
+
+        // Convert FormData to URLSearchParams
+        const urlSearchParams = new URLSearchParams();
+        for (const pair of formData.entries()) {
+          urlSearchParams.append(pair[0], pair[1]);
+        }
+
+        // Send an AJAX request to submit the form
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", form.action);
+        xhr.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded",
+        );
+        xhr.onload = function () {
+          // Check if the request was successful (status 200)
+          if (xhr.status === 200) {
+            // Redirect the user after a successful form submission
+            window.location.href = "/contact-confirmation";
+          } else {
+            // Handle errors if any
+            console.error("Form submission failed:", xhr.statusText);
+          }
+        };
+        xhr.onerror = function () {
+          // Handle network errors
+          console.error("Network error occurred while submitting the form.");
+        };
+        xhr.send(urlSearchParams);
+      });
+    } else {
+      console.error("Form element not found.");
+    }
+  });
+</script>

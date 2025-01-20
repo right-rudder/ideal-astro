@@ -1,7 +1,7 @@
 ---
 import ImageComp from "../components/ImageComp.astro";
 import DiscoveryFlightLayout from "../layouts/DiscoveryFlightLayout.astro";
-const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
+const QUIZ_FORM_WEBHOOK_URL = import.meta.env.QUIZ_FORM_WEBHOOK_URL;
 ---
 
 <DiscoveryFlightLayout
@@ -343,7 +343,7 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
   </section>
 </DiscoveryFlightLayout>
 
-<script define:vars={{ CONTACT_FORM_WEBHOOK_URL }}>
+<script define:vars={{ QUIZ_FORM_WEBHOOK_URL }}>
   const checkbox = document.getElementById("agree-data-collection");
   const submitButton = document.getElementById("submit-button");
 
@@ -385,7 +385,7 @@ const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
         if (confirmEmailValue === "" || confirmEmailValue === null) {
           // If the honeypot field is empty, it's a human
           // Set the form action to the URL for processing the form and redirecting to thank you
-          form.action = CONTACT_FORM_WEBHOOK_URL;
+          form.action = QUIZ_FORM_WEBHOOK_URL;
         }
 
         // Convert FormData to URLSearchParams
