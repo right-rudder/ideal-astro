@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "~/layouts/BaseLayout.astro";
 import ImageComp from "~/components/ImageComp.astro";
+import FAQs from "../../components/FAQs.astro";
 
 const data = {
   siteTitle: "Our Story | Ideal Aviation",
@@ -120,81 +121,5 @@ const data = {
     </div>
   </section>
 
-  <section id="faqs" class="scroll-mt-8 mt-24 px-5">
-    <h2 class="text-center text-sm font-semibold text-gray-500 uppercase mb-3">
-      Frequently asked questions
-    </h2>
-    <h3
-      class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center"
-    >
-      Your questions answered.
-    </h3>
-    <div class="mx-auto mb-32 mt-16 max-w-xl space-y-12">
-      <dl>
-        <dt class="text-sm font-semibold">
-          What kind of training do you offer?
-        </dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          We provide a range of training programs designed to suit different
-          goals, from private pilot certifications to advanced commercial and
-          multi-engine ratings. Our training emphasizes safety, skill, and
-          confidence to ensure you’re prepared for every step in your aviation
-          journey.
-        </dd>
-      </dl>
-      <dl>
-        <dt class="text-sm font-semibold">
-          How safe are your training flights?
-        </dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          Safety is our top priority at Ideal Aviation. Our instructors undergo
-          rigorous training and continuous education, and we maintain our fleet
-          with the highest safety standards. We also perform regular safety
-          audits and conduct thorough pre-flight checks to ensure every flight
-          is as safe as possible.
-        </dd>
-      </dl>
-      <dl>
-        <dt class="text-sm font-semibold">
-          Do you offer financing options for training programs?
-        </dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          Yes, we offer flexible financing options to make flight training
-          accessible. Our team can help you explore available options so you can
-          focus on your education without financial stress.
-        </dd>
-      </dl>
-      <dl>
-        <dt class="text-sm font-semibold">
-          What kind of support is available to students?
-        </dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          We provide extensive support through every step of training. Our
-          instructors and staff are available for one-on-one guidance, and we
-          also offer online resources and post-graduation career assistance to
-          help you succeed in the aviation field.
-        </dd>
-      </dl>
-      <dl>
-        <dt class="text-sm font-semibold">Can I train on my own schedule?</dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          Yes, we offer flexible scheduling options to accommodate various time
-          commitments. Our team works with you to create a training schedule
-          that suits your availability, so you can balance training with other
-          responsibilities.
-        </dd>
-      </dl>
-      <dl>
-        <dt class="text-sm font-semibold">
-          Do you have a program for career pilots?
-        </dt>
-        <dd class="mt-4 text-sm/6 text-gray-600">
-          Absolutely! For those interested in a career in aviation, we offer
-          specialized commercial training paths and job placement assistance
-          after certification. Our programs are designed to prepare you
-          thoroughly for a professional career in aviation.
-        </dd>
-      </dl>
-    </div>
-  </section>
+  <FAQs />
 </BaseLayout>
