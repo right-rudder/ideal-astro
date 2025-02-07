@@ -38,6 +38,7 @@ export default defineConfig({
     "/about-ideal-aviation": "/about/our-story",
     "/certified-flight-instructor": "/programs/cfi",
     "/airplane-pilot-training": "/programs/private-pilot",
+    "/rotary-wing-helicopter-fleet": "/about/our-rotary-wing-fleet/",
   },
   vite: {
     resolve: {
