@@ -39,6 +39,7 @@ export default defineConfig({
     "/certified-flight-instructor": "/programs/cfi",
     "/airplane-pilot-training": "/programs/private-pilot",
     "/rotary-wing-helicopter-fleet": "/about/our-rotary-wing-fleet/",
+    "/pilot-resources": "/news",
   },
   vite: {
     resolve: {
