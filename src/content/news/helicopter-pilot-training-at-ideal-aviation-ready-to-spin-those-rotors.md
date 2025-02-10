@@ -2,7 +2,7 @@
 title: "Helicopter Pilot Training at Ideal Aviation: Ready to Spin Those Rotors"
 description: "Dreaming of buzzing around in a chopper? At Ideal Aviation, we can make that dream a reality! We're the only FAA-approved Part 141 helicopter flight school in the St. Louis area, so you know you're getting top-notch training. Whether you're just starting out or looking to boost your skills, we've got a program for you."
 pubDate: "FEB 12 2025"
-heroImage: "/src/assets/images/5e949bf86f713a2b_big.jpg"
+heroImage: "/src/assets/images/helicopter-cockpit-part-141-st-louis-belleville-downtown-airport.jpg"
 ---
 
 Dreaming of buzzing around in a chopper? At Ideal Aviation, we can make that dream a reality! We're the only FAA-approved Part 141 helicopter flight school in the St. Louis area, so you know you're getting top-notch training. Whether you're just starting out or looking to boost your skills, we've got a program for you.
