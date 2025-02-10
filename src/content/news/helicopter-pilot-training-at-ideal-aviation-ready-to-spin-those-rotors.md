@@ -7,7 +7,7 @@ heroImage: "/src/assets/images/5e949bf86f713a2b_big.jpg"
 
 Dreaming of buzzing around in a chopper? At Ideal Aviation, we can make that dream a reality! We're the only FAA-approved Part 141 helicopter flight school in the St. Louis area, so you know you're getting top-notch training. Whether you're just starting out or looking to boost your skills, we've got a program for you.
 
-## From Zero to Hero: Helicopter Pilot Certifications rstenirsntiernseitnri
+## From Zero to Hero: Helicopter Pilot Certifications
 
 We'll take you from newbie to pro, one step at a time:
 
