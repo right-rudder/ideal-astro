@@ -43,6 +43,17 @@ const airplanes = [
       ],
     },
   },
+  {
+    data: {
+      name: "The Tecnam P-Mentor",
+      imagePath: "/src/assets/images/tecnam-p-mentor.jpeg",
+      imageAlt: "Tecnam P-Mentor",
+      description: [
+        "The Tecnam P-Mentor is a state-of-the-art Technically Advanced Aircraft (TAA) designed for IFR training, cross-country flights, and more. With advanced avionics and a fuel-efficient design, the P-Mentor offers an exceptional training experience for both students and experienced pilots.",
+        "The P-Mentor features a FADEC-equipped Rotax 912iSC3 engine, providing a perfect balance of power and efficiency. With a constant-speed propeller, dual Garmin G3X avionics, and a luxurious Italian interior, this aircraft ensures precision, comfort, and reliability in every flight. Whether you're training for IFR certification or looking for a comfortable cross-country aircraft, the Tecnam P-Mentor is the perfect choice.",
+      ],
+    },
+  },
 ];
 
 export default airplanes;
