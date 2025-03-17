@@ -86,7 +86,7 @@ const Navbar = ({ pathname }) => {
           navBar || openMobile ? "" : ""
         } duration-300 bg-transparent`}
       >
-        <div className="px-5 max-w-7xl mx-auto ">
+        <div className="px-5 max-w-7xl mx-auto mt-14 lg:mt-10 ">
           <div
             className={`lg:h-32 relative flex h-20 items-center justify-between transition-all`}
             id="navbar"
