@@ -40,6 +40,11 @@ export default defineConfig({
     "/airplane-pilot-training": "/programs/private-pilot",
     "/rotary-wing-helicopter-fleet": "/about/our-rotary-wing-fleet/",
     "/pilot-resources": "/news",
+    "/posts/[...slug]": "/news/[...slug]",
+    "/posts/what-s-an-alternate-airport-beef7074-4fea-4e13-818f-7abd9b3aa140":
+      "/news/what-s-an-alternate-airport",
+    "/fixed-wing-airplane-fleet": "/about/our-fixed-wing-fleet/",
+    "/how-to-become-a-pilot": "/first-time-pilots",
   },
   vite: {
     resolve: {
