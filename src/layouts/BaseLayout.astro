@@ -18,10 +18,12 @@ const { siteTitle, siteDescription } = Astro.props;
     />
   </head>
   <body>
-    <Banner />
-    <Navbar pathname={pathname} client:load />
-    <slot name="header" />
+    <header>
+      <Banner />
+      <Navbar pathname={pathname} client:load />
+    </header>
     <main>
+      <slot name="hero" />
       <slot />
     </main>
     <Footer />

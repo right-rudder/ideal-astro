@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import "@fontsource-variable/inter";
 import Navbar from "../components/Navbar";
+import Banner from "../components/Banner.astro";
 const { pathname } = Astro.url;
 const { siteTitle, siteDescription } = Astro.props;
 ---
@@ -17,9 +18,12 @@ const { siteTitle, siteDescription } = Astro.props;
     />
   </head>
   <body>
-    <Navbar pathname={pathname} client:load />
-    <slot name="header" />
+    <header>
+      <Banner />
+      <Navbar pathname={pathname} client:load />
+    </header>
     <main>
+      <slot name="hero" />
       <slot />
     </main>
     <Footer />

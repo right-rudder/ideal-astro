@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
 ---
 
-<header
+<div
   class="relative isolate overflow-hidden h-[98vh] sm:h-[70vh] lg:h-[80vh] flex text-main-black
     items-center m-2 rounded-3xl"
 >
@@ -22,11 +22,16 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
 
   <div class="flex w-full max-w-7xl mx-auto px-5">
     <div class="flex flex-col gap-8 sm:translate-y-20">
-      <h1 class="text-6xl max-w-2xl lg:text-8xl font-bold lg:max-w-6xl">
-        Pilot Training In St. Louis
+      <h1
+        class="text-6xl max-w-2xl lg:text-8xl font-bold lg:max-w-6xl flex flex-col"
+      >
+        <span>Ideal Aviation </span>
+        <span class="text-2xl lg:text-3xl">Pilot Training In St. Louis, MO</span
+        >
       </h1>
-      <h2 class="text-xl max-w-xl lg:text-2xl lg:max-w-3xl font-medium">
-        Part 61 and Part 141 FAA approved training center
+      <h2 class="text-xl max-w-xl lg:text-2xl lg:max-w-xl font-medium">
+        Part 61 and Part 141 FAA approved helicopter and airplane training
+        center
       </h2>
       <div class="flex gap-5 flex-col sm:flex-row">
         <a href="/contact" class="btn-secondary w-full sm:w-fit">Start Flying</a
@@ -37,4 +42,4 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
       </div>
     </div>
   </div>
-</header>
+</div>
