@@ -13,6 +13,8 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
     class="absolute top-0 w-full h-full object-cover object-bottom -z-50"
     quality={100}
     loading="eager"
+    widths={[240, 540, 720, HeroImage.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${HeroImage.width}px`}
   />
 
   <div
@@ -26,7 +28,8 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
         class="text-6xl max-w-2xl lg:text-8xl font-bold lg:max-w-6xl flex flex-col"
       >
         <span>Ideal Aviation </span>
-        <span class="text-2xl lg:text-3xl">Pilot Training In St. Louis, MO</span
+        <span class="text-2xl lg:text-3xl"
+          >Pilot Training In St. Louis, Missouri</span
         >
       </h1>
       <h2 class="text-xl max-w-xl lg:text-2xl lg:max-w-xl font-medium">
