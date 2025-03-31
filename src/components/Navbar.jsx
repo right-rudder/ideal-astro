@@ -97,15 +97,15 @@ const Navbar = ({ pathname }) => {
                   src={idealLogo.src}
                   alt="Ideal Aviation Logo"
                   className="w-12 lg:w-20"
-                  width="40"
-                  height="36"
+                  width="85"
+                  height="77"
                 />
                 <img
                   src={textLogo.src}
                   alt="Ideal Aviation Text Logo"
                   className="w-12 lg:w-20"
-                  width="30"
-                  height="17"
+                  width="90"
+                  height="51"
                 />
               </a>
               <div className="hidden lg:flex gap-8 items-center">
@@ -280,12 +280,15 @@ const Navbar = ({ pathname }) => {
 
         <a
           href="/"
+          aria-hidden="true"
           className="text-white px-10 w-fit mx-auto block leading-none uppercase font-semibold text-lg z-40 relative"
         >
           <img
             src={completeLogo.src}
             alt="Ideal Aviation logo"
             className="w-40"
+            width="110"
+            height="73"
           />
         </a>
 
@@ -401,20 +404,26 @@ const Navbar = ({ pathname }) => {
           <div className="flex gap-3 items-center">
             <a
               href={`mailto:${EMAIL_ADDRESS}`}
+              aria-hidden="true"
               className="border p-2 w-fit border-white rounded-full bg-white cursor-pointer"
             >
               <MdEmail className="size-3 text-main-blue" />
             </a>
-            <a href={`mailto:${EMAIL_ADDRESS}`}>{EMAIL_ADDRESS}</a>
+            <a href={`mailto:${EMAIL_ADDRESS}`} aria-hidden="true">
+              {EMAIL_ADDRESS}
+            </a>
           </div>
           <div className="flex gap-3 items-center">
             <a
               href={`tel:${PHONE_NUMBER}`}
+              aria-hidden="true"
               className="border p-2 w-fit border-white rounded-full bg-white"
             >
               <FaPhone className="size-3 text-main-blue" />
             </a>
-            <a href={`tel:${PHONE_NUMBER}`}>{PHONE_NUMBER}</a>
+            <a href={`tel:${PHONE_NUMBER}`} aria-hidden="true">
+              {PHONE_NUMBER}
+            </a>
           </div>
 
           <div className="flex gap-3 mt-2">
