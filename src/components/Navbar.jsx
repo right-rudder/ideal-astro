@@ -97,11 +97,15 @@ const Navbar = ({ pathname }) => {
                   src={idealLogo.src}
                   alt="Ideal Aviation Logo"
                   className="w-12 lg:w-20"
+                  width="40"
+                  height="36"
                 />
                 <img
                   src={textLogo.src}
                   alt="Ideal Aviation Text Logo"
                   className="w-12 lg:w-20"
+                  width="30"
+                  height="17"
                 />
               </a>
               <div className="hidden lg:flex gap-8 items-center">
