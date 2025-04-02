@@ -12,6 +12,7 @@ import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
 import BlogPostCard from "../components/BlogPostCard.astro";
+import FAQs from "../components/FAQs.astro";
 const posts = (await getCollection("news")).sort(
   (a, b) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
@@ -54,29 +55,32 @@ const posts = (await getCollection("news")).sort(
         >
           Why Choose Ideal Aviation?
         </h3>
-        <h4 class="text-gray-500 font-semibold text-2xl">
-          The Ideal Way to Learn to Fly in St. Louis, Missouri
-        </h4>
         <p class="text-main-black/70">
-          Ideal Aviation offers <strong>Part 141</strong> and <strong
+          Ideal Aviation is a leading flight training provider, offering
+          programs under both <strong>Part 141</strong> and <strong
             >Part 61</strong
-          > pilot training for rotary wing and fixed wing aircraft. From private
-          pilot all the way to commercial and CFII MEI, Ideal Aviation is here to
-          help you reach your goals. Ideal Aviation has also partnered with <a
+          > regulations for rotary and fixed-wing pilots. From private pilot licenses
+          to advanced certifications like Certified Flight Instructor (CFI) and Multi-Engine
+          Instructor (MEI), Ideal Aviation equips students with the skills and knowledge
+          needed for success. In partnership with <a
             href="https://www.swic.edu/academics/career-degrees/aviation/pilot-training/"
             target="_blank"
             class="text-blue-700 font-medium hover:underline"
             >Southwestern Illinois College</a
-          > to provide college credit for flight and ground pilot training.
+          >, the school enables students to earn college credits for their
+          flight and ground training, blending professional instruction with
+          academic achievement to enhance career prospects in aviation.
         </p>
         <p class="text-main-black/70">
-          Ideal Aviation is the best flight school in the St. Louis area. With a
-          full fleet of aircraft, clean hangars, and dedicated study areas, we
-          provide an ideal environment for pilot training. Thanks to strong
-          relationships with local Designated Pilot Examiners (DPEs), students
-          are able to schedule their checkrides in an average of 2 weeks,
-          significantly reducing wait times compared to other flight schools.
-          Start flying with Ideal Aviation today!
+          Located in the St. Louis area, Ideal Aviation stands out for its
+          well-maintained fleet, clean hangars, and dedicated study areas,
+          creating an optimal learning environment. Strong relationships with
+          local Designated Pilot Examiners (DPEs) allow students to schedule
+          their checkrides in an average of just two weeks, significantly
+          reducing wait times compared to other flight schools. With a
+          commitment to safety, excellence, and personalized training, Ideal
+          Aviation is the top choice for aspiring pilots, whether they are just
+          beginning or advancing their aviation careers.
         </p>
         <a href="/discovery-flight" class="btn-primary"
           >Schedule a Discovery Flight</a
@@ -108,17 +112,19 @@ const posts = (await getCollection("news")).sort(
           State of the Art Facilities
         </h3>
         <p class="text-main-black/70">
-          Our facility spans over three hangars and we have a growing fleet of
-          ten aircraft and over 15 certified flight instructors to fit your
-          training needs. Ideal Aviation offers private classrooms for
-          individualized ground instruction that provide a comfortable and
-          personalized learning environment.
+          Ideal Aviation operates from a state-of-the-art facility spanning
+          three expansive hangars, housing a growing fleet of ten meticulously
+          maintained aircraft. With over 15 certified flight instructors, the
+          school provides personalized training tailored to each student's
+          needs, ensuring a well-rounded and effective learning experience.
         </p>
         <p class="text-main-black/70">
-          Our state-of-the-art facilities are built to provide the best learning
-          experience possible. With spacious hangars, a diverse fleet, and
-          dedicated instructors, you'll have everything you need to excel in
-          your aviation journey.
+          To complement its flight training, Ideal Aviation offers private
+          classrooms for individualized ground instruction, creating a focused
+          and comfortable learning environment. This combination of modern
+          facilities, a diverse fleet, and dedicated instructors provides
+          students with the resources and support needed to excel in their
+          aviation journey.
         </p>
         <a href="/contact" class="btn-primary">Take a Tour</a>
       </div>
@@ -148,17 +154,22 @@ const posts = (await getCollection("news")).sort(
           Helicopter and Airplane Pilot Programs
         </h3>
         <p class="text-main-black/70">
-          When you choose to fly at Ideal Aviation, you're not only joining the
-          welcoming and friendly community of aviation, you become part of the
-          Ideal Aviation family. We are committed to your success and we want to
-          see you succeed in your aviation goals.
+          Ideal Aviation offers premier flight training programs for both
+          helicopter and airplane pilots, providing a pathway to careers in
+          aviation and the airline industry. More than just a flight school,
+          Ideal Aviation fosters a welcoming community where students become
+          part of a dedicated family of aviators. With a strong emphasis on
+          aviation safety, the school ensures that every pilot receives top-tier
+          instruction in both the cockpit and the classroom, guided by
+          experienced FAA-certified flight instructors.
         </p>
         <p class="text-main-black/70">
-          Ideal Aviation is the place for pilots in St. Louis, Missouri. We
-          maintain the highest standards of safety in all of our operations. Our
-          certified flight instructors have decades of combined experience,
-          ensuring that you have the knowledge and skills you need to fly safely
-          and confidently.
+          Committed to excellence, Ideal Aviation provides personalized
+          mentorship and rigorous training, equipping pilots with the skills and
+          knowledge to fly safely and confidently. Whether aspiring to become a
+          commercial pilot, flight instructor, or simply seeking to master the
+          science of flight, students train in a supportive environment that
+          prioritizes safety, professionalism, and success.
         </p>
         <a href="/first-time-pilots#programs" class="btn-primary"
           >View Programs</a
@@ -185,8 +196,8 @@ const posts = (await getCollection("news")).sort(
         <p
           class="mt-2 max-w-lg lg:max-w-4xl text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl"
         >
-          We offer a range of programs and services at St. Louis Downtown
-          Airport to help you achieve your aviation goals
+          We offer a range of flight training programs and services at St. Louis
+          Downtown Airport
         </p>
         <div
           class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
@@ -243,8 +254,8 @@ const posts = (await getCollection("news")).sort(
                 </p>
                 <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
                   If you're new to flying, you might not know where to start.
-                  Our team of experienced pilots and instructors at St. Louis
-                  Downtown Airport can help guide you through the process.
+                  Our team of experienced pilots and flight instructors can help
+                  guide you through the process.
                 </p>
                 <a href="/first-time-pilots" class="btn-primary mt-2"
                   >Become A Pilot</a
@@ -272,9 +283,10 @@ const posts = (await getCollection("news")).sort(
                 </p>
                 <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
                   We offer personalized training programs to help you earn your
-                  Private Pilot Certificate and beyond. Our experienced
-                  instructors will work with you to develop a training plan that
-                  meets your goals, schedule, and learning style.
+                  Private Pilot Certificate, Instrument Rating Certificate, and
+                  beyond. Our experienced instructors will work with you to
+                  develop a training plan that meets your goals, schedule, and
+                  learning style.
                 </p>
                 <a href="/first-time-pilots#programs" class="btn-primary mt-2"
                   >Our Courses</a
@@ -335,16 +347,19 @@ const posts = (await getCollection("news")).sort(
           Do You Think You Could Be a Pilot?
         </h3>
         <p class="text-main-black/70">
-          Are you fascinated by the world of aviation? Have you always dreamed
-          of soaring through the skies? Do you find yourself looking up at the
-          planes overhead, wondering what it would be like to be the one in
-          control?
+          Are you passionate about aviation and dream of flying an aircraft?
+          Have you ever looked up at an airliner soaring above and imagined
+          yourself in the cockpit? Becoming a pilot requires skill, dedication,
+          and the right training, and Ideal Aviation is here to guide you
+          through that journey.
         </p>
         <p class="text-main-black/70">
-          Start by taking our quick quiz to see if you have what it takes! Our
-          quiz will assess your knowledge and skills related to aviation, as
-          well as your personality traits and interests, to help determine if
-          flying is right for you.
+          Take our quick quiz to assess your potential for flight training! This
+          interactive quiz evaluates your knowledge, personality traits, and
+          interests to help determine if a career as a pilot or flight
+          instructor is right for you. Whether you're considering enrolling in
+          an FAA-certified flight school or exploring aviation as a passion,
+          this is the first step toward an exciting future in the skies.
         </p>
         <a href="/quiz" class="btn-primary">Take The Quiz</a>
       </div>
@@ -413,8 +428,10 @@ const posts = (await getCollection("news")).sort(
     </div>
   </section>
 
+  <FAQs />
+
   <section>
-    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col gap-10">
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col gap-10">
       <div class="flex justify-center flex-col gap-5">
         <h2
           class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
