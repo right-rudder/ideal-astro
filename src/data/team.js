@@ -3,6 +3,9 @@ const team = [
     name: "Jim M.",
     certifications: "Chief Flight Instructor, Fixed Wing CFI, CFII",
     image: "/src/assets/images/jim_300.webp",
+    bio: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt expedita dolore dicta harum. Perferendis ex quia aut, ullam sequi, eaque dolorem architecto odio nostrum veritatis minima. Omnis quisquam dolore maxime?",
+    facebook: "#",
+    instagram: "#",
   },
   {
     name: "Jake E.",
