@@ -1,0 +1,27 @@
+---
+import Header from "../../../components/Header.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import CourseLayout from "../../../layouts/CourseLayout.astro";
+import team from "../../../data/team";
+export function getStaticPaths() {
+  return team.map((member) => {
+    return {
+      params: {
+        slug: member.name
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/[^\w-]/g, ""),
+      },
+      props: {
+        member,
+      },
+    };
+  });
+}
+
+const { member } = Astro.props;
+---
+
+<BaseLayout siteTitle={member.name} siteDescription={member.name}>
+  <h1>{member.name}</h1>
+</BaseLayout>
