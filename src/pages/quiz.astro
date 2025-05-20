@@ -2,6 +2,7 @@
 import ImageComp from "../components/ImageComp.astro";
 import DiscoveryFlightLayout from "../layouts/DiscoveryFlightLayout.astro";
 const QUIZ_FORM_WEBHOOK_URL = import.meta.env.QUIZ_FORM_WEBHOOK_URL;
+const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
 ---
 
 <DiscoveryFlightLayout
@@ -341,84 +342,108 @@ const QUIZ_FORM_WEBHOOK_URL = import.meta.env.QUIZ_FORM_WEBHOOK_URL;
       />
     </div>
   </section>
-</DiscoveryFlightLayout>
 
-<script define:vars={{ QUIZ_FORM_WEBHOOK_URL }}>
-  const checkbox = document.getElementById("agree-data-collection");
-  const submitButton = document.getElementById("submit-button");
+  <script define:vars={{ QUIZ_FORM_WEBHOOK_URL, PORTAL_API_KEY }}>
+    const checkbox = document.getElementById("agree-data-collection");
+    const submitButton = document.getElementById("submit-button");
 
-  checkbox.addEventListener("change", function () {
-    if (checkbox.checked) {
-      submitButton.disabled = false;
-      submitButton.classList.remove(
-        "cursor-not-allowed",
-        "bg-gray-400",
-        "hover:bg-gray-400",
-      );
-    } else {
-      submitButton.disabled = true;
-      submitButton.classList.add(
-        "cursor-not-allowed",
-        "bg-gray-400",
-        "hover:bg-gray-400",
-      );
-    }
-  });
+    checkbox.addEventListener("change", function () {
+      if (checkbox.checked) {
+        submitButton.disabled = false;
+        submitButton.classList.remove(
+          "cursor-not-allowed",
+          "bg-gray-400",
+          "hover:bg-gray-400",
+        );
+      } else {
+        submitButton.disabled = true;
+        submitButton.classList.add(
+          "cursor-not-allowed",
+          "bg-gray-400",
+          "hover:bg-gray-400",
+        );
+      }
+    });
 
-  // Wait for the DOM content to be fully loaded
-  document.addEventListener("DOMContentLoaded", function () {
-    // Get the contactUs form element
-    const form = document.getElementById("form");
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.getElementById("form");
+      if (!form) {
+        console.error("Form element not found.");
+        return;
+      }
 
-    // Check if the contactUs form element exists
-    if (form !== null) {
-      // Add submit event listener to the contactUs form
-      form.addEventListener("submit", function (event) {
-        // Prevent the default form submission
+      form.addEventListener("submit", async (event) => {
         event.preventDefault();
 
-        // Serialize the form data
         const formData = new FormData(form);
+        const confirmEmail = formData.get("confirm-email")?.trim();
 
-        // Check the value of the honeypot field
-        const confirmEmailValue = formData.get("confirm-email");
-        if (confirmEmailValue === "" || confirmEmailValue === null) {
-          // If the honeypot field is empty, it's a human
-          // Set the form action to the URL for processing the form and redirecting to thank you
-          form.action = QUIZ_FORM_WEBHOOK_URL;
-        }
+        if (confirmEmail) return;
 
-        // Convert FormData to URLSearchParams
-        const urlSearchParams = new URLSearchParams();
-        for (const pair of formData.entries()) {
-          urlSearchParams.append(pair[0], pair[1]);
-        }
+        const webhookURL = QUIZ_FORM_WEBHOOK_URL;
+        const apiKey = PORTAL_API_KEY;
 
-        // Send an AJAX request to submit the form
-        const xhr = new XMLHttpRequest();
-        xhr.open("POST", form.action);
-        xhr.setRequestHeader(
-          "Content-Type",
-          "application/x-www-form-urlencoded",
-        );
-        xhr.onload = function () {
-          // Check if the request was successful (status 200)
-          if (xhr.status === 200) {
-            // Redirect the user after a successful form submission
+        const urlEncodedBody = new URLSearchParams(formData).toString();
+
+        const jsonBody = {
+          first_name: formData.get("first-name")?.trim() || "",
+          last_name: formData.get("last-name")?.trim() || "",
+          email: formData.get("email")?.trim() || "",
+          phone: formData.get("phone")?.trim() || "",
+          campaign: "quiz",
+          account_random_id: "ac_kikjlgpq",
+          metadata: {
+            interested_in: formData.get("interested-in")?.trim() || "",
+            why_do_you_want_to_become_a_pilot: formData
+              .getAll("why-do-you-want-to-become-a-pilot")
+              .map((item) => item.trim()),
+            aviation_goals: formData.get("aviation-goals")?.trim() || "",
+            experience: formData.get("experience")?.trim() || "",
+            how_do_you_learn_best:
+              formData.get("how-do-you-learn-best?")?.trim() || "",
+            best_approach: formData.get("best-approach")?.trim() || "",
+            king_of_guidance: formData
+              .getAll("king-of-guidance")
+              .map((item) => item.trim()),
+            how_a_wing_generates_lift:
+              formData.get("how-a-wing-generates-lift?")?.trim() || "",
+            schedule_a_visit: formData.get("schedule-a-visit?")?.trim() || "",
+            additional_info: formData.get("additional-info")?.trim() || "",
+          },
+        };
+
+        try {
+          const [ghlRes, portalRes] = await Promise.all([
+            fetch(webhookURL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: urlEncodedBody,
+            }),
+            fetch("https://portal.rightruddermarketing.com/api/leads", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+                "x-api-key": apiKey,
+              },
+              body: JSON.stringify(jsonBody),
+            }),
+          ]);
+
+          if (ghlRes.ok && portalRes.ok) {
             window.location.href = "/contact-confirmation";
           } else {
-            // Handle errors if any
-            console.error("Form submission failed:", xhr.statusText);
+            console.error("Submission failed", {
+              ghlStatus: ghlRes.status,
+              portalStatus: portalRes.status,
+            });
           }
-        };
-        xhr.onerror = function () {
-          // Handle network errors
-          console.error("Network error occurred while submitting the form.");
-        };
-        xhr.send(urlSearchParams);
+        } catch (err) {
+          console.error("Submission error:", err);
+        }
       });
-    } else {
-      console.error("Form element not found.");
-    }
-  });
-</script>
+    });
+  </script>
+</DiscoveryFlightLayout>
