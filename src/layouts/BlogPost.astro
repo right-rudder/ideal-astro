@@ -18,6 +18,13 @@ const { siteTitle, siteDescription } = Astro.props;
     />
   </head>
   <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-PJHVGV48"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
     <header>
       <Banner />
       <Navbar pathname={pathname} client:load />
