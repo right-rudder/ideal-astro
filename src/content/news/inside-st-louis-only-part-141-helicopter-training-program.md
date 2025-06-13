@@ -15,7 +15,7 @@ Let's be honest—helicopters are pretty incredible machines. Unlike airplanes t
 
 But here's the thing: learning to fly helicopters requires proper training, and not all flight schools are created equal. That's where the magic of structured, professional instruction comes into play.
 
-Learn more about Ideal's helicopter training programs here: [Helicopter Pilot Training](/programs/helicopter-pilot-training)
+Discover how Ideal's structured training programs can help you achieve your aviation goals: [Helicopter Pilot Training](/programs/helicopter-pilot-training)
 
 ## The Gold Standard: Part 141 Training
 
