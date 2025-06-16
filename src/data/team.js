@@ -20,19 +20,9 @@ const team = [
     image: "/src/assets/images/dan-b-300-2.webp",
   },
   {
-    name: "Kevin H.",
-    certifications: "Fixed Wing CFI",
-    image: "/src/assets/images/cfi-kevin-h.webp",
-  },
-  {
     name: "Josh F.",
     certifications: "Rotary Wing CFI, CFII",
     image: "/src/assets/images/josh_f_300.webp",
-  },
-  {
-    name: "Joe G.",
-    certifications: "Fixed Wing CFI, CFII",
-    image: "/src/assets/images/joe-g-300.webp",
   },
   {
     name: "Eric B.",
@@ -47,7 +37,7 @@ const team = [
   {
     name: "Andy H.",
     certifications: "Fixed Wing CFI, CFII, MEI",
-    image: "/src/assets/images/silhouette.webp",
+    image: "/src/assets/images/cfii-andy-h.webp",
   },
   {
     name: "Dillon J.",
@@ -70,9 +60,29 @@ const team = [
     image: "/src/assets/images/cfii-alma-k.webp",
   },
   {
-    name: "Daniel S.",
-    certifications: "Fixed Wing CFI, MEI",
+    name: "Alexander S.",
+    certifications: "Fixed Wing CFI",
+    image: "/src/assets/images/cfi-alexander-s.webp",
+  },
+  {
+    name: "Brian E.",
+    certifications: "Fixed Wing CFI",
+    image: "/src/assets/images/cfi-brian-e.webp",
+  },
+  {
+    name: "Dan L.",
+    certifications: "Fixed Wing CFI, CFII",
+    image: "/src/assets/images/cfii-dan-l.webp",
+  },
+  {
+    name: "Jake W.",
+    certifications: "Fixed Wing CFI",
     image: "/src/assets/images/silhouette.webp",
+  },
+  {
+    name: "Kurt O.",
+    certifications: "Fixed Wing CFI, CFII",
+    image: "/src/assets/images/cfi-kurt-o.jpeg",
   },
 ];
 
