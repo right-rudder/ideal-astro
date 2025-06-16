@@ -10,7 +10,7 @@ const stats = [
     title: "Graduates",
   },
   {
-    value: 98,
+    value: 92,
     suffix: "%",
     title: "Checkride Pass Rate",
   },
