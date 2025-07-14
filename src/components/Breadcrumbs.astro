@@ -11,24 +11,10 @@ interface Props {
 
 const { items, className = "" } = Astro.props;
 
-// Generate BreadcrumbList schema
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: items.map((item, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: item.name,
-    ...(item.href && { item: new URL(item.href, Astro.url.origin).href }),
-  })),
-};
+// Breadcrumb schema generation removed. Ensure schema is injected externally.
 ---
 
-<!-- Breadcrumb Schema -->
-<script
-  type="application/ld+json"
-  set:html={JSON.stringify(breadcrumbSchema)}
-/>
+<!-- Breadcrumb Schema injection removed. Ensure schema is injected externally. -->
 
 <!-- Breadcrumb Navigation -->
 <nav aria-label="Breadcrumb" class={`flex mb-6 ${className}`}>
