@@ -34,7 +34,7 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
   set:html={JSON.stringify(breadcrumbSchema)}
 />
 
-<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} keywords={data.keywords}>
   <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
     <div
       class="absolute top-0 inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
