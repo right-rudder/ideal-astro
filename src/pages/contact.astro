@@ -1,5 +1,6 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
 import { FaRegMap } from "react-icons/fa6";
 import { FaPhone } from "react-icons/fa6";
 import { MdOutlineEmail } from "react-icons/md";
@@ -9,21 +10,49 @@ import {
   PHONE_NUMBER,
   EMAIL_ADDRESS,
 } from "../consts";
+import {
+  generateContactPageSchema,
+  generateBreadcrumbSchema,
+} from "../utils/seo.js";
+
 const PORTAL_API_KEY = import.meta.env.PORTAL_API_KEY;
 const CONTACT_FORM_WEBHOOK_URL = import.meta.env.CONTACT_FORM_WEBHOOK_URL;
+
+const breadcrumbItems = [{ name: "Home", href: "/" }, { name: "Contact Us" }];
+
 const data = {
-  siteTitle: "Contact Us | Ideal Aviation",
+  siteTitle: "Contact Ideal Aviation | Flight School in St. Louis, IL",
   siteDescription:
-    "Contact Ideal Aviation for all your aviation training needs. We are here to help you take off.",
+    "Contact Ideal Aviation for expert flight training in St. Louis. Call (618) 360-7600 or visit us at 5600 Vector Dr, Sauget, IL. Part 141 & Part 61 programs available.",
+  keywords:
+    "contact flight school St. Louis, Ideal Aviation phone, flight training contact, aviation school Illinois, pilot training contact",
 };
+
+// Generate schemas
+const contactSchema = generateContactPageSchema();
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
 ---
 
-<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+<!-- Contact Page Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+<!-- Breadcrumb Schema -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
+
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  keywords={data.keywords}
+>
   <section class="mt-52 mx-auto max-w-2xl lg:max-w-7xl px-5">
     <div
       class="absolute top-0 inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
     >
     </div>
+
+    <Breadcrumbs items={breadcrumbItems} />
 
     <div class="flex flex-col lg:flex-row gap-10 mt-10">
       <div class="lg:flex-1 flex flex-col gap-3">
@@ -211,14 +240,14 @@ const data = {
         submitButton.classList.remove(
           "cursor-not-allowed",
           "bg-gray-400",
-          "hover:bg-gray-400",
+          "hover:bg-gray-400"
         );
       } else {
         submitButton.disabled = true;
         submitButton.classList.add(
           "cursor-not-allowed",
           "bg-gray-400",
-          "hover:bg-gray-400",
+          "hover:bg-gray-400"
         );
       }
     });

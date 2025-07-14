@@ -3,16 +3,23 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import BlogPostCard from "../../components/BlogPostCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 
 const posts = (await getCollection("news")).sort(
   (a, b) =>
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "News & Aviation Blog" },
+];
 ---
 
 <BaseLayout
-  siteTitle="Ideal Aviation Blog | Ideal Aviation"
-  siteDescription="Stay up to date with the latest news, tips, and updates from the world of aviation. Explore content on planes, aeronautical technology, and industry trends for pilots and enthusiasts."
+  siteTitle="Aviation News & Flight Training Blog | Ideal Aviation"
+  siteDescription="Stay updated with aviation news, flight training tips, pilot resources, and industry insights from Ideal Aviation's expert instructors in St. Louis. Your source for aviation knowledge."
+  keywords="aviation news, flight training blog, pilot tips, aviation industry, flight school updates, pilot resources, St. Louis aviation"
 >
   <section class="py-24 mt-28">
     <div
@@ -21,6 +28,8 @@ const posts = (await getCollection("news")).sort(
     </div>
 
     <div class="max-w-7xl mx-auto flex flex-col px-5">
+      <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+
       <h1
         class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
       >

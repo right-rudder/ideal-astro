@@ -3,10 +3,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import PlaneCard from "../../components/PlaneCard.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import helicopters from "../../data/helicopters";
-import {
-  generateFleetSchema,
-  generateBreadcrumbSchema,
-} from "../../utils/seo.js";
 
 const breadcrumbItems = [
   { name: "Home", href: "/" },
@@ -21,13 +17,6 @@ const data = {
   keywords:
     "helicopter fleet St. Louis, rotary wing training, helicopter pilot school, aviation training helicopters, flight school aircraft Illinois",
 };
-
-// Generate schemas
-const fleetSchema = generateFleetSchema({
-  type: "Rotary-Wing",
-  aircraft: helicopters.map((helicopter) => helicopter.data),
-});
-const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
 ---
 
 <BaseLayout
@@ -66,12 +55,4 @@ const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
       </ul>
     </div>
   </section>
-
-  <!-- Fleet Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify(fleetSchema)} />
-  <!-- Breadcrumb Schema -->
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbSchema)}
-  />
 </BaseLayout>

@@ -7,12 +7,33 @@ interface Props {
   title: string;
   description: string;
   keywords?: string;
-  // image?: string;
+  image?: string;
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  articleSection?: string;
+  schema?: any;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  keywords,
+  image,
+  author,
+  publishedTime,
+  modifiedTime,
+  articleSection,
+  schema,
+} = Astro.props;
+
+// Use provided image or fallback to default
+const socialImage = image || new URL("/twin_outside.png", Astro.url);
+const finalKeywords =
+  keywords ||
+  "flight school, pilot training, aviation school, helicopter training, private pilot, commercial pilot, instrument rating, flight instruction, St. Louis flight school";
 ---
 
 <!-- Global Metadata -->
@@ -44,23 +65,43 @@ const { title, description } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={finalKeywords} />
+{author && <meta name="author" content={author} />}
+<meta name="robots" content="index, follow" />
+<meta name="language" content="en-US" />
+<meta name="revisit-after" content="7 days" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={articleSection ? "article" : "website"} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content={new URL("/twin_outside.png", Astro.url)} />
+<meta property="og:image" content={socialImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Ideal Aviation" />
+<meta property="og:locale" content="en_US" />
+{
+  publishedTime && (
+    <meta property="article:published_time" content={publishedTime} />
+  )
+}
+{
+  modifiedTime && (
+    <meta property="article:modified_time" content={modifiedTime} />
+  )
+}
+{articleSection && <meta property="article:section" content={articleSection} />}
+{author && <meta property="article:author" content={author} />}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta
-  property="twitter:image"
-  content={new URL("/twin_outside.png", Astro.url)}
-/>
+<meta property="twitter:image" content={socialImage} />
+<meta property="twitter:site" content="@idealaviation" />
+<meta property="twitter:creator" content="@idealaviation" />
 
 <!-- Google tag (gtag.js) -->
 <!-- <script
@@ -83,20 +124,29 @@ const { title, description } = Astro.props;
     w[l] = w[l] || [];
     w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
     var f = d.getElementsByTagName(s)[0],
-      j = d.createElement(s),
+      j = d.createElement(s) as HTMLScriptElement,
       dl = l != "dataLayer" ? "&l=" + l : "";
     j.async = true;
     j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-    f.parentNode.insertBefore(j, f);
+    if (f.parentNode) {
+      f.parentNode.insertBefore(j, f);
+    }
   })(window, document, "script", "dataLayer", "GTM-PJHVGV48");
 </script>
 <!-- End Google Tag Manager -->
 
-<!-- Schema -->
+<!-- Enhanced Schema Markup -->
+{
+  schema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )
+}
+
+<!-- Core Organization Schema -->
 <script type="application/ld+json">
   {
-    "@context": "http://schema.org",
-    "@type": "LocalBusiness",
+    "@context": "https://schema.org",
+    "@type": ["EducationalOrganization", "LocalBusiness"],
     "name": "Ideal Aviation",
     "description": "Ideal Aviation, St. Louis’s premier FAA-approved Part 141 helicopter flight school, provides top-tier pilot training with a focus on safety, professionalism, and excellence. Located in St. Louis, Missouri, Ideal Aviation is the go-to destination for aspiring pilots, offering comprehensive programs including Private Pilot Helicopter Certification, Instrument Ratings, Commercial Pilot Training, and Certified Flight Instructor (CFI) courses. Backed by decades of combined experience from certified flight instructors, we ensure every student gains the skills and confidence needed to excel in the aviation industry. Choose Ideal Aviation for unmatched training, expert guidance, and a commitment to safety.",
     "keywords": "aviation, flight school, helicopter flight school, pilot training, flight instruction, flight school near me, helicopter flight school near me, flight instruction near me, pilot training near me, flight school St. Louis, helicopter flight school St. Louis, pilot training St. Louis, flight instruction St. Louis, flight school Missouri, helicopter flight school Missouri, pilot training Missouri, flight instruction Missouri, flight school Illinois, helicopter flight school Illinois, pilot training Illinois, flight instruction Illinois",

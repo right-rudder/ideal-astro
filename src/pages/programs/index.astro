@@ -1,0 +1,233 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ImageComp from "../../components/ImageComp.astro";
+import programs from "../../data/programs.js";
+import { generateBreadcrumbSchema, generateCourseCatalogSchema } from "../../utils/seo.js";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "Programs" },
+];
+
+const data = {
+  siteTitle: "Flight Training Programs | Ideal Aviation St. Louis",
+  siteDescription:
+    "Explore all flight training programs at Ideal Aviation in St. Louis. From Private Pilot to Commercial, Instrument Rating to CFI, helicopter to fixed-wing training. Part 141 & Part 61 programs available.",
+  keywords:
+    "flight training programs St. Louis, pilot training courses Missouri, aviation programs Illinois, private pilot commercial instrument CFI helicopter training",
+};
+
+// Generate schemas
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+const courseCatalogSchema = generateCourseCatalogSchema(programs);
+
+// Program categories for organization
+const programCategories = [
+  {
+    title: "Fixed-Wing Programs",
+    description: "Professional pilot training for airplane certification",
+    programs: programs.filter(p => 
+      !p.data.title.toLowerCase().includes('helicopter')
+    )
+  },
+  {
+    title: "Rotary-Wing Programs", 
+    description: "Comprehensive helicopter pilot training",
+    programs: programs.filter(p => 
+      p.data.title.toLowerCase().includes('helicopter')
+    )
+  }
+];
+---
+
+<!-- Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(courseCatalogSchema)} />
+
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  keywords={data.keywords}
+>
+  <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
+    <div
+      class="absolute top-0 inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
+    >
+    </div>
+
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <Breadcrumbs items={breadcrumbItems} />
+      
+      <!-- Header Section -->
+      <header class="flex gap-6 flex-col mb-16">
+        <h1
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-6xl"
+        >
+          Flight Training Programs
+        </h1>
+        <h2 class="text-gray-500 font-medium text-2xl max-w-4xl">
+          Professional pilot training programs designed to take you from beginner to certified pilot. Choose from Part 141 and Part 61 training options.
+        </h2>
+        <p class="text-main-black/70 text-lg max-w-4xl">
+          At Ideal Aviation, we offer comprehensive flight training programs for both fixed-wing and rotary-wing aircraft. Our FAA-certified instructors provide personalized training using modern aircraft and state-of-the-art simulators. Whether you're pursuing aviation as a career or hobby, we have the right program for you.
+        </p>
+      </header>
+
+      <!-- Programs Grid -->
+      <div class="space-y-16">
+        {programCategories.map((category) => (
+          <div>
+            <div class="mb-8">
+              <h3 class="text-3xl font-semibold text-main-black mb-2">
+                {category.title}
+              </h3>
+              <p class="text-gray-600 text-lg">
+                {category.description}
+              </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {category.programs.map((program) => (
+                <div class="group bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <!-- Program Image -->
+                  <div class="h-48 overflow-hidden bg-gradient-to-br from-main-blue to-blue-600 relative">
+                    {program.data.primaryImage ? (
+                      <ImageComp
+                        imagePath={program.data.primaryImage}
+                        imageAlt={program.data.primaryAlt || program.data.title}
+                        styles="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div class="w-full h-full flex items-center justify-center">
+                        <div class="text-white text-center">
+                          <svg class="w-16 h-16 mx-auto mb-2 opacity-80" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/>
+                          </svg>
+                          <h4 class="text-xl font-semibold">{program.data.title}</h4>
+                        </div>
+                      </div>
+                    )}
+                    
+                    <!-- Program Badge -->
+                    <div class="absolute top-4 right-4">
+                      <span class="bg-white/90 backdrop-blur-sm text-main-blue px-3 py-1 rounded-full text-sm font-medium">
+                        Part 141 & 61
+                      </span>
+                    </div>
+                  </div>
+
+                  <!-- Program Content -->
+                  <div class="p-6">
+                    <h4 class="text-xl font-semibold text-main-black mb-3 group-hover:text-main-blue transition-colors">
+                      {program.data.title}
+                    </h4>
+                    
+                    <p class="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">
+                      {program.data.siteDescription || program.data.intro?.[0] || "Professional pilot training program designed to advance your aviation career."}
+                    </p>
+
+                    <!-- Prerequisites Preview -->
+                    {program.data.prerequisites && (
+                      <div class="mb-4">
+                        <h5 class="text-sm font-medium text-gray-800 mb-2">Prerequisites:</h5>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                          {program.data.prerequisites.slice(0, 2).map((req) => (
+                            <li class="flex items-start">
+                              <svg class="w-3 h-3 text-green-500 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                              </svg>
+                              <span class="line-clamp-1">{req}</span>
+                            </li>
+                          ))}
+                          {program.data.prerequisites.length > 2 && (
+                            <li class="text-gray-500 text-xs">
+                              +{program.data.prerequisites.length - 2} more requirements
+                            </li>
+                          )}
+                        </ul>
+                      </div>
+                    )}
+
+                    <!-- Action Buttons -->
+                    <div class="flex gap-3 pt-4 border-t border-gray-100">
+                      <a
+                        href={program.data.url}
+                        class="flex-1 bg-main-blue text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-blue-600 transition-colors"
+                      >
+                        Learn More
+                      </a>
+                      <a
+                        href="/contact"
+                        class="px-4 py-2 border border-main-blue text-main-blue rounded-lg text-sm font-medium hover:bg-main-blue hover:text-white transition-colors"
+                      >
+                        Enroll
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Call to Action Section -->
+      <div class="mt-20 bg-gradient-to-r from-main-blue to-blue-600 rounded-2xl p-8 lg:p-12 text-white text-center">
+        <h3 class="text-3xl lg:text-4xl font-semibold mb-4">
+          Ready to Start Your Aviation Journey?
+        </h3>
+        <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+          Take the first step toward your pilot's license with a discovery flight. Experience the thrill of flying with one of our certified flight instructors.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/discovery-flight"
+            class="bg-white text-main-blue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Book Discovery Flight
+          </a>
+          <a
+            href="/contact"
+            class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-main-blue transition-colors"
+          >
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Additional Information -->
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-main-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-main-black mb-2">FAA Certified</h4>
+          <p class="text-gray-600 text-sm">Part 141 and Part 61 approved training programs with experienced CFIs</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-main-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-main-black mb-2">Flexible Scheduling</h4>
+          <p class="text-gray-600 text-sm">Train on your schedule with morning, afternoon, and weekend availability</p>
+        </div>
+        
+        <div class="text-center p-6">
+          <div class="w-16 h-16 bg-main-blue rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <h4 class="text-lg font-semibold text-main-black mb-2">Modern Fleet</h4>
+          <p class="text-gray-600 text-sm">Well-maintained aircraft with modern avionics and safety equipment</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

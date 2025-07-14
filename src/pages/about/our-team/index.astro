@@ -1,15 +1,38 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import ImageComp from "~/components/ImageComp.astro";
-import Person from "~/components/Person.astro";
-import team from "~/data/team.js";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import ImageComp from "../../../components/ImageComp.astro";
+import Person from "../../../components/Person.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs.astro";
+import team from "../../../data/team.js";
+import {
+  generateTeamSchema,
+  generateBreadcrumbSchema,
+} from "../../../utils/seo.js";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Team" },
+];
 
 const data = {
   siteTitle: "Our Team | Ideal Aviation",
   siteDescription:
     "Meet the Ideal Aviation team. Our leadership team is comprised of experienced aviation professionals who are passionate about aviation and committed to providing the highest level of training and support to our students.",
 };
+
+// Generate schemas
+const teamSchema = generateTeamSchema(team);
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
 ---
+
+<!-- Team Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(teamSchema)} />
+<!-- Breadcrumb Schema -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
 
 <BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
   <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
@@ -19,6 +42,7 @@ const data = {
     </div>
 
     <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <Breadcrumbs items={breadcrumbItems} />
       <div>
         <h1
           class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"

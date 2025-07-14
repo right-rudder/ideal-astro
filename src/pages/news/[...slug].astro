@@ -1,5 +1,12 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import BlogPost from "../../layouts/BlogPost.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import { generateBlogPostSchema } from "../../utils/seo.js";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news");
@@ -12,39 +19,62 @@ type Props = CollectionEntry<"news">;
 
 const post = Astro.props;
 const { title, description, pubDate, heroImage } = post.data;
+
 if (!heroImage) {
   throw new Error("Hero image is not defined in the post data.");
 }
+
 const { Content } = await post.render();
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import Header from "../../components/Header.astro";
-import type { ImageMetadata } from "astro";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "News", href: "/news" },
+  { name: title },
+];
+
+// Generate blog post schema
+const blogSchema = generateBlogPostSchema({
+  title,
+  description,
+  image: new URL(heroImage, Astro.url.origin).href,
+  publishDate: pubDate.toISOString(),
+  url: Astro.url.href,
+});
+
 const headerData = {
   title: title,
   headerImage: heroImage,
-  headerAlt: "CFI in Cessna",
+  headerAlt: "Aviation News",
 };
-import { Image } from "astro:assets";
-import BlogPost from "../../layouts/BlogPost.astro";
+
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}",
+  "/src/assets/images/*.{jpeg,jpg,png,gif,webp}"
 );
 if (!images[heroImage]) {
   throw new Error(
-    `"${heroImage}" does not exist in glob: "/src/assets/images/*.{jpeg,jpg,png,gif,webp}"`,
+    `"${heroImage}" does not exist in glob: "/src/assets/images/*.{jpeg,jpg,png,gif,webp}"`
   );
 }
 ---
 
+<!-- Blog Post Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+
 <BlogPost
   siteTitle=`${title} | Ideal Aviation Blog`
   siteDescription={description}
+  keywords={`aviation news, flight training updates, ${title.toLowerCase()}`}
+  publishedTime={pubDate.toISOString()}
+  articleSection="Aviation"
+  author="Ideal Aviation"
 >
   <div
     class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
   >
   </div>
   <article class="max-w-3xl mx-auto py-24 px-5 mt-28">
+    <Breadcrumbs items={breadcrumbItems} className="mb-6" />
+
     <div class="max-h-[30rem] flex mb-10">
       <Image
         src={images[heroImage]()}
@@ -55,6 +85,15 @@ if (!images[heroImage]) {
     </div>
     <div class="prose lg:prose-xl text-gray-600">
       <h1>{title}</h1>
+      <div class="text-sm text-gray-500 mb-6">
+        Published on {
+          pubDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </div>
       <Content />
     </div>
   </article>
