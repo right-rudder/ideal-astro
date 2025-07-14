@@ -660,20 +660,20 @@ export function generateAboutPageSchema() {
   };
 }
 
-export function generateOptimizedTitle(baseTitel, location = "St. Louis") {
+export function generateOptimizedTitle(baseTitle, location = "St. Louis") {
   // Ensure title is under 60 characters for optimal SEO
-  if (baseTitel.includes("Ideal Aviation")) {
-    return baseTitel;
+  if (baseTitle.includes("Ideal Aviation")) {
+    return baseTitle;
   }
 
   const suffix = " | Ideal Aviation";
   const maxLength = 60 - suffix.length;
 
-  if (baseTitel.length <= maxLength) {
-    return baseTitel + suffix;
+  if (baseTitle.length <= maxLength) {
+    return baseTitle + suffix;
   }
 
-  return baseTitel.substring(0, maxLength).trim() + suffix;
+  return baseTitle.substring(0, maxLength).trim() + suffix;
 }
 
 export function generateOptimizedDescription(
