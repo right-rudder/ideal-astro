@@ -18,6 +18,13 @@ export default defineConfig({
       customPages: [
         "https://idealaviationstl.com/ideal-aviation-quick-start-guide.pdf",
       ],
+      filter: (page) => {
+        // Exclude any pages you don't want in the sitemap
+        return !page.includes("404") && !page.includes("500");
+      },
+      changefreq: "weekly",
+      priority: 0.7,
+      lastmod: new Date(),
     }),
     react(),
     tailwind(),

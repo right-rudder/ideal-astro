@@ -1,13 +1,13 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
-import HomepageHeader from "~/components/HomepageHeader.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HomepageHeader from "../components/HomepageHeader.astro";
 import { Image } from "astro:assets";
 import helicopter from "~/assets/images/helicopter_commercial_checkride.webp";
 import multi from "~/assets/images/airplane-cfi-in-front-of-fixed-wing-training-aircraft.webp";
 import idealTeam from "~/assets/images/ideal_team.webp";
 import facility from "~/assets/images/facility.webp";
-import CounterCard from "~/components/CounterCard";
-import stats from "~/data/stats";
+import CounterCard from "../components/CounterCard";
+import stats from "../data/stats";
 import ImageComp from "../components/ImageComp.astro";
 import ReviewCard from "../components/ReviewCard.astro";
 import { getCollection } from "astro:content";
@@ -15,13 +15,14 @@ import BlogPostCard from "../components/BlogPostCard.astro";
 import FAQs from "../components/FAQs.astro";
 const posts = (await getCollection("news")).sort(
   (a, b) =>
-    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
 );
 ---
 
 <BaseLayout
-  siteTitle="The Ideal Way to Learn to Fly in St. Louis | Ideal Aviation"
-  siteDescription="Ideal Aviation offers Part 141 and Part 61 pilot training in St. Louis with a full fleet, clean facilities, and strong DPE connections, allowing students to schedule checkrides in as little as 2 weeks. Partnered with SWIC for college credit, we help pilots reach their goals from private to CFII MEI."
+  siteTitle="Premier Flight School in St. Louis | Ideal Aviation"
+  siteDescription="Top-rated Part 141 & Part 61 flight school in St. Louis. Private pilot, commercial, helicopter training & more. Modern fleet, expert CFIs, SWIC partnership for college credit. Start your aviation career today!"
+  keywords="flight school St. Louis, pilot training Missouri, helicopter flight school, private pilot license, commercial pilot training, Part 141 flight school, aviation school Illinois"
 >
   <HomepageHeader slot="hero" />
 

@@ -15,6 +15,7 @@ import {
   TIKTOK_URL,
   YOUTUBE_URL,
 } from "../consts.ts";
+import { mobileNavbarLinks } from "../data/mobileNavbarLinks.js";
 
 const Navbar = ({ pathname }) => {
   const [openMobile, setOpenMobile] = useState(false);
@@ -299,7 +300,7 @@ const Navbar = ({ pathname }) => {
         ></div>
 
         <ul className="px-4 pb-3 mt-5 pt-2 flex flex-col">
-          {navbarLinks.map((item, index) => (
+          {mobileNavbarLinks.map((item, index) => (
             <li
               key={index}
               className="relative group"

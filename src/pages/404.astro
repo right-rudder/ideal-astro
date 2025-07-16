@@ -2,13 +2,19 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const data = {
-  siteTitle: "404 - Page Not Found | Ideal Aviation",
+  siteTitle: "Page Not Found (404) | Ideal Aviation",
   siteDescription:
-    "The page you're looking for doesn't exist. Please verify the URL and try again.",
+    "Sorry, the page you're looking for doesn't exist. Explore our flight training programs, aviation courses, and pilot certification options at Ideal Aviation in St. Louis.",
+  keywords:
+    "page not found, Ideal Aviation, flight school St. Louis, pilot training programs",
 };
 ---
 
-<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  keywords={data.keywords}
+>
   <section class="flex justify-center px-5 py-32 pt-60 relative">
     <div
       class="absolute top-0 w-full h-[20vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
@@ -26,12 +32,15 @@ const data = {
         The page you're looking for doesn't exist.
       </h1>
 
-      <p>Please verify the URL and try again.</p>
+      <p class="text-gray-600 max-w-md mx-auto">
+        You might be interested in our flight training programs or aviation
+        courses. Let's get you back on course!
+      </p>
 
-      <div class="flex flex-row justify-center">
-        <a href="/">
-          <div class="btn-primary">Home</div>
-        </a>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="btn-primary"> Back to Home </a>
+        <a href="/programs" class="btn-secondary"> View Programs </a>
+        <a href="/contact" class="btn-secondary"> Contact Us </a>
       </div>
     </div>
   </section>

@@ -7,9 +7,11 @@ const multiEngineRating = {
     title: "Multi-Engine Rating",
     url: "/programs/multi-engine-rating",
     slug: "multi-engine-rating",
-    siteTitle: "Multi-Engine Rating | Ideal Aviation",
+    siteTitle: "Multi-Engine Rating Training in St. Louis | Ideal Aviation",
     siteDescription:
-      "Experience the power and precision of multi engine aircraft as our expert instructors guide you through comprehensive training. With advanced systems, twin engines, and enhanced performance capabilities, Ideal Aviation's Piper Seminole provides an exceptional platform for honing your multi engine skills.",
+      "Advance your pilot skills with Multi-Engine Rating training at Ideal Aviation. Train in our Piper Seminole with expert instructors in St. Louis. Enhanced performance capabilities await!",
+    keywords:
+      "multi engine rating St. Louis, twin engine training Missouri, Piper Seminole training, advanced pilot certification, commercial pilot training",
     intro: [
       "Experience the power and precision of multi engine aircraft as our expert instructors guide you through comprehensive training. With advanced systems, twin engines, and enhanced performance capabilities, Ideal Aviation's Piper Seminole provides an exceptional platform for honing your multi engine skills.",
       "Whether you're aspiring to become a professional pilot or seeking to expand your horizons, our multi engine training program at Ideal Aviation will equip you with the expertise and confidence needed to conquer the skies. Elevate your flying abilities and soar towards success with us.",

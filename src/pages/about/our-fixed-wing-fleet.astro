@@ -1,16 +1,40 @@
 ---
-import BaseLayout from "~/layouts/BaseLayout.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 import PlaneCard from "../../components/PlaneCard.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import airplanes from "../../data/airplanes";
+import {
+  generateFleetSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo.js";
+
+const breadcrumbItems = [
+  { name: "Home", href: "/" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Fixed-Wing Fleet" },
+];
 
 const data = {
-  siteTitle: "Our Fixed Wing Fleet | Ideal Aviation",
+  siteTitle: "Fixed-Wing Aircraft Fleet | Ideal Aviation St. Louis",
   siteDescription:
-    "Ideal Aviation's fixed-wing fleet is meticulously maintained and includes a variety of aircraft to provide the best training experience for our students.",
+    "Explore Ideal Aviation's meticulously maintained fixed-wing fleet in St. Louis. Modern Cessna aircraft for private pilot, instrument, commercial, and multi-engine training.",
+  keywords:
+    "Cessna fleet St. Louis, fixed wing aircraft, pilot training planes, flight school aircraft, aviation training fleet Illinois",
 };
+
+// Generate schemas
+const fleetSchema = generateFleetSchema({
+  type: "Fixed-Wing",
+  aircraft: airplanes.map((plane) => plane.data),
+});
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
 ---
 
-<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription}>
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  keywords={data.keywords}
+>
   <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
     <div
       class="absolute top-0 inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"
@@ -18,6 +42,7 @@ const data = {
     </div>
 
     <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <Breadcrumbs items={breadcrumbItems} />
       <div>
         <h1
           class="font-mono text-xs/5 font-semibold uppercase tracking-widest text-gray-500 data-[dark]:text-gray-400"
@@ -40,4 +65,12 @@ const data = {
       </ul>
     </div>
   </section>
+
+  <!-- Fleet Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(fleetSchema)} />
+  <!-- Breadcrumb Schema -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
+  />
 </BaseLayout>

@@ -7,10 +7,13 @@ const privatePilot = {
     title: "Private Pilot",
     url: "/programs/private-pilot",
     slug: "private-pilot",
-    siteTitle: "Private Pilot | Ideal Aviation",
+    siteTitle: "Private Pilot License Training in St. Louis | Ideal Aviation",
     siteDescription:
-      "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
+      "Earn your Private Pilot License (PPL) at Ideal Aviation's premier flight school in St. Louis. Part 141 & Part 61 training, expert CFIs, modern fleet. Start your aviation journey today!",
+    keywords:
+      "private pilot license St. Louis, PPL training Missouri, learn to fly Illinois, private pilot certificate, flight training beginners, Part 141 flight school",
     video_url: "https://www.youtube.com/embed/1g6J1Jfj8ZQ",
+    primaryImage: "/src/assets/images/thumbs_up.webp",
     intro: [
       "Ideal Aviation believes that anyone with a passion for flying can become a pilot with the right training, dedication, and support. Watch our video by Bill Macon that outlines the three main tests you need to pass to obtain your pilot's license: the medical exam, written test, and flight test (check ride). We believe that the key to your success lies in our commitment to providing the highest quality flight training available, with a focus on safety, professionalism, and individual attention.",
     ],

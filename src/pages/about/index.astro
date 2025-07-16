@@ -3,12 +3,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import ImageComp from "../../components/ImageComp.astro";
 import Breadcrumbs from "../../components/Breadcrumbs.astro";
 import EnhancedFAQs from "../../components/EnhancedFAQs.astro";
+import {
+  generateAboutPageSchema,
+  generateBreadcrumbSchema,
+} from "../../utils/seo.js";
 
-const breadcrumbItems = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Our Story" },
-];
+const breadcrumbItems = [{ name: "Home", href: "/" }, { name: "About Us" }];
 
 const storyFaqs = [
   {
@@ -28,6 +28,10 @@ const storyFaqs = [
   },
 ];
 
+// Generate schemas
+const aboutSchema = generateAboutPageSchema();
+const breadcrumbSchema = generateBreadcrumbSchema(breadcrumbItems);
+
 const data = {
   siteTitle: "Our Story - About Ideal Aviation Flight School | St. Louis",
   siteDescription:
@@ -36,6 +40,14 @@ const data = {
     "Ideal Aviation history, Bill Macon founder, flight school story, St. Louis aviation legacy, pilot training heritage",
 };
 ---
+
+<!-- About Page Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(aboutSchema)} />
+<!-- Breadcrumb Schema -->
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>
 
 <BaseLayout
   siteTitle={data.siteTitle}

@@ -1,0 +1,66 @@
+---
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+const {
+  faqs,
+  title = "Frequently asked questions",
+  subtitle = "Your questions answered.",
+  className = "",
+} = Astro.props;
+
+// Generate FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<section id="faqs" class={`scroll-mt-8 mt-24 px-5 ${className}`}>
+  <h2 class="text-center text-sm font-semibold text-gray-500 uppercase mb-3">
+    {title}
+  </h2>
+  <h3
+    class="text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl text-center"
+  >
+    {subtitle}
+  </h3>
+  <div class="mx-auto mb-32 mt-16 max-w-xl space-y-12">
+    {
+      faqs.map((faq) => (
+        <dl itemscope itemtype="https://schema.org/Question">
+          <dt class="text-sm font-semibold" itemprop="name">
+            {faq.question}
+          </dt>
+          <dd
+            class="mt-4 text-sm/6 text-gray-600"
+            itemscope
+            itemtype="https://schema.org/Answer"
+          >
+            <div itemprop="text" set:html={faq.answer} />
+          </dd>
+        </dl>
+      ))
+    }
+  </div>
+</section>
