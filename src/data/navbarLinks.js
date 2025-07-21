@@ -6,7 +6,6 @@ export const navbarLinks = [
   },
   {
     name: "Programs",
-    link: "/programs",
     submenu: [
       {
         name: "Private Pilot",
@@ -40,7 +39,6 @@ export const navbarLinks = [
   },
   {
     name: "About Us",
-    link: "/about",
     submenu: [
       {
         name: "Our Story",
