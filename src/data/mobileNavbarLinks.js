@@ -1,96 +1,70 @@
 export const mobileNavbarLinks = [
   {
-    name: "Why Become a Pilot?",
-    link: "/why-become-a-pilot",
+    name: "First-Time Pilots",
+    link: "/first-time-pilots",
     submenu: [],
   },
   {
-    name: "Ground School",
+    name: "Programs",
     submenu: [
       {
         name: "Private Pilot",
-        link: "/ground-school/private-pilot",
+        link: "/programs/private-pilot",
       },
       {
         name: "Instrument Rating",
-        link: "/ground-school/instrument-rating",
+        link: "/programs/instrument-rating",
       },
       {
         name: "Commercial Pilot",
-        link: "/ground-school/commercial-pilot",
-      },
-      {
-        name: "Flight Instructor",
-        link: "/ground-school/flight-instructor",
+        link: "/programs/commercial-pilot",
       },
       {
         name: "Multi-Engine Rating",
-        link: "/ground-school/multi-engine-rating",
+        link: "/programs/multi-engine-rating",
       },
       {
-        name: "Airline Transport Pilot",
-        link: "/ground-school/airline-transport-pilot",
+        name: "Certified Flight Instructor",
+        link: "/programs/cfi",
+      },
+      {
+        name: "Helicopter Pilot Training",
+        link: "/programs/helicopter-pilot-training",
       },
     ],
   },
   {
-    name: "Flight Training",
-    submenu: [
-      {
-        name: "Private Pilot",
-        link: "/flight-training/private-pilot",
-      },
-      {
-        name: "Instrument Rating",
-        link: "/flight-training/instrument-rating",
-      },
-      {
-        name: "Commercial Pilot",
-        link: "/flight-training/commercial-pilot",
-      },
-      {
-        name: "Flight Instructor",
-        link: "/flight-training/flight-instructor",
-      },
-      {
-        name: "Multi-Engine Rating",
-        link: "/flight-training/multi-engine-rating",
-      },
-      {
-        name: "Airline Transport Pilot",
-        link: "/flight-training/airline-transport-pilot",
-      },
-    ],
+    name: "News",
+    link: "/news",
   },
   {
-    name: "Aircraft Sales",
-    link: "/acquisitions-sales",
-    submenu: [],
-  },
-  {
-    name: "About",
+    name: "About Us",
     submenu: [
       {
         name: "Our Story",
-        link: "/about/our-story",
+        link: "/about",
       },
       {
         name: "Our Team",
         link: "/about/our-team",
       },
       {
-        name: "Our Fleet",
-        link: "/about/our-fleet",
+        name: "Our Fixed-Wing Fleet",
+        link: "/about/our-fixed-wing-fleet",
       },
       {
-        name: "Learning Center",
-        link: "/about/learning-center",
+        name: "Our Rotary-Wing Fleet",
+        link: "/about/our-rotary-wing-fleet",
+      },
+      {
+        name: "Our Simulators",
+        link: "/about/our-simulators",
       },
     ],
   },
   {
-    name: "Contacto",
-    link: "/contacto",
+    name: "Contact Us",
+    link: "/contact",
     submenu: [],
   },
 ];
