@@ -1,7 +1,7 @@
 ---
 title: "A Deep Dive into the Cessna 172: Ideal’s Primary Trainer Aircraft"
 description: "If you have ever considered learning to fly, chances are you have heard of the Cessna 172. Known as the most produced aircraft in history, the Cessna 172 Skyhawk is a cornerstone of flight training programs around the world. At Ideal Aviation, the Cessna 172 is the heart of our training fleet for one very good reason. It offers the perfect balance of performance, reliability, and ease of use for student pilots."
-pubDate: "Apr 21 2025"
+pubDate: "Jul 28 2025"
 heroImage: "/src/assets/images/cessna1.webp"
 ---
 
