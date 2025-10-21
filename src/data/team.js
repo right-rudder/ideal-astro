@@ -50,11 +50,6 @@ const team = [
     image: "/src/assets/images/cfii-mike-w.webp",
   },
   {
-    name: "Dean P.",
-    certifications: "Fixed Wing CFI, CFII, MEI",
-    image: "/src/assets/images/silhouette.webp",
-  },
-  {
     name: "Alma K.",
     certifications: "Fixed Wing CFI",
     image: "/src/assets/images/cfii-alma-k.webp",
@@ -77,7 +72,7 @@ const team = [
   {
     name: "Jake W.",
     certifications: "Fixed Wing CFI",
-    image: "/src/assets/images/silhouette.webp",
+    image: "/src/assets/images/cfi-jake.webp",
   },
   {
     name: "Kurt O.",
