@@ -79,6 +79,21 @@ const team = [
     certifications: "Fixed Wing CFI, CFII",
     image: "/src/assets/images/cfi-kurt-o.jpeg",
   },
+  {
+    name: "Chase C.",
+    certifications: "Fixed Wing CFI, CFII",
+    image: "/src/assets/images/silhouette.webp",
+  },
+  {
+    name: "Rebecca T.",
+    certifications: "Fixed Wing CFI",
+    image: "/src/assets/images/silhouette.webp",
+  },
+  {
+    name: "Sarah J.",
+    certifications: "Fixed Wing CFI",
+    image: "/src/assets/images/silhouette.webp",
+  },
 ];
 
 export default team;

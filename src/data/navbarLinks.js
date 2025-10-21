@@ -8,6 +8,10 @@ export const navbarLinks = [
     name: "Programs",
     submenu: [
       {
+        name: "All Programs",
+        link: "/programs",
+      },
+      {
         name: "Private Pilot",
         link: "/programs/private-pilot",
       },
