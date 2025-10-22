@@ -10,7 +10,7 @@ keyPlace1: "Alton Marina"
 keyPlace2: "Lewis and Clark Bridge"
 distance: "40 minutes"
 headlines:
-  - "Pilot Training Near Alton"
+  - "Pilot Training"
   - "Learn to Fly with Expert Instructors"
   - "Top-Rated Flight School in Metro East"
   - "Your Path to an Aviation Career"
