@@ -1,6 +1,19 @@
 ---
 import { Image } from "astro:assets";
+import { title } from "process";
 import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
+const example = {
+  upperHeading: "Ideal Aviation",
+  title: `<span class="text-6xl lg:text-8xl">Pilot Training In <br /> St. Louis, Missouri</span>`,
+  description:
+    "Part 61 and Part 141 FAA approved helicopter and airplane training center",
+  image: {
+    src: HeroImage,
+    alt: "Ideal Airplane in Hangar",
+  },
+};
+
+const { content = example } = Astro.props;
 ---
 
 <div
@@ -8,7 +21,7 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
     items-center m-2 rounded-3xl"
 >
   <Image
-    src={HeroImage}
+    src={content.image.src}
     alt="Ideal Airplane in Hangar"
     class="absolute top-0 w-full h-full object-cover object-bottom -z-50"
     quality={70}
@@ -27,15 +40,12 @@ import HeroImage from "~/assets/images/multi-engine-aircraft.webp";
       <h1 class="font-bold lg:max-w-6xl flex flex-col">
         <span
           class="uppercase text-gray-600 tracking-widest lg:text-base text-xs"
-          >Ideal Aviation
+          >{content.upperHeading}
         </span>
-        <span class="text-6xl lg:text-8xl"
-          >Pilot Training In <br /> St. Louis, Missouri</span
-        >
+        <span set:html={content.title} />
       </h1>
       <h2 class="text-xl max-w-xl lg:text-2xl lg:max-w-5xl font-medium">
-        Part 61 and Part 141 FAA approved helicopter and airplane training
-        center
+        {content.description}
       </h2>
       <div class="flex gap-5 flex-col sm:flex-row">
         <a href="/contact" class="btn-secondary w-full sm:w-fit">Start Flying</a
