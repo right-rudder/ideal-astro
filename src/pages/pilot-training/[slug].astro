@@ -13,7 +13,13 @@ import ReviewCard from "../../components/ReviewCard.astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogPostCard from "../../components/BlogPostCard.astro";
 import FAQs from "../../components/FAQs.astro";
-import headerImg1 from "~/assets/images/facility.webp";
+import headerImg1 from "~/assets/images/bill_macon_300.webp";
+import headerImg2 from "~/assets/images/black-helicopter-landed.jpg";
+import headerImg3 from "~/assets/images/cabri3.webp";
+import headerImg4 from "~/assets/images/cfi-aircraft-n51827.webp";
+import headerImg5 from "~/assets/images/cessna-just-outside-ideal-hangar.webp";
+import headerImg6 from "~/assets/images/cirrus3.webp";
+import headerImg7 from "~/assets/images/commercial-pov-sky.webp";
 const posts = (await getCollection("news")).sort(
   (a, b) =>
     new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
@@ -35,7 +41,15 @@ type PilotTrainingEntry = CollectionEntry<"pilot-training">;
 
 const { data } = Astro.props;
 
-const heroImages = [facility, idealTeam, helicopter];
+const heroImages = [
+  headerImg1,
+  headerImg2,
+  headerImg3,
+  headerImg4,
+  headerImg5,
+  headerImg6,
+  headerImg7,
+];
 const randomHeroImage =
   heroImages[Math.floor(Math.random() * heroImages.length)];
 
