@@ -1,5 +1,5 @@
 ---
-slug: "test-location-tl"
+slug: "st-louis-mo"
 siteTitle: "Premier Flight School in St. Louis | Ideal Aviation"
 siteDescription: "Top-rated Part 141 & Part 61 flight school in St. Louis. Private pilot, commercial, helicopter training & more. Modern fleet, expert CFIs, SWIC partnership for college credit. Start your aviation career today!"
 city: "St. Louis"
