@@ -1,0 +1,516 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HomepageHeader from "../../components/HomepageHeader.astro";
+import { Image } from "astro:assets";
+import helicopter from "~/assets/images/helicopter_commercial_checkride.webp";
+import multi from "~/assets/images/airplane-cfi-in-front-of-fixed-wing-training-aircraft.webp";
+import idealTeam from "~/assets/images/ideal_team.webp";
+import facility from "~/assets/images/facility.webp";
+import CounterCard from "../../components/CounterCard";
+import stats from "../../data/stats";
+import ImageComp from "../../components/ImageComp.astro";
+import ReviewCard from "../../components/ReviewCard.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import BlogPostCard from "../../components/BlogPostCard.astro";
+import FAQs from "../../components/FAQs.astro";
+import headerImg1 from "~/assets/images/bill_macon_300.webp";
+import headerImg2 from "~/assets/images/black-helicopter-landed.jpg";
+import headerImg3 from "~/assets/images/cabri3.webp";
+import headerImg4 from "~/assets/images/cfi-aircraft-n51827.webp";
+import headerImg5 from "~/assets/images/cessna-just-outside-ideal-hangar.webp";
+import headerImg6 from "~/assets/images/cirrus3.webp";
+import headerImg7 from "~/assets/images/commercial-pov-sky.webp";
+const posts = (await getCollection("news")).sort(
+  (a, b) =>
+    new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
+);
+
+export async function getStaticPaths() {
+  const locations = await getCollection("pilot-training");
+  return locations.map((entry) => {
+    const slug = entry.id.replace(/\.mdx?$/, "");
+    return {
+      params: { slug },
+      props: {
+        data: entry.data,
+      },
+    };
+  });
+}
+type PilotTrainingEntry = CollectionEntry<"pilot-training">;
+
+const { data } = Astro.props;
+
+const heroImages = [
+  headerImg1,
+  headerImg2,
+  headerImg3,
+  headerImg4,
+  headerImg5,
+  headerImg6,
+  headerImg7,
+];
+const randomHeroImage =
+  heroImages[Math.floor(Math.random() * heroImages.length)];
+
+const randomHeadline =
+  data.headlines[Math.floor(Math.random() * data.headlines.length)];
+
+const headerHero = {
+  upperHeading: "Ideal Aviation",
+  title: `<span class="text-6xl lg:text-8xl"> ${randomHeadline}  near ${data.city}, ${data.stateLong}</span>`,
+  description:
+    "Part 61 and Part 141 FAA approved helicopter and airplane training center",
+  image: {
+    src: randomHeroImage,
+    alt: "Ideal Airplane in Hangar",
+  },
+};
+---
+
+<BaseLayout
+  siteTitle={data.siteTitle}
+  siteDescription={data.siteDescription}
+  keywords={data.keywords}
+>
+  <HomepageHeader slot="hero" content={headerHero} />
+
+  <section>
+    <div class="mx-auto max-w-7xl grid sm:grid-cols-2 lg:grid-cols-4">
+      {
+        stats.map((stat) => (
+          <CounterCard
+            client:only="react"
+            value={stat.value}
+            title={stat.title}
+            suffix={stat.suffix}
+          />
+        ))
+      }
+    </div>
+  </section>
+
+  <section id="welcome" class="scroll-my-10">
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 pt-10 flex flex-col-reverse lg:flex-row gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Come to Ideal Aviation, <span class="text-blue-700"
+            >just {data.distance}</span
+          > from {data.city}
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Why Choose Ideal Aviation?
+        </h3>
+        <p class="text-main-black/70">
+          Ideal Aviation is a leading flight training provider, offering
+          programs under both <strong>Part 141</strong> and <strong
+            >Part 61</strong
+          > regulations for rotary and fixed-wing pilots. From private pilot licenses
+          to advanced certifications like Certified Flight Instructor (CFI) and Multi-Engine
+          Instructor (MEI), Ideal Aviation equips students with the skills and knowledge
+          needed for success. In partnership with <a
+            href="https://www.swic.edu/academics/career-degrees/aviation/pilot-training/"
+            target="_blank"
+            class="text-blue-700 font-medium hover:underline"
+            >Southwestern Illinois College</a
+          >, the school enables students to earn college credits for their
+          flight and ground training, blending professional instruction with
+          academic achievement to enhance career prospects in aviation.
+        </p>
+        <p class="text-main-black/70">
+          Located in the St. Louis area, Ideal Aviation stands out for its
+          well-maintained fleet, clean hangars, and dedicated study areas,
+          creating an optimal learning environment. Strong relationships with
+          local Designated Pilot Examiners (DPEs) allow students to schedule
+          their checkrides in an average of just two weeks, significantly
+          reducing wait times compared to other flight schools. With a
+          commitment to safety, excellence, and personalized training, Ideal
+          Aviation is the top choice for aspiring pilots, whether they are just
+          beginning or advancing their aviation careers.
+        </p>
+        <a href="/discovery-flight" class="btn-primary"
+          >Schedule a Discovery Flight</a
+        >
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={helicopter}
+          alt="Helicopter Commercial Checkride"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col-reverse lg:flex-row-reverse gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Designed for Your Success
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          State of the Art Facilities
+        </h3>
+        <p class="text-main-black/70">
+          Ideal Aviation operates from a state-of-the-art facility spanning
+          three expansive hangars, housing a growing fleet of ten meticulously
+          maintained aircraft. With over 15 certified flight instructors, the
+          school provides personalized training tailored to each student's
+          needs, ensuring a well-rounded and effective learning experience.
+        </p>
+        <p class="text-main-black/70">
+          To complement its flight training, Ideal Aviation offers private
+          classrooms for individualized ground instruction, creating a focused
+          and comfortable learning environment. This combination of modern
+          facilities, a diverse fleet, and dedicated instructors provides
+          students with the resources and support needed to excel in their
+          aviation journey.
+        </p>
+        <a href="/contact" class="btn-primary">Take a Tour</a>
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={facility}
+          alt="Ideal Aviation hangar"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col-reverse lg:flex-row gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Your Journey to the Skies Starts Here
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Helicopter and Airplane Pilot Programs near {data.city}
+        </h3>
+        <p class="text-main-black/70">
+          Ideal Aviation offers premier flight training programs for both
+          helicopter and airplane pilots, providing a pathway to careers in
+          aviation and the airline industry. More than just a flight school,
+          Ideal Aviation fosters a welcoming community where students become
+          part of a dedicated family of aviators. With a strong emphasis on
+          aviation safety, the school ensures that every pilot receives top-tier
+          instruction in both the cockpit and the classroom, guided by
+          experienced FAA-certified flight instructors.
+        </p>
+        <p class="text-main-black/70">
+          Committed to excellence, Ideal Aviation provides personalized
+          mentorship and rigorous training, equipping pilots with the skills and
+          knowledge to fly safely and confidently. Whether aspiring to become a
+          commercial pilot, flight instructor, or simply seeking to master the
+          science of flight, students train in a supportive environment that
+          prioritizes safety, professionalism, and success.
+        </p>
+        <a href="/first-time-pilots#programs" class="btn-primary"
+          >View Programs</a
+        >
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={idealTeam}
+          alt="Ideal Team"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="m-2 rounded-3xl overflow-hidden">
+    <div class="bg-main-blue py-24 sm:py-32">
+      <div class="mx-auto max-w-xl px-6 lg:max-w-7xl lg:px-8">
+        <h2
+          class="text-xs/5 font-semibold text-gray-300 uppercase tracking-widest"
+        >
+          How to get started?
+        </h2>
+        <p
+          class="mt-2 max-w-lg lg:max-w-4xl text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl"
+        >
+          We offer a range of flight training programs and services at St. Louis
+          Downtown Airport only {data.distance} from {data.city}.
+        </p>
+        <div
+          class="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2"
+        >
+          <div class="flex p-px lg:col-span-4">
+            <div
+              class="overflow-hidden rounded-lg bg-main-black ring-1 ring-white/15 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem] w-full"
+            >
+              <ImageComp
+                styles="h-80 object-cover w-full"
+                imagePath="/src/assets/images/commercial-pov-sky.webp"
+                imageAlt="Commercial Pilot POV from Sky"
+              />
+              <div class="p-10">
+                <h3
+                  class="text-xs/4 font-semibold text-gray-300 uppercase tracking-wider"
+                >
+                  Discover
+                </h3>
+                <p class="mt-2 text-lg font-black tracking-tight text-white">
+                  Take a Discovery Flight
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
+                  The best way to experience flying near St. Louis, Missouri,
+                  and the surrounding area is to take a Discovery Flight. This
+                  short introductory flight offers you the chance to fly with
+                  one of our experienced instructors. You'll take the controls,
+                  learn basic maneuvers, and enjoy breathtaking views of the
+                  Gateway Arch and the Mississippi River from above.
+                </p>
+                <a href="/discovery-flight" class="btn-primary mt-2"
+                  >Schedule Today</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex p-px lg:col-span-2">
+            <div
+              class="overflow-hidden rounded-lg bg-main-black ring-1 ring-white/15 lg:rounded-tr-[2rem]"
+            >
+              <ImageComp
+                styles="h-80 object-cover w-full"
+                imagePath="/src/assets/images/multi_engine_checkride_pass.webp"
+                imageAlt="Student pilot with checkride pass"
+              />
+              <div class="p-10">
+                <h3
+                  class="text-xs/4 font-semibold text-gray-300 uppercase tracking-wider"
+                >
+                  Learn
+                </h3>
+                <p class="mt-2 text-lg font-black tracking-tight text-white">
+                  Learn About Being a Pilot
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
+                  If you're new to flying, you might not know where to start.
+                  Our team of experienced pilots and flight instructors can help
+                  guide you through the process.
+                </p>
+                <a href="/first-time-pilots" class="btn-primary mt-2"
+                  >Become A Pilot</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex p-px lg:col-span-2">
+            <div
+              class="overflow-hidden rounded-lg bg-main-black ring-1 ring-white/15 lg:rounded-bl-[2rem]"
+            >
+              <ImageComp
+                styles="h-80 object-cover w-full"
+                imagePath="/src/assets/images/multi-engine-flying-cross-country.webp"
+                imageAlt="Multi-engine flying cross country"
+              />
+              <div class="p-10">
+                <h3
+                  class="text-xs/4 font-semibold text-gray-300 uppercase tracking-wider"
+                >
+                  Start
+                </h3>
+                <p class="mt-2 text-lg font-black tracking-tight text-white">
+                  Start Flight Training
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
+                  We offer personalized training programs to help you earn your
+                  Private Pilot Certificate, Instrument Rating Certificate, and
+                  beyond. Our experienced instructors will work with you to
+                  develop a training plan that meets your goals, schedule, and
+                  learning style.
+                </p>
+                <a href="/first-time-pilots#programs" class="btn-primary mt-2"
+                  >Our Courses</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="flex p-px lg:col-span-4">
+            <div
+              class="overflow-hidden rounded-lg bg-main-black ring-1 ring-white/15 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem] w-full"
+            >
+              <ImageComp
+                styles="h-80 object-cover w-full"
+                imagePath="/src/assets/images/airplane_sunset.webp"
+                imageAlt="Airplane in airport at sunset"
+              />
+              <div class="p-10">
+                <h3
+                  class="text-xs/4 font-semibold text-gray-300 uppercase tracking-wider"
+                >
+                  Continue
+                </h3>
+                <p class="mt-2 text-lg font-black tracking-tight text-white">
+                  Advanced Flight Training
+                </p>
+                <p class="mt-2 max-w-lg text-sm/6 text-gray-100">
+                  Continue your flight training education with additional
+                  courses and certifications. Ideal Aviation offers a range of
+                  advanced training options, including instrument training,
+                  multi-engine training, commercial training, and more. We’re
+                  here to support you every step of the way in your aviation
+                  journey whether you’re flying for fun or for a career.
+                </p>
+                <a href="/first-time-pilots#programs" class="btn-primary mt-2"
+                  >Advanced Training</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div
+      class="max-w-xl lg:max-w-7xl mx-auto px-5 pt-24 flex flex-col-reverse lg:flex-row-reverse gap-20 items-center"
+    >
+      <div class="flex-1 flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Take Our Quiz
+        </h2>
+        <h3
+          class="max-w-lg text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Do You Think You Could Be a Pilot?
+        </h3>
+        <p class="text-main-black/70">
+          Are you passionate about aviation and dream of flying an aircraft?
+          Have you ever looked up at an airliner soaring above and imagined
+          yourself in the cockpit? Becoming a pilot requires skill, dedication,
+          and the right training, and Ideal Aviation is here to guide you
+          through that journey.
+        </p>
+        <p class="text-main-black/70">
+          Take our quick quiz to assess your potential for flight training! This
+          interactive quiz evaluates your knowledge, personality traits, and
+          interests to help determine if a career as a pilot or flight
+          instructor is right for you. Whether you're considering enrolling in
+          an FAA-certified flight school or exploring aviation as a passion,
+          this is the first step toward an exciting future in the skies.
+        </p>
+        <a href="/quiz" class="btn-primary">Take The Quiz</a>
+      </div>
+      <div class="flex-1 relative h-fit">
+        <Image
+          src={multi}
+          alt="CFI in front of fixed wing training aircraft"
+          class="rounded-xl z-10 relative"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col gap-10">
+      <div class="flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          What everyone is saying
+        </h2>
+        <h3
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Trusted by Thousands of Students
+        </h3>
+      </div>
+      <div class="grid mx-auto lg:grid-cols-3 lg:mx-0 gap-3">
+        <ReviewCard
+          imagePath="/src/assets/images/review1.jpg"
+          imageAlt="Review 1"
+          name="Alex A."
+          title="Commercial Pilot"
+          review="I love flying at Ideal and it's a truly wonderful flight school!"
+        />
+        <ReviewCard
+          imagePath="/src/assets/images/review2.webp"
+          imageAlt="Review 2"
+          name="Don B."
+          title="Commercial Pilot"
+          review="Great instructors, nice facilities. Highly recommended"
+        />
+        <ReviewCard
+          imagePath="/src/assets/images/review3.webp"
+          imageAlt="Review 3"
+          name="Paul D."
+          title="Commercial Pilot"
+          review="Had a discovery flight today with Michael. It was a wonderful experience I definitely recommend it!"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="mx-2 mt-24 rounded-3xl bg-main-blue py-10 lg:pt-36 lg:pb-28 px-5"
+  >
+    <div class="max-w-7xl mx-auto rounded-3xl overflow-hidden lg:-mt-60">
+      <iframe
+        class="w-full aspect-video"
+        src="https://tube.rvere.com/embed?v=mAOuSIRejAY"
+        title="Interview with Kimberly, Casey, and Tyler!"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      >
+      </iframe>
+    </div>
+  </section>
+
+  <FAQs />
+
+  <section>
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 pb-24 flex flex-col gap-10">
+      <div class="flex justify-center flex-col gap-5">
+        <h2
+          class="text-xs/5 font-semibold text-gray-500 uppercase tracking-widest"
+        >
+          Our Latest Blog Posts
+        </h2>
+        <h3
+          class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-5xl"
+        >
+          Stay Up to Date with Our Latest News
+        </h3>
+      </div>
+      <div class="grid lg:grid-cols-3 lg:mx-0 gap-3">
+        {
+          posts
+            .slice(0, 3)
+            .map((post) => (
+              <BlogPostCard
+                imagePath={post.data.heroImage}
+                title={post.data.title}
+                date={post.data.pubDate}
+                blogUrl={`/news/${post.slug}/`}
+                description={post.data.description}
+              />
+            ))
+        }
+      </div>
+    </div>
+  </section>
+</BaseLayout>
