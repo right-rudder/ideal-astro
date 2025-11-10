@@ -1,8 +1,16 @@
 export const navbarLinks = [
   {
     name: "First-Time Pilots",
-    link: "/first-time-pilots",
-    submenu: [],
+    submenu: [
+      {
+        name: "Start Here",
+        link: "/first-time-pilots",
+      },
+      {
+        name: "Student Success Stories",
+        link: "/student-success",
+      },
+    ],
   },
   {
     name: "Programs",
