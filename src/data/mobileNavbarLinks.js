@@ -5,6 +5,15 @@ export const mobileNavbarLinks = [
     submenu: [],
   },
   {
+    name: "Resources",
+    submenu: [
+      {
+        name: "Scholarships",
+        link: "/resources/scholarships",
+      },
+    ],
+  },
+  {
     name: "Programs",
     submenu: [
       {

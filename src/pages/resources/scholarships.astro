@@ -1,0 +1,126 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/Breadcrumbs.astro";
+import ImageComp from "../../components/ImageComp.astro";
+import { PHONE_NUMBER } from "../../consts";
+
+const breadcrumbItems = [{ name: "Home", href: "/" }, { name: "Resources" }, { name: "Scholarships" }];
+
+const data = {
+  siteTitle: "Scholarships | Ideal Aviation St. Louis",
+  siteDescription:
+    "Explore aviation and flight training scholarships to help fund your journey from student to pilot. Find opportunities near St. Louis and across the country.",
+  keywords:
+    "flight training scholarships information, flight training programs St. Louis, pilot training courses Missouri, aviation programs Illinois, private pilot commercial instrument CFI helicopter training",
+  scholarshipLists: [
+    {
+      title: "Air Line Pilots Association",
+      subTitle: "Compiled by the University Aviation Association",
+      link: "https://www.alpa.org/Advancing-Aviation/Future-of-the-Profession/Become-a-Pilot/Aspiring-Aviators/Scholarships",
+    },
+    {
+      title: "Greater St. Louis Business Aviation Association",
+      subTitle: "GSLBAA",
+      link: "https://www.gslbaa.org/Scholarships",
+    },
+    {
+      title: "Aviation Scholarship Calendar (2025 to 2027)",
+      subTitle: "Compiled by Blonds in Aviation",
+      link: "https://www.blondsinaviation.com/aviation-scholarship-calendar/",
+    },
+  ],
+};
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} keywords={data.keywords}>
+  <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
+    <div class="absolute top-0 inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"></div>
+
+    <div class="max-w-xl lg:max-w-7xl mx-auto px-5 py-24 flex flex-col">
+      <Breadcrumbs items={breadcrumbItems} />
+
+      <header class="flex gap-6 flex-col mb-16">
+        <h1 class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-6xl">Scholarships</h1>
+        <p class="text-gray-500 font-medium text-2xl max-w-4xl">
+          Explore aviation and flight training scholarships to help fund your journey from student to pilot
+        </p>
+        <p class="text-main-black/70 text-lg max-w-4xl">
+          Becoming a pilot is one of the most rewarding career paths you can pursue, and scholarships can make it more
+          accessible than ever. At Ideal Aviation, we've compiled trusted resources and organizations that offer
+          financial aid for aspiring aviators, from private pilot students to those pursuing professional flight
+          careers.
+        </p>
+      </header>
+
+      <div class="flex flex-col text-main-black w-full border-t border-gray-400 pt-10 gap-10 lg:flex-row">
+        <div class="flex-1 bg-main-blue rounded-2xl overflow-hidden p-4">
+          <ImageComp
+            imagePath="/src/assets/images/eaa-logo.png"
+            imageAlt="EAA logo"
+            styles="h-full w-full object-cover aspect-video"
+          />
+        </div>
+
+        <div class="w-full flex-col flex flex-1 gap-2">
+          <h3 class="text-3xl">EAA Flight Training Scholarships</h3>
+          <p class="mt-1 text-gray-500 text-sm">
+            Dreaming of becoming a pilot or getting an additional rating? EAA can help your aviation dreams become a
+            reality. EAA's scholarships are supported by dozens of donors, benefactors, and others who “pass it forward”
+            by endowing these programs.
+            <br /><br />
+            <i>
+              One application is used for ALL scholarships; scholarship applicants will be considered for all
+              scholarships for which they qualify.
+            </i>
+          </p>
+          <a
+            href="https://www.eaa.org/eaa/learn-to-fly/scholarships/eaa-flight-training-scholarships"
+            target="_blank"
+            class="btn-primary mt-5">Learn More</a
+          >
+        </div>
+      </div>
+
+      <h2 class="text-pretty text-4xl font-semibold tracking-tight text-main-black my-10">
+        Compiled lists of scholarships
+      </h2>
+
+      {
+        data.scholarshipLists.map((item) => (
+          <div class="text-main-black w-full mb-10 flex flex-col gap-4 lg:flex-row-reverse lg:items-center lg:justify-end">
+            <div>
+              <h3 class="text-3xl">{item.title}</h3>
+              <p class="mt-1 text-gray-500 text-sm">{item.subTitle}</p>
+            </div>
+
+            <a href={item.link} target="_blank" class="btn-primary">
+              Learn More
+            </a>
+          </div>
+        ))
+      }
+
+      <!-- Call to Action Section -->
+      <div class="mt-20 bg-gradient-to-r from-main-blue to-blue-600 rounded-2xl p-8 lg:p-12 text-white text-center">
+        <h3 class="text-3xl lg:text-4xl font-semibold mb-4">Need Help Figuring Out Your Options?</h3>
+        <p class="text-blue-100 text-lg mb-8 max-w-2xl mx-auto">
+          Feel free to give us a call or contact us through our contact form
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/contact"
+            class="bg-white text-main-blue px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+          >
+            Contact Us
+          </a>
+          <a
+            href=`tel:${PHONE_NUMBER}`
+            class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-main-blue transition-colors"
+          >
+            {PHONE_NUMBER}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
