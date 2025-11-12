@@ -1,0 +1,132 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/Breadcrumbs.astro";
+import ImageComp from "../components/ImageComp.astro";
+import { FaQuoteLeft } from "react-icons/fa6";
+import { FaQuoteRight } from "react-icons/fa6";
+
+const breadcrumbItems = [{ name: "Home", href: "/" }, { name: "Student Success Stories" }];
+
+const data = {
+  siteTitle: "Student Success Stories | Ideal Aviation",
+  siteDescription:
+    "Read about Ideal Aviation's student's success stories and ignite the spark of your own flying journey. Ideal Aviation is based in St. Louis with Part 141 & Part 61 training, expert CFIs, and a modern fleet.",
+  keywords:
+    "pilot training St. Louis, learn to fly Missouri, flight school beginners, private pilot license, aviation career, Part 141 flight school",
+  testimonials: [
+    {
+      student: "Brian Elie",
+      type: "Certified Flight Instructor",
+      review: `I am writing this letter to recommend Ideal Aviation to anyone considering starting flight training. They are by far the place to get the most quality flight training in the St. Louis area. I have received all my training from my private pilot certificate to my flight instructor certificate at Ideal.
+      
+      Throughout my time at Ideal I have had the chance to get to meet some incredible people all of which are dedicated and passionate about the aviation field. Walking through Ideal you will notice that instructors are friendly with every student, and they are dedicated to the success of every single student that walks through the doors. I learned this very early on in my training, and in fact, I am still in contact with every one of my flight instructors.
+      
+      The facilities at Ideal are also in great condition. Ideal is a great place to learn both on the ground and in the air. The aircraft are always kept in a safe condition and any maintenance needed is always done in a timely manner.
+      
+      Not only does Ideal provide great flight training but they also provide a great community and culture for a new student to be a part of. To anyone thinking about starting flight training I would recommend Ideal without a second thought.`,
+    },
+    {
+      student: "Catrina Monsod",
+      type: "Instrument Flight Training Student",
+      review: `I am writing to enthusiastically recommend Ideal Aviation to anyone considering flight training — whether you're pursuing your pilot certification or simply exploring a discovery flight. My experience as a student at Ideal Aviation has been enriching.
+
+      There is a high level of professionalism and support provided by everyone — from flight instructors and maintenance staff to the management team. The instructors are not only highly knowledgeable and skilled pilots, but also prioritize safety and are incredibly effective and patient teachers. No question ever goes unanswered, and their willingness to help students at any time truly makes a difference.
+
+      The aircraft at Ideal Aviation are maintained in top-tier condition. Safety, reliability, and proper care of the fleet are taken very seriously and thoroughly. What stands out the most about Ideal Aviation is the sense of community, one where each student is known, supported, and encouraged. The staff and instructors truly care about your growth and success, and that personal attention makes all the difference in my learning experience.
+
+      I wholeheartedly recommend Ideal Aviation to anyone interested in getting their certifications and ratings. you'll find an exceptional team and a great environment for all students.`,
+    },
+    {
+      student: "Isabela Jung",
+      type: "Student Pilot",
+      review: `I'm writing as a dedicated student in both Southwestern Illinois College (SWIC) and Ideal Aviation's Part 141 program to strongly endorse the renewal of our partnership.
+
+      This collaboration is vital. It uniquely combines SWIC's rigorous academics with Ideal Aviation's structured, FAA-approved curriculum, allowing students like me to earn an Associate's Degree and Commercial Pilot Certificate efficiently and cost-effectively.
+
+      From personal experience, the program is excellent, featuring professional instructors and modern aircraft, which minimizes delays and ensures predictable progress. The combined institutions cultivate well-rounded professionals, not just license-holders.
+
+      I urge you to recognize the profound value this collaboration brings to future students and the entire aviation community. Thank you for your consideration.`,
+    },
+  ],
+};
+---
+
+<BaseLayout siteTitle={data.siteTitle} siteDescription={data.siteDescription} keywords={data.keywords}>
+  <section class="mt-24 mx-auto max-w-2xl lg:max-w-7xl">
+    <div class="absolute inset-0 h-[27vh] bg-gradient-to-bl from-0% via-30% from-main-blue via-transparent"></div>
+
+    <div class="max-w-xl mx-auto px-4 py-24 flex flex-col lg:max-w-7xl">
+      <Breadcrumbs items={breadcrumbItems} />
+      <header class="flex gap-6 flex-col">
+        <h1 class="text-pretty text-4xl font-semibold tracking-tight text-main-black sm:text-6xl">
+          Student Testimonials
+        </h1>
+        <h2 class="text-gray-500 font-medium text-2xl max-w-3xl">
+          Read about our student's success stories and ignite the spark of your own flying journey
+        </h2>
+      </header>
+      <div class="mt-12 flex flex-col gap-12 items-center lg:flex-row">
+        <div class="max-w-xl">
+          <p class="text-lg text-gray-600">
+            At Ideal Aviation, we are dedicated to delivering top-tier aviation training to our students. Our mission is
+            to provide an exceptional learning experience, combining highly skilled instructors, cutting-edge
+            facilities, and advanced training aircraft to prepare you for a successful career in aviation. We believe in
+            fostering a learning environment that builds confidence and skill in every student.
+          </p>
+          <p class="mt-8 text-lg text-gray-600">
+            Our focus on safety, precision, and excellence sets us apart. We are committed to meeting the highest
+            standards in aviation education, ensuring that every graduate leaves with the knowledge, skills, and
+            dedication needed to excel in the industry. At Ideal Aviation, you're not just a student; you're part of a
+            community that values your growth, achievement, and lifelong journey in aviation.
+          </p>
+        </div>
+        <div class="xl:mr-auto">
+          <div class="grid grid-cols-2 gap-4 sm:-mx-12 lg:mx-0 xl:gap-8">
+            <div
+              class="aspect-square overflow-hidden shadow-xl outline-1 -outline-offset-1 outline-black/10 rounded-xl"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/group_ground.webp"
+                imageAlt="Group of students on ground school"
+              />
+            </div>
+            <div
+              class="aspect-square overflow-hidden shadow-xl outline-1 -outline-offset-1 outline-black/10 rounded-xl -mt-8"
+            >
+              <ImageComp
+                styles="block size-full object-cover"
+                imagePath="/src/assets/images/commercial-checkride-pass-helicopter.webp"
+                imageAlt="Commercial Checkride Pass Helicopter"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-4 lg:max-w-7xl">
+    {
+      data.testimonials.map((item) => (
+        <div class="max-w-xl mx-auto text-center mb-16 md:max-w-2xl">
+          <p class="mb-2 text-pretty text-3xl font-bold tracking-tight text-main-blue">{item.student}</p>
+          <p class="mb-4 text-gray-500 font-medium text-lg">{item.type}</p>
+
+          <div class="relative text-lg text-gray-600 rounded-xl whitespace-pre-line text-left sm:text-white sm:bg-main-blue sm:text-center sm:py-12 sm:px-8">
+            <div class="hidden absolute -right-16 -left-16 top-12 bottom-12 bg-main-blue/20 rounded-xl -z-10 sm:block">
+              <FaQuoteLeft className="absolute left-2 top-2 -z-10 size-12 text-main-blue" />
+              <FaQuoteRight className="absolute right-2 bottom-2 -z-10 size-12 text-main-blue" />
+            </div>
+
+            <FaQuoteLeft className="mx-auto size-12 text-main-blue mb-4 sm:hidden" />
+
+            {item.review}
+
+            <FaQuoteRight className="mx-auto size-12 text-main-blue mt-4 sm:hidden" />
+          </div>
+        </div>
+      ))
+    }
+  </section>
+</BaseLayout>
