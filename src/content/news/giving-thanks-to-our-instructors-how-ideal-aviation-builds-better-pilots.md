@@ -1,13 +1,11 @@
 ---
-pubDate: "November 15, 2025"
+pubDate: "November 19, 2025"
 author: Ideal Aviation Team
 title: "Giving Thanks to Our Instructors: How Ideal Aviation Builds Better Pilots"
 description: "This Thanksgiving season, we’re expressing gratitude to the dedicated flight instructors who make Ideal Aviation a leader in pilot training. Learn how their passion, experience, and mentorship help shape the next generation of aviators."
 heroImage: "/src/assets/images/instructors-in-front-of-multi-engine.webp"
 tags: ["flight instructors", "flight training", "aviation careers", "Thanksgiving", "Ideal Aviation"]
 ---
-
-### Giving Thanks to Our Instructors: How Ideal Aviation Builds Better Pilots
 
 As Thanksgiving approaches, it’s a time to reflect on what we’re most grateful for, and at Ideal Aviation, that list starts with our incredible team of flight instructors.
 
