@@ -53,6 +53,15 @@ const airplanes = [
         "The P-Mentor features a FADEC-equipped Rotax 912iSC3 engine, providing a perfect balance of power and efficiency. With a constant-speed propeller, dual Garmin G3X avionics, and a luxurious Italian interior, this aircraft ensures precision, comfort, and reliability in every flight. Whether you're training for IFR certification or looking for a comfortable cross-country aircraft, the Tecnam P-Mentor is the perfect choice.",
       ],
     },
+    data: {
+    name: "The Piper PA-28-181 Archer",
+    imagePath: "/src/assets/images/g3x-advanced-trainer.webp",
+    imageAlt: "Garmin G3X Equipped Trainer",
+    description: [
+      "This modern fixed-wing trainer is equipped with a fully integrated Garmin G3X Touch suite featuring a single 10.6-inch display configurable as a split PFD/MFD. Its advanced avionics package includes a Garmin G5 standby instrument, GFC500 autopilot with Electronic Stability Protection, and a GNX 375 touchscreen navigator with ADS-B In and Out capabilities.",
+      "The aircraft also features a GNC 255A NAV/Comm radio, a GTR 20 secondary VHF COM, and a GMA 245R remote audio panel with Bluetooth connectivity. With moving map, terrain, obstacle and traffic alerts, synthetic vision, flight data logging, and convenient USB charging ports, this airplane delivers exceptional situational awareness and a modern, safe training environment."
+    ],
+  },
   },
 ];
 
