@@ -2,7 +2,7 @@
 title: "Becoming a Pilot: Acing the FAA Written Exam with Ideal Aviation"
 description: "The thought of flying through the skies as a licensed pilot is an exhilarating one. However, before you can spread your wings, there's an essential milestone to conquer – the FAA written exam. At Ideal Aviation, nestled right at the St. Louis Downtown Airport in Sauget, Illinois, we understand the weight of this challenge and are dedicated to equipping our students with the tools they need to face it head-on."
 pubDate: "MAY 23 2024"
-heroImage: "/src/assets/images/thumbs_up.webp"
+heroImage: "/src/assets/images/ideal-flight-training-st-louis-student-pilot-thumbs_up.webp"
 ---
 
 The thought of flying through the skies as a licensed pilot is an exhilarating one. However, before you can spread your wings, there's an essential milestone to conquer – the FAA written exam. At Ideal Aviation, nestled right at the St. Louis Downtown Airport in Sauget, Illinois, we understand the weight of this challenge and are dedicated to equipping our students with the tools they need to face it head-on.
