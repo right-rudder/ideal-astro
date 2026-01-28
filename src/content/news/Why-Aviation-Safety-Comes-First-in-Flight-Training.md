@@ -2,7 +2,7 @@
 title: "Why Aviation Safety Comes First in Flight Training"
 description: "Learn how aviation safety is taught at flight schools in St. Louis and why strong safety habits matter from your very first lesson."
 pubDate: 2026-01-28
-heroImage: "/news/aviation-safety-flight-training-st-louis.jpg"
+heroImage: "/src/assets/images/ideal-aviation-stl-owner-bill-and-cfi-in-front-of-piper.webp"
 ---
 
 Safety is the foundation of aviation. Every flight, whether short or long, depends on clear decisions and strong habits. At a flight school in St. Louis, safety starts before the engine ever turns.
